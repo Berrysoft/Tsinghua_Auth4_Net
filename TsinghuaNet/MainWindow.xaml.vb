@@ -15,29 +15,23 @@ Class MainWindow
     Private Async Sub Connect()
         ConnectButton.IsEnabled = False
         Dim helper As NetHelperBase = Model.Helper
-        Dim connected As Boolean = Await Task.Run(
-            Function()
-                Dim result = helper.Connect()
-                If result IsNot Nothing Then
-                    MessageBox.Show($"连接错误：{result}", "连接错误", MessageBoxButton.OK, MessageBoxImage.Error)
-                    Return False
-                Else
-                    Return True
-                End If
-            End Function)
+        Dim connected As Boolean = False
+        Dim result As String = Await helper.Connect()
+        If result IsNot Nothing Then
+            MessageBox.Show($"连接错误：{result}", "连接错误", MessageBoxButton.OK, MessageBoxImage.Error)
+        Else
+            connected = True
+        End If
         ConnectButton.IsEnabled = True
         If connected Then GetFlux()
     End Sub
     Private Async Sub LogOut()
         LogOutButton.IsEnabled = False
         Dim helper As NetHelperBase = Model.Helper
-        Await Task.Run(
-            Sub()
-                Dim result = helper.LogOut()
-                If result IsNot Nothing Then
-                    MessageBox.Show($"注销错误：{result}", "注销错误", MessageBoxButton.OK, MessageBoxImage.Error)
-                End If
-            End Sub)
+        Dim result As String = Await helper.LogOut()
+        If result IsNot Nothing Then
+            MessageBox.Show($"注销错误：{result}", "注销错误", MessageBoxButton.OK, MessageBoxImage.Error)
+        End If
         LogOutButton.IsEnabled = True
         GetFlux()
     End Sub
@@ -45,15 +39,16 @@ Class MainWindow
         getFluxCancellationTokeSource?.Cancel()
         getFluxCancellationTokeSource = New CancellationTokenSource()
         Try
-        Dim helper As NetHelperBase = Model.Helper
-            Await Task.Run(Sub() GetFluxInternal(helper), getFluxCancellationTokeSource.Token)
+            Dim helper As NetHelperBase = Model.Helper
+            Await GetFluxInternal(helper, getFluxCancellationTokeSource.Token)
         Catch ex As OperationCanceledException
-            MessageBox.Show("刷新取消")
+
         End Try
     End Sub
-    Private Sub GetFluxInternal(helper As NetHelperBase)
+    Private Async Function GetFluxInternal(helper As NetHelperBase, token As CancellationToken) As Task
         If helper IsNot Nothing Then
-            Dim result = helper.GetFlux()
+            Dim result = Await helper.GetFlux()
+            token.ThrowIfCancellationRequested()
             If result.ErrorMessage Is Nothing Then
                 Dim r As String() = result.Response.Split(","c)
                 If String.IsNullOrWhiteSpace(r(0)) Then
@@ -65,7 +60,7 @@ Class MainWindow
                 SetFlux("网络异常", Nothing, Nothing)
             End If
         End If
-    End Sub
+    End Function
     Private Sub SetFlux(username As String, flux As Long?, time As TimeSpan?)
         Me.Dispatcher.BeginInvoke(
             Sub()
@@ -106,7 +101,7 @@ Class MainWindow
         GetFlux()
     End Sub
     Private Async Sub SetConnectableState()
-        If Await Task.Run(Function() NetHelperBase.CanConnect(Auth4Helper.HostName)) Then
+        If Await NetHelperBase.CanConnect(Auth4Helper.HostName) Then
             Model.State = NetState.Auth4
         Else
             Model.State = NetState.Net

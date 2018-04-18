@@ -1,6 +1,4 @@
-﻿Imports System.Net
-
-Class NetHelper
+﻿Class NetHelper
     Inherits NetHelperBase
     Private Const Host = "net.tsinghua.edu.cn"
     Private Const ConnectUrl = "http://net.tsinghua.edu.cn/do_login.php"
@@ -18,15 +16,15 @@ Class NetHelper
         End Get
     End Property
 
-    Public Overrides Function Connect() As String
-        Return Post(ConnectUrl, String.Format(ConnectData, Username, Password)).ErrorMessage
+    Public Overrides Async Function Connect() As Task(Of String)
+        Return (Await Post(ConnectUrl, String.Format(ConnectData, Username, Password))).ErrorMessage
     End Function
 
-    Public Overrides Function LogOut() As String
-        Return Post(ConnectUrl, LogOutData).ErrorMessage
+    Public Overrides Async Function LogOut() As Task(Of String)
+        Return (Await Post(ConnectUrl, LogOutData)).ErrorMessage
     End Function
 
-    Public Overrides Function GetFlux() As (Response As String, ErrorMessage As String)
-        Return Post(FluxUrl, Nothing)
+    Public Overrides Async Function GetFlux() As Task(Of (Response As String, ErrorMessage As String))
+        Return Await Post(FluxUrl, Nothing)
     End Function
 End Class
