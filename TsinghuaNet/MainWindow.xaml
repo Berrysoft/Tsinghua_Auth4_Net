@@ -25,6 +25,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <SolidColorBrush x:Key="Grid.Button.Background" Color="#FFF0F0F0"/>
         <Style x:Key="Win10ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
@@ -36,14 +37,26 @@
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderThickness" TargetName="border" Value="2"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsFocused" Value="true">
-                                <Setter Property="BorderThickness" TargetName="border" Value="2"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
-                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsDefaulted" Value="true"/>
+                                    <Condition Property="IsEnabled" Value="true"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsFocused" Value="true"/>
+                                    <Condition Property="IsEnabled" Value="true"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.Setters>
+                                    <Setter Property="BorderThickness" TargetName="border" Value="2"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsDefaulted" Value="true"/>
@@ -170,7 +183,7 @@
             <Label Grid.Column="1" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
             <Label Grid.Column="2" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Content="{Binding OnlineTime}"/>
         </Grid>
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="4" Background="{StaticResource Grid.Button.Background}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

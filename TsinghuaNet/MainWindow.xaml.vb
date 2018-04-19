@@ -13,26 +13,24 @@ Class MainWindow
         Notify.Visible = True
     End Sub
     Private Async Sub Connect()
-        ConnectButton.IsEnabled = False
         Dim helper As NetHelperBase = Model.Helper
         Dim connected As Boolean = False
+        SetFlux("正在连接", Nothing, Nothing)
         Dim result As String = Await helper.Connect()
         If result IsNot Nothing Then
             MessageBox.Show($"连接错误：{result}", "连接错误", MessageBoxButton.OK, MessageBoxImage.Error)
         Else
             connected = True
         End If
-        ConnectButton.IsEnabled = True
         If connected Then GetFlux()
     End Sub
     Private Async Sub LogOut()
-        LogOutButton.IsEnabled = False
         Dim helper As NetHelperBase = Model.Helper
+        SetFlux("正在注销", Nothing, Nothing)
         Dim result As String = Await helper.LogOut()
         If result IsNot Nothing Then
             MessageBox.Show($"注销错误：{result}", "注销错误", MessageBoxButton.OK, MessageBoxImage.Error)
         End If
-        LogOutButton.IsEnabled = True
         GetFlux()
     End Sub
     Private Async Sub GetFlux()
