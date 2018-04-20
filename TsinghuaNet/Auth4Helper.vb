@@ -18,7 +18,7 @@
     End Property
 
     Public Overrides Async Function Connect() As Task(Of String)
-        Return (Await Post(ConnectUrl, String.Format(ConnectData, Username, Password))).ErrorMessage
+        Return (Await Post(ConnectUrl, String.Format(ConnectData, Username, "{MD5}" & Password))).ErrorMessage
     End Function
 
     Public Overrides Async Function LogOut() As Task(Of String)

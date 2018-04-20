@@ -1,4 +1,6 @@
 ﻿Imports System.Globalization
+Imports System.Security.Cryptography
+Imports System.Text
 
 Class MainViewModel
     Inherits DependencyObject
@@ -13,7 +15,7 @@ Class MainViewModel
         End Set
     End Property
 
-    Public Shared ReadOnly PasswordProperty As DependencyProperty = DependencyProperty.Register(NameOf(Password), GetType(String), GetType(MainViewModel), New PropertyMetadata(String.Empty))
+    Public Shared ReadOnly PasswordProperty As DependencyProperty = DependencyProperty.Register(NameOf(Password), GetType(String), GetType(MainViewModel), New PropertyMetadata(String.Empty, AddressOf PasswordPropertyChangedCallback))
     Public Property Password As String
         Get
             Return GetValue(PasswordProperty)
@@ -22,6 +24,25 @@ Class MainViewModel
             SetValue(PasswordProperty, value)
         End Set
     End Property
+    Private Shared Sub PasswordPropertyChangedCallback(d As DependencyObject, e As DependencyPropertyChangedEventArgs)
+        Dim model As MainViewModel = d
+        model.PasswordMD5 = GetMD5(e.NewValue)
+    End Sub
+    Friend Shared Function GetMD5(input As String) As String
+        Dim result As String
+        Using md5Hash As MD5 = MD5.Create()
+            Dim data As Byte() = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input))
+            Dim sBuilder As New StringBuilder()
+            Dim i As Integer
+            For i = 0 To data.Length - 1
+                sBuilder.Append(data(i).ToString("x2"))
+            Next i
+            result = sBuilder.ToString()
+        End Using
+        Return result
+    End Function
+
+    Public Property PasswordMD5 As String
 
     Public Shared ReadOnly LoggedUsernameProperty As DependencyProperty = DependencyProperty.Register(NameOf(LoggedUsername), GetType(String), GetType(MainViewModel))
     Public Property LoggedUsername As String
@@ -75,9 +96,9 @@ Class MainViewModel
         Get
             Select Case State
                 Case NetState.Auth4
-                    Return New Auth4Helper(Username, Password)
+                    Return New Auth4Helper(Username, PasswordMD5)
                 Case NetState.Net
-                    Return New NetHelper(Username, Password)
+                    Return New NetHelper(Username, PasswordMD5)
                 Case Else
                     Return Nothing
             End Select

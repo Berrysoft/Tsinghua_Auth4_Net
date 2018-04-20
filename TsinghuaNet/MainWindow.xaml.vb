@@ -13,6 +13,7 @@ Class MainWindow
         Notify.Visible = True
     End Sub
     Private Async Sub Connect()
+        CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
         Dim connected As Boolean = False
         SetFlux("正在连接", Nothing, Nothing)
@@ -25,6 +26,7 @@ Class MainWindow
         If connected Then GetFlux()
     End Sub
     Private Async Sub LogOut()
+        CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
         SetFlux("正在注销", Nothing, Nothing)
         Dim result As String = Await helper.LogOut()
@@ -34,7 +36,7 @@ Class MainWindow
         GetFlux()
     End Sub
     Private Async Sub GetFlux()
-        getFluxCancellationTokeSource?.Cancel()
+        CancelGetFlux()
         getFluxCancellationTokeSource = New CancellationTokenSource()
         Try
             Dim helper As NetHelperBase = Model.Helper
@@ -42,6 +44,10 @@ Class MainWindow
         Catch ex As OperationCanceledException
 
         End Try
+    End Sub
+    Private Sub CancelGetFlux()
+        getFluxCancellationTokeSource?.Cancel()
+        getFluxCancellationTokeSource = Nothing
     End Sub
     Private Async Function GetFluxInternal(helper As NetHelperBase, token As CancellationToken) As Task
         If helper IsNot Nothing Then
@@ -80,7 +86,8 @@ Class MainWindow
         Try
             log = XDocument.Load(logPath)
             Model.Username = log.<user>.<name>.Value
-            Model.Password = log.<user>.<password>.Value
+            Model.Password = "Tsinghua"
+            Model.PasswordMD5 = log.<user>.<password>.Value
             Dim state As NetState
             If [Enum].TryParse(log.<user>.<state>.Value, state) Then
                 Model.State = state
@@ -107,7 +114,7 @@ Class MainWindow
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
         log.<user>.<name>.Value = Model.Username
-        log.<user>.<password>.Value = Model.Password
+        log.<user>.<password>.Value = Model.PasswordMD5
         log.<user>.<state>.Value = Model.State.ToString()
         log.Save(logPath)
         Notify.Visible = False
