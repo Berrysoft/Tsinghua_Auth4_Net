@@ -1,8 +1,8 @@
-﻿Class Auth4Helper
+﻿Class Auth6Helper
     Inherits NetHelperBase
-    Private Const Host = "auth4.tsinghua.edu.cn"
-    Private Const ConnectUrl = "http://auth4.tsinghua.edu.cn/cgi-bin/srun_portal"
-    Private Const FluxUrl = "http://auth4.tsinghua.edu.cn/rad_user_info.php"
+    Private Const Host = "auth6.tsinghua.edu.cn"
+    Private Const ConnectUrl = "http://auth6.tsinghua.edu.cn/cgi-bin/srun_portal"
+    Private Const FluxUrl = "http://auth6.tsinghua.edu.cn/rad_user_info.php"
     Private Const ConnectData = "action=login&ac_id=1&user_ip=&nas_ip=&user_mac=&url=&username={0}&password={1}&save_me=0"
     Private Const LogOutData = "action=logout&ac_id=1&ip=&double_stack=1"
 

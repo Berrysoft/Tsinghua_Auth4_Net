@@ -94,6 +94,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </None>
+    <Compile Include="Auth6Helper.vb" />
     <Compile Include="Logo.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

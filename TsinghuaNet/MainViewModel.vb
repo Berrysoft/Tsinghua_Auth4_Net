@@ -97,6 +97,8 @@ Class MainViewModel
             Select Case State
                 Case NetState.Auth4
                     Return New Auth4Helper(Username, PasswordMD5)
+                Case NetState.Auth6
+                    Return New Auth6Helper(Username, PasswordMD5)
                 Case NetState.Net
                     Return New NetHelper(Username, PasswordMD5)
                 Case Else
@@ -108,6 +110,7 @@ End Class
 
 Enum NetState
     Auth4
+    Auth6
     Net
 End Enum
 

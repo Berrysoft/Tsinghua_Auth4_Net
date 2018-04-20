@@ -108,6 +108,8 @@ Class MainWindow
     Private Async Sub SetConnectableState()
         If Await NetHelperBase.CanConnect(Auth4Helper.HostName) Then
             Model.State = NetState.Auth4
+        ElseIf Await NetHelperBase.CanConnect(Auth6Helper.HostName) Then
+            Model.State = NetState.Auth6
         Else
             Model.State = NetState.Net
         End If
@@ -127,6 +129,10 @@ Class MainWindow
     End Sub
     Private Sub Auth4_Checked() Handles Auth4.Checked
         Model.State = NetState.Auth4
+        Me.GetFlux()
+    End Sub
+    Private Sub Auth6_Checked() Handles Auth6.Checked
+        Model.State = NetState.Auth6
         Me.GetFlux()
     End Sub
     Private Sub Net_Checked() Handles Net.Checked

@@ -183,7 +183,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">有线</RadioButton>
+            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">有线IPv4</RadioButton>
+            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">有线IPv6</RadioButton>
             <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True">无线</RadioButton>
         </UniformGrid>
         <Grid Grid.Row="1">
