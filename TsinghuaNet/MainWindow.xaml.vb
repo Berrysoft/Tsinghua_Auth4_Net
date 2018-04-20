@@ -86,8 +86,7 @@ Class MainWindow
         Try
             log = XDocument.Load(logPath)
             Model.Username = log.<user>.<name>.Value
-            Model.Password = "Tsinghua"
-            Model.PasswordMD5 = log.<user>.<password>.Value
+            Model.Password = log.<user>.<password>.Value
             Dim state As NetState
             If [Enum].TryParse(log.<user>.<state>.Value, state) Then
                 Model.State = state
@@ -108,15 +107,13 @@ Class MainWindow
     Private Async Sub SetConnectableState()
         If Await NetHelperBase.CanConnect(Auth4Helper.HostName) Then
             Model.State = NetState.Auth4
-        ElseIf Await NetHelperBase.CanConnect(Auth6Helper.HostName) Then
-            Model.State = NetState.Auth6
         Else
             Model.State = NetState.Net
         End If
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
         log.<user>.<name>.Value = Model.Username
-        log.<user>.<password>.Value = Model.PasswordMD5
+        log.<user>.<password>.Value = Model.Password
         log.<user>.<state>.Value = Model.State.ToString()
         log.Save(logPath)
         Notify.Visible = False
