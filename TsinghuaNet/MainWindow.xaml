@@ -35,34 +35,60 @@
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                             <Grid>
-                                <Rectangle x:Name="focusBorder" Stroke="{StaticResource Button.Defaulted.Border}" Opacity="0" StrokeThickness="1.2"/>
+                                <Rectangle x:Name="focusBorder" Stroke="{Binding ElementName=border,Path=BorderBrush}" Opacity="0" StrokeThickness="1.2"/>
                                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
-                                    <Condition Property="IsDefaulted" Value="true"/>
-                                    <Condition Property="IsEnabled" Value="true"/>
+                                    <Condition Property="IsFocused" Value="true"/>
+                                    <Condition Property="IsMouseOver" Value="false"/>
                                 </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
                                 <MultiTrigger.Setters>
-                                    <Setter Property="Opacity" TargetName="focusBorder" Value="1"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
+                                </MultiTrigger.Setters>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsDefaulted" Value="true"/>
+                                    <Condition Property="IsMouseOver" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.2" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="0" Duration="0:0:0.2" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                                <MultiTrigger.Setters>
                                     <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
                                 </MultiTrigger.Setters>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsFocused" Value="true"/>
-                                    <Condition Property="IsEnabled" Value="true"/>
-                                </MultiTrigger.Conditions>
-                                <MultiTrigger.Setters>
-                                    <Setter Property="BorderThickness" TargetName="border" Value="2"/>
-                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Defaulted.Border}"/>
-                                </MultiTrigger.Setters>
-                            </MultiTrigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsDefaulted" Value="true"/>
                                     <Condition Property="IsMouseOver" Value="true"/>
                                 </MultiTrigger.Conditions>
                                 <MultiTrigger.Setters>
@@ -73,7 +99,6 @@
                                         <Storyboard>
                                             <ColorAnimation To="{StaticResource Button.MouseOver.Border.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"/>
                                             <ColorAnimation To="{StaticResource Button.MouseOver.Background.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
-                                            <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiTrigger.EnterActions>
@@ -82,14 +107,13 @@
                                         <Storyboard>
                                             <ColorAnimation To="{StaticResource Button.Defaulted.Border.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"/>
                                             <ColorAnimation To="{StaticResource Button.Static.Background.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
-                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiTrigger.ExitActions>
                             </MultiTrigger>
                             <MultiTrigger>
                                 <MultiTrigger.Conditions>
-                                    <Condition Property="IsFocused" Value="true"/>
+                                    <Condition Property="IsDefaulted" Value="true"/>
                                     <Condition Property="IsMouseOver" Value="true"/>
                                 </MultiTrigger.Conditions>
                                 <MultiTrigger.Setters>
@@ -100,7 +124,6 @@
                                         <Storyboard>
                                             <ColorAnimation To="{StaticResource Button.MouseOver.Border.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"/>
                                             <ColorAnimation To="{StaticResource Button.MouseOver.Background.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
-                                            <DoubleAnimation To="0" Duration="0:0:0.3" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiTrigger.EnterActions>
@@ -109,7 +132,6 @@
                                         <Storyboard>
                                             <ColorAnimation To="{StaticResource Button.Defaulted.Border.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"/>
                                             <ColorAnimation To="{StaticResource Button.Static.Background.Color}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
-                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="focusBorder" Storyboard.TargetProperty="(Rectangle.Opacity)"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiTrigger.ExitActions>
