@@ -26,7 +26,7 @@ Namespace My.Resources
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
-    Friend Module Resources
+    Public Module Resources
         
         Private resourceMan As Global.System.Resources.ResourceManager
         
@@ -36,7 +36,7 @@ Namespace My.Resources
         '''  返回此类使用的缓存的 ResourceManager 实例。
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
+        Public ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
                     Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("TsinghuaNet.Resources", GetType(Resources).Assembly)
@@ -51,13 +51,175 @@ Namespace My.Resources
         '''  重写当前线程的 CurrentUICulture 属性。
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-        Friend Property Culture() As Global.System.Globalization.CultureInfo
+        Public Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
             Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        '''<summary>
+        '''  查找类似 有线IPv4 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Auth4() As String
+            Get
+                Return ResourceManager.GetString("Auth4", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 有线IPv6 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Auth6() As String
+            Get
+                Return ResourceManager.GetString("Auth6", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 登录 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Connect() As String
+            Get
+                Return ResourceManager.GetString("Connect", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 正在登录 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Connecting() As String
+            Get
+                Return ResourceManager.GetString("Connecting", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 登录错误 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ConnectionFailed() As String
+            Get
+                Return ResourceManager.GetString("ConnectionFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 登录错误：{0} 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ConnectionFailedWithResult() As String
+            Get
+                Return ResourceManager.GetString("ConnectionFailedWithResult", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 未登录 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Disconnected() As String
+            Get
+                Return ResourceManager.GetString("Disconnected", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 正在注销 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LoggingOut() As String
+            Get
+                Return ResourceManager.GetString("LoggingOut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 注销 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LogOut() As String
+            Get
+                Return ResourceManager.GetString("LogOut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 注销错误 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LogOutFailed() As String
+            Get
+                Return ResourceManager.GetString("LogOutFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 注销错误：{0} 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LogOutFailedWithResult() As String
+            Get
+                Return ResourceManager.GetString("LogOutFailedWithResult", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 无线 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Net() As String
+            Get
+                Return ResourceManager.GetString("Net", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 网络异常 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property NoNetwork() As String
+            Get
+                Return ResourceManager.GetString("NoNetwork", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 打开客户端 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property NotifyText() As String
+            Get
+                Return ResourceManager.GetString("NotifyText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 密码： 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property PasswordWithColon() As String
+            Get
+                Return ResourceManager.GetString("PasswordWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 刷新 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Refresh() As String
+            Get
+                Return ResourceManager.GetString("Refresh", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 清华大学校园网登录 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Title() As String
+            Get
+                Return ResourceManager.GetString("Title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 用户名： 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property UsernameWithColon() As String
+            Get
+                Return ResourceManager.GetString("UsernameWithColon", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

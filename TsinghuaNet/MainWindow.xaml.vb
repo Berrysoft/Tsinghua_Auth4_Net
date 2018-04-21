@@ -8,7 +8,7 @@ Class MainWindow
     Public Sub New()
         InitializeComponent()
         Me.Icon = Interop.Imaging.CreateBitmapSourceFromHIcon(My.Resources.Logo.Logo.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
-        Notify.Text = "打开客户端"
+        Notify.Text = My.Resources.NotifyText
         Notify.Icon = My.Resources.Logo.Logo
         Notify.Visible = True
     End Sub
@@ -16,10 +16,10 @@ Class MainWindow
         CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
         Dim connected As Boolean = False
-        SetFlux("正在连接", Nothing, Nothing)
+        SetFlux(My.Resources.Connecting, Nothing, Nothing)
         Dim result As String = Await helper.Connect()
         If result IsNot Nothing Then
-            MessageBox.Show($"连接错误：{result}", "连接错误", MessageBoxButton.OK, MessageBoxImage.Error)
+            MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, result), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
         Else
             connected = True
         End If
@@ -28,10 +28,10 @@ Class MainWindow
     Private Async Sub LogOut()
         CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
-        SetFlux("正在注销", Nothing, Nothing)
+        SetFlux(My.Resources.LoggingOut, Nothing, Nothing)
         Dim result As String = Await helper.LogOut()
         If result IsNot Nothing Then
-            MessageBox.Show($"注销错误：{result}", "注销错误", MessageBoxButton.OK, MessageBoxImage.Error)
+            MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, result), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
         End If
         GetFlux()
     End Sub
@@ -56,12 +56,12 @@ Class MainWindow
             If result.ErrorMessage Is Nothing Then
                 Dim r As String() = result.Response.Split(","c)
                 If String.IsNullOrWhiteSpace(r(0)) Then
-                    SetFlux("未登录", Nothing, Nothing)
+                    SetFlux(My.Resources.Disconnected, Nothing, Nothing)
                 Else
                     SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))))
                 End If
             Else
-                SetFlux("网络异常", Nothing, Nothing)
+                SetFlux(My.Resources.NoNetwork, Nothing, Nothing)
             End If
         End If
     End Function

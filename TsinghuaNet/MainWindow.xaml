@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TsinghuaNet"
+        xmlns:res="clr-namespace:TsinghuaNet.My.Resources"
         mc:Ignorable="d"
-        Title="清华大学校园网登录" Height="300" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" FontSize="18">
+        Title="{x:Static res:Resources.Title}" Height="300" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" FontSize="18">
     <Window.DataContext>
         <local:MainViewModel x:Name="Model"/>
     </Window.DataContext>
@@ -128,16 +129,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">有线IPv4</RadioButton>
-            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">有线IPv6</RadioButton>
-            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True">无线</RadioButton>
+            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{x:Static res:Resources.Auth4}"/>
+            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{x:Static res:Resources.Auth6}"/>
+            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True" Content="{x:Static res:Resources.Net}"/>
         </UniformGrid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center">用户名：</Label>
+            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center" Content="{x:Static res:Resources.UsernameWithColon}"/>
             <TextBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,50,0" Text="{Binding Username}"/>
         </Grid>
         <Grid Grid.Row="2">
@@ -145,7 +146,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center">密码：</Label>
+            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center" Content="{x:Static res:Resources.PasswordWithColon}"/>
             <local:PasswordBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,50,0" Text="{Binding Password,Mode=TwoWay}"/>
         </Grid>
         <Grid Grid.Row="3">
@@ -164,9 +165,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="ConnectButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="Connect" IsDefault="True">连接</Button>
-            <Button x:Name="LogOutButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="LogOut">注销</Button>
-            <Button x:Name="RefreshButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="GetFlux">刷新</Button>
+            <Button x:Name="ConnectButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="Connect" IsDefault="True" Content="{x:Static res:Resources.Connect}"/>
+            <Button x:Name="LogOutButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="LogOut" Content="{x:Static res:Resources.LogOut}"/>
+            <Button x:Name="RefreshButton" Style="{StaticResource Win10ButtonStyle}" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="GetFlux" Content="{x:Static res:Resources.Refresh}"/>
         </Grid>
     </Grid>
 </Window>
