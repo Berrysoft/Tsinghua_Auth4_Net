@@ -167,13 +167,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Logo.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.en-US.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="My Project\Resources.zh-Hans.resx" />
+    <EmbeddedResource Include="My Project\Resources.zh-Hant.resx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
