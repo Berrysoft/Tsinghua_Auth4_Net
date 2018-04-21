@@ -117,58 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connecting" xml:space="preserve">
-    <value>正在登录</value>
-  </data>
-  <data name="ConnectionFailed" xml:space="preserve">
-    <value>登录错误</value>
-  </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>登录错误：{0}</value>
-  </data>
-  <data name="Disconnected" xml:space="preserve">
-    <value>未登录</value>
-  </data>
-  <data name="LoggingOut" xml:space="preserve">
-    <value>正在注销</value>
-  </data>
-  <data name="LogOutFailed" xml:space="preserve">
-    <value>注销错误</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>注销错误：{0}</value>
-  </data>
-  <data name="NoNetwork" xml:space="preserve">
-    <value>网络异常</value>
-  </data>
-  <data name="NotifyText" xml:space="preserve">
-    <value>打开客户端</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>清华大学校园网客户端</value>
-  </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>有线IPv4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>有线IPv6</value>
-  </data>
   <data name="Connect" xml:space="preserve">
-    <value>登录</value>
+    <value>ログイン</value>
   </data>
   <data name="LogOut" xml:space="preserve">
-    <value>注销</value>
-  </data>
-  <data name="Net" xml:space="preserve">
-    <value>无线</value>
-  </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>密码：</value>
+    <value>ログアウト</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>刷新</value>
+    <value>更新</value>
   </data>
   <data name="UsernameWithColon" xml:space="preserve">
-    <value>用户名：</value>
+    <value>名：</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>パスワード：</value>
+  </data>
+  <data name="Net" xml:space="preserve">
+    <value>Net</value>
+  </data>
+  <data name="Auth4" xml:space="preserve">
+    <value>Auth4</value>
+  </data>
+  <data name="Auth6" xml:space="preserve">
+    <value>Auth6</value>
+  </data>
+  <data name="Connecting" xml:space="preserve">
+    <value>ログイン中</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>ログインしていない</value>
+  </data>
+  <data name="LoggingOut" xml:space="preserve">
+    <value>ログアウト中</value>
+  </data>
+  <data name="NotifyText" xml:space="preserve">
+    <value>オープンクライアント</value>
+  </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>ログイン失敗しました</value>
+  </data>
+  <data name="ConnectionFailedWithResult" xml:space="preserve">
+    <value>ログイン失敗しました：{0}</value>
+  </data>
+  <data name="LogOutFailed" xml:space="preserve">
+    <value>ログアウトに失敗しました</value>
+  </data>
+  <data name="LogOutFailedWithResult" xml:space="preserve">
+    <value>ログアウトに失敗しました：{0}</value>
+  </data>
+  <data name="NoNetwork" xml:space="preserve">
+    <value>ネットワークなし</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>清華大学キャンパスネットワーククライアント</value>
   </data>
 </root>

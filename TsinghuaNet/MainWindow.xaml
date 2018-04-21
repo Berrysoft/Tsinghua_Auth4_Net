@@ -12,6 +12,7 @@
     </Window.DataContext>
     <Window.Resources>
         <local:FluxToString x:Key="Flux"/>
+        <local:NullableToVisibility x:Key="Nullable"/>
         <SolidColorBrush x:Key="TsinghuaPurple" Color="#FF660874"/>
         <Color x:Key="Button.Static.Background.Color">#FFE1E1E1</Color>
         <SolidColorBrush x:Key="Button.Static.Background" Color="{StaticResource Button.Static.Background.Color}"/>
@@ -149,16 +150,11 @@
             <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center" Content="{x:Static res:Resources.PasswordWithColon}"/>
             <local:PasswordBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,50,0" Text="{Binding Password,Mode=TwoWay}"/>
         </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="2" Content="{Binding LoggedUsername}"/>
-            <Label Grid.Column="1" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
-            <Label Grid.Column="2" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2" Content="{Binding OnlineTime}"/>
-        </Grid>
+        <UniformGrid Grid.Row="3" Rows="1">
+            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Content="{Binding LoggedUsername}"/>
+            <Label Grid.Column="1" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
+            <Label Grid.Column="2" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding OnlineTime}"/>
+        </UniformGrid>
         <Grid Grid.Row="4" Background="{StaticResource Grid.Button.Background}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
