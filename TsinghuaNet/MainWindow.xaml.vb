@@ -2,7 +2,7 @@
 
 Class MainWindow
     Private log As XDocument
-    Private Const logPath As String = "log.xml"
+    Private logPath As String
     Private WithEvents Notify As New Forms.NotifyIcon
     Private getFluxCancellationTokeSource As CancellationTokenSource
     Public Sub New()
@@ -11,6 +11,11 @@ Class MainWindow
         Notify.Text = My.Resources.NotifyText
         Notify.Icon = My.Resources.Logo.Logo
         Notify.Visible = True
+    End Sub
+    Friend Overloads Sub Show(log As XDocument, path As String)
+        Me.log = log
+        Me.logPath = path
+        MyBase.Show()
     End Sub
     Private Async Sub Connect()
         CancelGetFlux()
@@ -82,34 +87,13 @@ Class MainWindow
         End Select
     End Sub
     Private Sub MainWindow_Loaded() Handles Me.Loaded
-        Dim autoconnect As Boolean = False
-        Try
-            log = XDocument.Load(logPath)
-            Model.Username = log.<user>.<name>.Value
-            Model.Password = log.<user>.<password>.Value
-            Dim state As NetState
-            If [Enum].TryParse(log.<user>.<state>.Value, state) Then
-                Model.State = state
-            End If
-            autoconnect = True
-        Catch ex As Exception
-            SetConnectableState()
-            log =
-                <?xml version="1.0" encoding="utf-8"?>
-                <user>
-                    <name></name>
-                    <password></password>
-                    <state><%= Model.State.ToString() %></state>
-                </user>
-        End Try
-        GetFlux()
-    End Sub
-    Private Async Sub SetConnectableState()
-        If Await NetHelperBase.CanConnect(Auth4Helper.HostName) Then
-            Model.State = NetState.Auth4
-        Else
-            Model.State = NetState.Net
+        Model.Username = log.<user>.<name>.Value
+        Model.Password = log.<user>.<password>.Value
+        Dim state As NetState
+        If [Enum].TryParse(log.<user>.<state>.Value, state) Then
+            Model.State = state
         End If
+        GetFlux()
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
         log.<user>.<name>.Value = Model.Username
