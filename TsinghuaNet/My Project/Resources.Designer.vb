@@ -178,7 +178,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Click to open. 的本地化字符串。
+        '''  查找类似 Show client 的本地化字符串。
         '''</summary>
         Public ReadOnly Property NotifyText() As String
             Get
@@ -205,7 +205,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Tsinghua Network Client 的本地化字符串。
+        '''  查找类似 Tsinghua Campus Network Client 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Title() As String
             Get

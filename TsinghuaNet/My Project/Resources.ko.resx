@@ -145,7 +145,7 @@
     <value>칭화 대학 캠퍼스 네트워크 클라이언트</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
-    <value>개방형 클라이언트</value>
+    <value>클라이언트 표시</value>
   </data>
   <data name="Connecting" xml:space="preserve">
     <value>로그인</value>

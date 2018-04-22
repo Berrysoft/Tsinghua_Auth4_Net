@@ -151,7 +151,7 @@
     <value>ログアウト中</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
-    <value>オープンクライアント</value>
+    <value>クライアントの表示</value>
   </data>
   <data name="ConnectionFailed" xml:space="preserve">
     <value>ログイン失敗しました</value>

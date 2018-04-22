@@ -142,7 +142,7 @@
     <value>網路異常</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
-    <value>打開客戶端</value>
+    <value>顯示客戶端</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>清華大學校園網客戶端</value>

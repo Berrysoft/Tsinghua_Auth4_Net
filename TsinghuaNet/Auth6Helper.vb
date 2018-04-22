@@ -2,8 +2,8 @@
     Inherits NetHelperBase
     Private Const Host = "auth6.tsinghua.edu.cn"
     Private Const ConnectUrl = "https://auth6.tsinghua.edu.cn/srun_portal_pc.php"
-    Private Const LogOutUrl = "http://auth6.tsinghua.edu.cn/cgi-bin/srun_portal"
-    Private Const FluxUrl = "http://auth6.tsinghua.edu.cn/rad_user_info.php"
+    Private Const LogOutUrl = "https://auth6.tsinghua.edu.cn/cgi-bin/srun_portal"
+    Private Const FluxUrl = "https://auth6.tsinghua.edu.cn/rad_user_info.php"
     Private Const ConnectData = "action=login&ac_id=1&user_ip=&nas_ip=&user_mac=&url=&username={0}&password={1}&save_me=0"
     Private Const LogOutData = "action=logout&ac_id=1&ip=&double_stack=1"
 

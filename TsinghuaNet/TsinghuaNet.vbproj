@@ -174,6 +174,8 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.ru.resx" />
+    <EmbeddedResource Include="My Project\Resources.vi.resx" />
     <EmbeddedResource Include="My Project\Resources.zh-Hans.resx" />
     <EmbeddedResource Include="My Project\Resources.zh-Hant.resx" />
     <None Include="My Project\app.manifest" />
