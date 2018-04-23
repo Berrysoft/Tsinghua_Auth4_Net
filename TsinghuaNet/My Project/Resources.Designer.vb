@@ -97,7 +97,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Login failed. 的本地化字符串。
+        '''  查找类似 Login failed 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ConnectionFailed() As String
             Get

@@ -117,41 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connecting" xml:space="preserve">
-    <value>Logging in...</value>
-  </data>
-  <data name="ConnectionFailed" xml:space="preserve">
-    <value>Login failed</value>
-  </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Login failed: {0}</value>
-  </data>
-  <data name="Disconnected" xml:space="preserve">
-    <value>Logged out.</value>
-  </data>
-  <data name="LoggingOut" xml:space="preserve">
-    <value>Logging out...</value>
-  </data>
-  <data name="LogOutFailed" xml:space="preserve">
-    <value>Logout failed</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Logout failed: {0}</value>
-  </data>
-  <data name="NoNetwork" xml:space="preserve">
-    <value>No network.</value>
-  </data>
-  <data name="NotifyText" xml:space="preserve">
-    <value>Show client</value>
-  </data>
   <data name="Title" xml:space="preserve">
-    <value>Tsinghua Campus Network Client</value>
-  </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>Auth4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>Auth6</value>
+    <value>Tsinghua Campus Netzwerk Client</value>
   </data>
   <data name="Connect" xml:space="preserve">
     <value>Login</value>
@@ -159,16 +126,49 @@
   <data name="LogOut" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>Benutzernamen:</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>Kennwort:</value>
+  </data>
+  <data name="Auth4" xml:space="preserve">
+    <value>Auth4</value>
+  </data>
+  <data name="Auth6" xml:space="preserve">
+    <value>Auth6</value>
+  </data>
   <data name="Net" xml:space="preserve">
     <value>Net</value>
   </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>Password:</value>
+  <data name="NotifyText" xml:space="preserve">
+    <value>Client anzeigen</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+  <data name="Connecting" xml:space="preserve">
+    <value>Einloggen...</value>
   </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>Username:</value>
+  <data name="LoggingOut" xml:space="preserve">
+    <value>Abmelden...</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>Abgemeldet.</value>
+  </data>
+  <data name="NoNetwork" xml:space="preserve">
+    <value>Kein Netzwerk.</value>
+  </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>Anmeldung fehlgeschlagen</value>
+  </data>
+  <data name="ConnectionFailedWithResult" xml:space="preserve">
+    <value>Anmeldung fehlgeschlagen: {0}</value>
+  </data>
+  <data name="LogOutFailed" xml:space="preserve">
+    <value>Logout fehlgeschlagen</value>
+  </data>
+  <data name="LogOutFailedWithResult" xml:space="preserve">
+    <value>Logout fehlgeschlagen: {0}</value>
   </data>
 </root>
