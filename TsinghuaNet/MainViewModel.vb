@@ -121,15 +121,16 @@ Class FluxToString
         Dim flux As Long? = value
         If flux.HasValue Then
             Dim f As Long = flux.Value
-            If f < 1_000 Then
-                Return $"{f}B"
-            ElseIf f < 1_000_000 Then
-                Return $"{(f / 1_000).ToString("N2")}KB"
-            ElseIf f < 1_000_000_000 Then
-                Return $"{(f / 1_000_000).ToString("N2")}MB"
-            Else
-                Return $"{(f / 1_000_000_000).ToString("N2")}GB"
-            End If
+            Select Case f
+                Case < 1_000
+                    Return $"{f}B"
+                Case < 1_000_000
+                    Return $"{(f / 1_000).ToString("N2")}KB"
+                Case < 1_000_000_000
+                    Return $"{(f / 1_000_000).ToString("N2")}MB"
+                Case Else
+                    Return $"{(f / 1_000_000_000).ToString("N2")}GB"
+            End Select
         Else
             Return String.Empty
         End If

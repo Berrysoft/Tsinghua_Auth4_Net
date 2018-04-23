@@ -152,7 +152,7 @@ Class MainWindow
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)
         If Not CompareCulture(selectcul, Thread.CurrentThread.CurrentUICulture) Then
             If log.<user>.<language>.Value Is Nothing Then
-                log.Element("user").Add(<language></language>)
+                log.Element("user").Add(New XElement("language"))
             End If
             log.<user>.<language>.Value = Model.Languages(Model.LanguagesSelectIndex).Name
             Me.Close()
