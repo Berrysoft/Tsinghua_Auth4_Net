@@ -118,22 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title" xml:space="preserve">
-    <value>Tsinghua Campus Netzwerk Client</value>
+    <value>Tsinghua Campus Network Client</value>
   </data>
-  <data name="Connect" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Aktualisieren</value>
-  </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>Benutzernamen:</value>
-  </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>Kennwort:</value>
+  <data name="NotifyText" xml:space="preserve">
+    <value>Afficher le client</value>
   </data>
   <data name="Auth4" xml:space="preserve">
     <value>Auth4</value>
@@ -144,31 +132,43 @@
   <data name="Net" xml:space="preserve">
     <value>Net</value>
   </data>
-  <data name="NotifyText" xml:space="preserve">
-    <value>Client anzeigen</value>
+  <data name="Connect" xml:space="preserve">
+    <value>Connectez</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Déconnectez</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Actualiser</value>
+  </data>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>Passe:</value>
   </data>
   <data name="Connecting" xml:space="preserve">
-    <value>Login...</value>
+    <value>Connectez...</value>
   </data>
   <data name="LoggingOut" xml:space="preserve">
-    <value>Logout...</value>
+    <value>Déconnectez...</value>
   </data>
   <data name="Disconnected" xml:space="preserve">
-    <value>Nicht login.</value>
-  </data>
-  <data name="NoNetwork" xml:space="preserve">
-    <value>Kein Netzwerk.</value>
+    <value>Déconnecté.</value>
   </data>
   <data name="ConnectionFailed" xml:space="preserve">
-    <value>Login fehlgeschlagen</value>
+    <value>La connexion a échoué</value>
   </data>
   <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Login fehlgeschlagen: {0}</value>
+    <value>La connexion a échoué: {0}</value>
   </data>
   <data name="LogOutFailed" xml:space="preserve">
-    <value>Logout fehlgeschlagen</value>
+    <value>La déconnexion a échoué</value>
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Logout fehlgeschlagen: {0}</value>
+    <value>La déconnexion a échoué: {0}</value>
+  </data>
+  <data name="NoNetwork" xml:space="preserve">
+    <value>Pas de réseau.</value>
   </data>
 </root>
