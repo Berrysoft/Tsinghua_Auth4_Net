@@ -1,5 +1,8 @@
 ﻿Class Application
     Private Const logPath As String = "log.xml"
+    Public Sub New()
+        InitializeComponent()
+    End Sub
     Protected Overrides Sub OnStartup(e As StartupEventArgs)
         MyBase.OnStartup(e)
         Dim log As XDocument

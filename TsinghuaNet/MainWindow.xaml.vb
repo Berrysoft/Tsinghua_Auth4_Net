@@ -104,7 +104,7 @@ Class MainWindow
                 Dim d As New DirectoryInfo(dirs(i))
                 Dim culture As New CultureInfo(d.Name)
                 Model.Languages.Add(culture)
-                If culture.Name = currentcul.Name Then
+                If CompareCulture(culture, currentcul) Then
                     Model.LanguagesSelectIndex = i + 1
                 End If
             Catch ex As CultureNotFoundException
@@ -152,4 +152,10 @@ Class MainWindow
         Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
         Me.Close()
     End Sub
+    Private Function CompareCulture(base As CultureInfo, current As CultureInfo) As Boolean
+        If current.LCID = &H7F Then
+            Return base.LCID = &H7F
+        End If
+        Return base.Name = current.Name OrElse CompareCulture(base, current.Parent)
+    End Function
 End Class
