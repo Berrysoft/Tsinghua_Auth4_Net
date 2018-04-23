@@ -97,19 +97,21 @@ Class MainWindow
         End If
         GetFlux()
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
-        Dim dirs() As String = Directory.GetDirectories(Directory.GetCurrentDirectory())
-        Model.Languages.Add(New CultureInfo(""))
-        For i = 0 To dirs.Length - 1
-            Try
-                Dim d As New DirectoryInfo(dirs(i))
-                Dim culture As New CultureInfo(d.Name)
-                Model.Languages.Add(culture)
-                If CompareCulture(culture, currentcul) Then
-                    Model.LanguagesSelectIndex = i + 1
-                End If
-            Catch ex As CultureNotFoundException
-
-            End Try
+        Dim langs As New List(Of CultureInfo)(Directory.GetDirectories(Directory.GetCurrentDirectory()).Select(
+                                              Function(fullName)
+                                                  Try
+                                                      Return New CultureInfo((New DirectoryInfo(fullName).Name))
+                                                  Catch ex As CultureNotFoundException
+                                                      Return Nothing
+                                                  End Try
+                                              End Function).Where(Function(cul) cul IsNot Nothing))
+        langs.Add(New CultureInfo(""))
+        langs.Sort(New CultureInfoComparer(currentcul))
+        For i = 0 To langs.Count - 1
+            Model.Languages.Add(langs(i))
+            If CompareCulture(langs(i), currentcul) Then
+                Model.LanguagesSelectIndex = i
+            End If
         Next
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
@@ -147,15 +149,39 @@ Class MainWindow
         ShowFromMinimized()
     End Sub
     Private Sub ChangeLanguage()
-        log.<user>.<language>.Value = Model.Languages(Model.LanguagesSelectIndex).Name
-        MainWindow_Closed()
-        Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
-        Me.Close()
+        Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)
+        If Not CompareCulture(selectcul, Thread.CurrentThread.CurrentUICulture) Then
+            If log.<user>.<language>.Value Is Nothing Then
+                log.Element("user").Add(<language></language>)
+            End If
+            log.<user>.<language>.Value = Model.Languages(Model.LanguagesSelectIndex).Name
+            Me.Close()
+            Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
+        End If
     End Sub
     Private Function CompareCulture(base As CultureInfo, current As CultureInfo) As Boolean
+        If base.LCID = &H7F Then
+            Return current.LCID = &H7F
+        End If
         If current.LCID = &H7F Then
             Return base.LCID = &H7F
         End If
         Return base.Name = current.Name OrElse CompareCulture(base, current.Parent)
+    End Function
+End Class
+
+Class CultureInfoComparer
+    Implements IComparer(Of CultureInfo)
+
+    Private converter As CultureToString
+    Private strcmp As StringComparer
+
+    Public Sub New(current As CultureInfo)
+        converter = New CultureToString()
+        strcmp = StringComparer.Create(current, True)
+    End Sub
+
+    Public Function Compare(x As CultureInfo, y As CultureInfo) As Integer Implements IComparer(Of CultureInfo).Compare
+        Return strcmp.Compare(converter.Convert(x, GetType(String), Nothing, Nothing), converter.Convert(y, GetType(String), Nothing, Nothing))
     End Function
 End Class
