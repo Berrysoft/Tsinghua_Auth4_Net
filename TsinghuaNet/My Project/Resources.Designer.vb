@@ -124,6 +124,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 Language: 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LanguageWithColon() As String
+            Get
+                Return ResourceManager.GetString("LanguageWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Logging out... 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LoggingOut() As String
@@ -183,6 +192,15 @@ Namespace My.Resources
         Public ReadOnly Property NotifyText() As String
             Get
                 Return ResourceManager.GetString("NotifyText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 OK 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property OK() As String
+            Get
+                Return ResourceManager.GetString("OK", resourceCulture)
             End Get
         End Property
         

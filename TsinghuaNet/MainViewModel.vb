@@ -1,4 +1,5 @@
-﻿Imports System.Globalization
+﻿Imports System.Collections.ObjectModel
+Imports System.Globalization
 
 Class MainViewModel
     Inherits DependencyObject
@@ -85,6 +86,26 @@ Class MainViewModel
             End Select
         End Get
     End Property
+
+    Public Shared ReadOnly LanguagesProperty As DependencyProperty = DependencyProperty.Register(NameOf(Languages), GetType(ObservableCollection(Of CultureInfo)), GetType(MainViewModel), New PropertyMetadata(New ObservableCollection(Of CultureInfo)))
+    Public Property Languages As ObservableCollection(Of CultureInfo)
+        Get
+            Return GetValue(LanguagesProperty)
+        End Get
+        Set(value As ObservableCollection(Of CultureInfo))
+            SetValue(LanguagesProperty, value)
+        End Set
+    End Property
+
+    Public Shared ReadOnly LanguagesSelectIndexProperty As DependencyProperty = DependencyProperty.Register(NameOf(LanguagesSelectIndex), GetType(Integer), GetType(MainViewModel))
+    Public Property LanguagesSelectIndex As Integer
+        Get
+            Return GetValue(LanguagesSelectIndexProperty)
+        End Get
+        Set(value As Integer)
+            SetValue(LanguagesSelectIndexProperty, value)
+        End Set
+    End Property
 End Class
 
 Enum NetState
@@ -129,6 +150,22 @@ Class NullableToVisibility
         Else
             Return Visibility.Collapsed
         End If
+    End Function
+
+    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
+End Class
+
+Class CultureToString
+    Implements IValueConverter
+
+    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        Dim cul As CultureInfo = value
+        If cul.LCID = &H7F Then
+            cul = New CultureInfo("en")
+        End If
+        Return $"{cul.DisplayName}({cul.NativeName})"
     End Function
 
     Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack

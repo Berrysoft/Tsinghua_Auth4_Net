@@ -171,4 +171,10 @@
   <data name="UsernameWithColon" xml:space="preserve">
     <value>Username:</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

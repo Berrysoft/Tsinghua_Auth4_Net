@@ -171,4 +171,10 @@
   <data name="NoNetwork" xml:space="preserve">
     <value>Pas de réseau.</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Langue:</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Bien</value>
+  </data>
 </root>

@@ -171,4 +171,10 @@
   <data name="UsernameWithColon" xml:space="preserve">
     <value>用户名：</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>语言：</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
 </root>

@@ -171,4 +171,10 @@
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Logout fehlgeschlagen: {0}</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Sprache:</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Okay</value>
+  </data>
 </root>

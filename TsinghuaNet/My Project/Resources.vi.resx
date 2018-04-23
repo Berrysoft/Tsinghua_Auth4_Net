@@ -171,4 +171,10 @@
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Đăng xuất thất bại: {0}</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Ngôn ngữ:</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

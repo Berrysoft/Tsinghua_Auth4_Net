@@ -171,4 +171,10 @@
   <data name="PasswordWithColon" xml:space="preserve">
     <value>Пароль:</value>
   </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Язык:</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Хорошо</value>
+  </data>
 </root>

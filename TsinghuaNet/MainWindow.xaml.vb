@@ -1,4 +1,6 @@
-﻿Imports System.Threading
+﻿Imports System.Globalization
+Imports System.IO
+Imports System.Threading
 
 Class MainWindow
     Private log As XDocument
@@ -94,6 +96,21 @@ Class MainWindow
             Model.State = state
         End If
         GetFlux()
+        Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
+        Dim dirs() As String = Directory.GetDirectories(Directory.GetCurrentDirectory())
+        Model.Languages.Add(New CultureInfo(""))
+        For i = 0 To dirs.Length - 1
+            Try
+                Dim d As New DirectoryInfo(dirs(i))
+                Dim culture As New CultureInfo(d.Name)
+                Model.Languages.Add(culture)
+                If culture.Name = currentcul.Name Then
+                    Model.LanguagesSelectIndex = i + 1
+                End If
+            Catch ex As CultureNotFoundException
+
+            End Try
+        Next
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
         log.<user>.<name>.Value = Model.Username
@@ -128,5 +145,11 @@ Class MainWindow
     End Sub
     Private Sub Notify_Click(sender As Object, e As EventArgs) Handles Notify.Click
         ShowFromMinimized()
+    End Sub
+    Private Sub ChangeLanguage()
+        log.<user>.<language>.Value = Model.Languages(Model.LanguagesSelectIndex).Name
+        MainWindow_Closed()
+        Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
+        Me.Close()
     End Sub
 End Class
