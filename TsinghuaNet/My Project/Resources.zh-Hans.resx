@@ -147,20 +147,11 @@
   <data name="Title" xml:space="preserve">
     <value>清华大学校园网客户端</value>
   </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>有线IPv4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>有线IPv6</value>
-  </data>
   <data name="Connect" xml:space="preserve">
     <value>登录</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>注销</value>
-  </data>
-  <data name="Net" xml:space="preserve">
-    <value>无线</value>
   </data>
   <data name="PasswordWithColon" xml:space="preserve">
     <value>密码：</value>

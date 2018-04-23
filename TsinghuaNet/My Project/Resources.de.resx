@@ -126,23 +126,20 @@
   <data name="LogOut" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>Kennwort:</value>
+  </data>
   <data name="Refresh" xml:space="preserve">
     <value>Aktualisieren</value>
   </data>
   <data name="UsernameWithColon" xml:space="preserve">
     <value>Benutzernamen:</value>
   </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>Kennwort:</value>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>Sprache:</value>
   </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>Auth4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>Auth6</value>
-  </data>
-  <data name="Net" xml:space="preserve">
-    <value>Net</value>
+  <data name="OK" xml:space="preserve">
+    <value>Okay</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>Client anzeigen</value>
@@ -170,11 +167,5 @@
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Logout fehlgeschlagen: {0}</value>
-  </data>
-  <data name="LanguageWithColon" xml:space="preserve">
-    <value>Sprache:</value>
-  </data>
-  <data name="OK" xml:space="preserve">
-    <value>Okay</value>
   </data>
 </root>

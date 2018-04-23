@@ -4,6 +4,16 @@ Imports System.Globalization
 Class MainViewModel
     Inherits DependencyObject
 
+    Public Shared ReadOnly FlowDirectionProperty As DependencyProperty = DependencyProperty.Register(NameOf(FlowDirection), GetType(FlowDirection), GetType(MainViewModel))
+    Public Property FlowDirection As FlowDirection
+        Get
+            Return GetValue(FlowDirectionProperty)
+        End Get
+        Set(value As FlowDirection)
+            SetValue(FlowDirectionProperty, value)
+        End Set
+    End Property
+
     Public Shared ReadOnly UsernameProperty As DependencyProperty = DependencyProperty.Register(NameOf(Username), GetType(String), GetType(MainViewModel), New PropertyMetadata(String.Empty))
     Public Property Username As String
         Get
@@ -158,7 +168,7 @@ Class NullableToVisibility
     End Function
 End Class
 
-Class CultureToString
+Class CultureToDisplayString
     Implements IValueConverter
 
     Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
@@ -166,7 +176,39 @@ Class CultureToString
         If cul.LCID = &H7F Then
             cul = New CultureInfo("en")
         End If
-        Return $"{cul.DisplayName}({cul.NativeName})"
+        Return cul.DisplayName
+    End Function
+
+    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
+End Class
+
+Class CultureToNativeString
+    Implements IValueConverter
+
+    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        Dim cul As CultureInfo = value
+        If cul.LCID = &H7F Then
+            cul = New CultureInfo("en")
+        End If
+        Return $"({cul.NativeName})"
+    End Function
+
+    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
+End Class
+
+Class CultureToFlow
+    Implements IValueConverter
+
+    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        Dim cul As CultureInfo = value
+        If cul.TextInfo.IsRightToLeft Then
+            Return FlowDirection.RightToLeft
+        End If
+        Return FlowDirection.LeftToRight
     End Function
 
     Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack

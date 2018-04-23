@@ -117,30 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connect" xml:space="preserve">
-    <value>ログイン</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>ログアウト</value>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>更新</value>
-  </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>名：</value>
-  </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>パスワード：</value>
-  </data>
-  <data name="Net" xml:space="preserve">
-    <value>Net</value>
-  </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>Auth4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>Auth6</value>
-  </data>
   <data name="Connecting" xml:space="preserve">
     <value>ログイン中</value>
   </data>
@@ -171,10 +147,25 @@
   <data name="Title" xml:space="preserve">
     <value>清華大学キャンパスネットワーククライアント</value>
   </data>
-  <data name="OK" xml:space="preserve">
-    <value>OK</value>
+  <data name="Connect" xml:space="preserve">
+    <value>ログイン</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>パスワード：</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>名：</value>
   </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>言語：</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
   </data>
 </root>

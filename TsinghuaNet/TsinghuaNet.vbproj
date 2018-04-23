@@ -168,7 +168,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Logo.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.ar.resx" />
     <EmbeddedResource Include="My Project\Resources.de.resx" />
+    <EmbeddedResource Include="My Project\Resources.eo.resx" />
     <EmbeddedResource Include="My Project\Resources.fr.resx" />
     <EmbeddedResource Include="My Project\Resources.ja.resx" />
     <EmbeddedResource Include="My Project\Resources.ko.resx" />

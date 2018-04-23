@@ -117,55 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connecting" xml:space="preserve">
-    <value>正在登入</value>
-  </data>
-  <data name="ConnectionFailed" xml:space="preserve">
-    <value>登入錯誤</value>
-  </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>登入錯誤：{0}</value>
-  </data>
-  <data name="Disconnected" xml:space="preserve">
-    <value>未登入</value>
-  </data>
-  <data name="LoggingOut" xml:space="preserve">
-    <value>正在登出</value>
-  </data>
-  <data name="LogOutFailed" xml:space="preserve">
-    <value>登出錯誤</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>登出錯誤：{0}</value>
-  </data>
-  <data name="NoNetwork" xml:space="preserve">
-    <value>網路異常</value>
-  </data>
-  <data name="NotifyText" xml:space="preserve">
-    <value>顯示客戶端</value>
-  </data>
   <data name="Title" xml:space="preserve">
-    <value>清華大學校園網客戶端</value>
+    <value>Klienta Reto de Ĉampiono de Tsinghua</value>
   </data>
   <data name="Connect" xml:space="preserve">
-    <value>登入</value>
+    <value>Ensaluti</value>
   </data>
   <data name="LogOut" xml:space="preserve">
-    <value>登出</value>
+    <value>Elsaluti</value>
   </data>
   <data name="PasswordWithColon" xml:space="preserve">
-    <value>密碼：</value>
+    <value>Pasvorto:</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>刷新</value>
+    <value>Refreŝigi</value>
   </data>
   <data name="UsernameWithColon" xml:space="preserve">
-    <value>用戶名：</value>
+    <value>Uzulnomo:</value>
   </data>
   <data name="LanguageWithColon" xml:space="preserve">
-    <value>語言：</value>
+    <value>Lingvo:</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>確定</value>
+    <value>Bone</value>
+  </data>
+  <data name="NotifyText" xml:space="preserve">
+    <value>Montri kliento</value>
+  </data>
+  <data name="Connecting" xml:space="preserve">
+    <value>Ensalutas...</value>
+  </data>
+  <data name="LoggingOut" xml:space="preserve">
+    <value>Elsalutas...</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>Elsalutis.</value>
+  </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>Ensaluto malsukcesis</value>
+  </data>
+  <data name="ConnectionFailedWithResult" xml:space="preserve">
+    <value>Ensaluto malsukcesis: {0}</value>
+  </data>
+  <data name="LogOutFailed" xml:space="preserve">
+    <value>Elsaluto malsukcesis</value>
+  </data>
+  <data name="LogOutFailedWithResult" xml:space="preserve">
+    <value>Elsaluto malsukcesis: {0}</value>
+  </data>
+  <data name="NoNetwork" xml:space="preserve">
+    <value>Neniu reto.</value>
   </data>
 </root>

@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Title" xml:space="preserve">
+    <value>칭화 대학 캠퍼스 네트워크 클라이언트</value>
+  </data>
   <data name="Connect" xml:space="preserve">
     <value>로그인</value>
   </data>
   <data name="LogOut" xml:space="preserve">
     <value>로그 아웃</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>암호：</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>새로 고침</value>
@@ -129,20 +135,11 @@
   <data name="UsernameWithColon" xml:space="preserve">
     <value>사용자：</value>
   </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>암호：</value>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>언어：</value>
   </data>
-  <data name="Net" xml:space="preserve">
-    <value>Net</value>
-  </data>
-  <data name="Auth4" xml:space="preserve">
-    <value>Auth4</value>
-  </data>
-  <data name="Auth6" xml:space="preserve">
-    <value>Auth6</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>칭화 대학 캠퍼스 네트워크 클라이언트</value>
+  <data name="OK" xml:space="preserve">
+    <value>그래</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>클라이언트 표시</value>
@@ -170,11 +167,5 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>네트워크 예외</value>
-  </data>
-  <data name="LanguageWithColon" xml:space="preserve">
-    <value>언어：</value>
-  </data>
-  <data name="OK" xml:space="preserve">
-    <value>그래</value>
   </data>
 </root>

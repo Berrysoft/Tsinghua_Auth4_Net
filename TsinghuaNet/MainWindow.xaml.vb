@@ -97,6 +97,7 @@ Class MainWindow
         End If
         GetFlux()
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
+        Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
         Dim langs As New List(Of CultureInfo)(Directory.GetDirectories(Directory.GetCurrentDirectory()).Select(
                                               Function(fullName)
                                                   Try
@@ -173,11 +174,11 @@ End Class
 Class CultureInfoComparer
     Implements IComparer(Of CultureInfo)
 
-    Private converter As CultureToString
+    Private converter As CultureToDisplayString
     Private strcmp As StringComparer
 
     Public Sub New(current As CultureInfo)
-        converter = New CultureToString()
+        converter = New CultureToDisplayString()
         strcmp = StringComparer.Create(current, True)
     End Sub
 

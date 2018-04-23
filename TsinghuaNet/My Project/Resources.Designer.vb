@@ -61,24 +61,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Auth4 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property Auth4() As String
-            Get
-                Return ResourceManager.GetString("Auth4", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 Auth6 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property Auth6() As String
-            Get
-                Return ResourceManager.GetString("Auth6", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  查找类似 Login 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Connect() As String
@@ -165,15 +147,6 @@ Namespace My.Resources
         Public ReadOnly Property LogOutFailedWithResult() As String
             Get
                 Return ResourceManager.GetString("LogOutFailedWithResult", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 Net 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property Net() As String
-            Get
-                Return ResourceManager.GetString("Net", resourceCulture)
             End Get
         End Property
         

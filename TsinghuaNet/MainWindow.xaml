@@ -14,11 +14,13 @@
     <Window.Resources>
         <local:FluxToString x:Key="Flux"/>
         <local:NullableToVisibility x:Key="Nullable"/>
-        <local:CultureToString x:Key="Culture"/>
+        <local:CultureToDisplayString x:Key="CultureDisplay"/>
+        <local:CultureToNativeString x:Key="CultureNative"/>
+        <local:CultureToFlow x:Key="CultureFlow"/>
         <SolidColorBrush x:Key="TsinghuaPurple" Color="#FF660874"/>
         <SolidColorBrush x:Key="Grid.Button.Background" Color="#FFF0F0F0"/>
     </Window.Resources>
-    <Grid>
+    <Grid FlowDirection="{Binding FlowDirection}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -28,9 +30,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{x:Static res:Resources.Auth4}" ToolTip="https://auth4.tsinghua.edu.cn/"/>
-            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Content="{x:Static res:Resources.Auth6}" ToolTip="https://auth6.tsinghua.edu.cn/"/>
-            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True" Content="{x:Static res:Resources.Net}" ToolTip="https://net.tsinghua.edu.cn/"/>
+            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth4.tsinghua.edu.cn/">Auth4</RadioButton>
+            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth6.tsinghua.edu.cn/">Auth6</RadioButton>
+            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True" ToolTip="https://net.tsinghua.edu.cn/">Net</RadioButton>
         </UniformGrid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -73,7 +75,10 @@
             <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemsSource="{Binding Languages}" SelectedIndex="{Binding LanguagesSelectIndex}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Converter={StaticResource Culture}}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Converter={StaticResource CultureDisplay}}"/>
+                            <TextBlock Text="{Binding Converter={StaticResource CultureNative}}" FlowDirection="{Binding Converter={StaticResource CultureFlow}}"/>
+                        </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
