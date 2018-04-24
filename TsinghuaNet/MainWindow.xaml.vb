@@ -3,8 +3,7 @@ Imports System.IO
 Imports System.Threading
 
 Class MainWindow
-    Private log As XDocument
-    Private logPath As String
+    Private log As Settings
     Private WithEvents Notify As New Forms.NotifyIcon
     Private getFluxCancellationTokeSource As CancellationTokenSource
     Public Sub New()
@@ -14,9 +13,8 @@ Class MainWindow
         Notify.Icon = My.Resources.Logo.Logo
         Notify.Visible = True
     End Sub
-    Friend Overloads Sub Show(log As XDocument, path As String)
+    Friend Overloads Sub Show(log As Settings)
         Me.log = log
-        Me.logPath = path
         MyBase.Show()
     End Sub
     Private Async Sub Connect()
@@ -90,12 +88,9 @@ Class MainWindow
         End Select
     End Sub
     Private Sub MainWindow_Loaded() Handles Me.Loaded
-        Model.Username = log.<user>.<name>.Value
-        Model.Password = log.<user>.<password>.Value
-        Dim state As NetState
-        If [Enum].TryParse(log.<user>.<state>.Value, state) Then
-            Model.State = state
-        End If
+        Model.Username = log.Username
+        Model.Password = log.Password
+        Model.State = log.State
         GetFlux()
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
@@ -117,10 +112,7 @@ Class MainWindow
         Next
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
-        log.<user>.<name>.Value = Model.Username
-        log.<user>.<password>.Value = Model.Password
-        log.<user>.<state>.Value = Model.State.ToString()
-        log.Save(logPath)
+        log.Save()
         Notify.Visible = False
         Notify.Dispose()
     End Sub
@@ -153,10 +145,7 @@ Class MainWindow
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)
         If Not CompareCulture(selectcul, Thread.CurrentThread.CurrentUICulture) Then
-            If log.<user>.<language>.Value Is Nothing Then
-                log.Element("user").Add(New XElement("language"))
-            End If
-            log.<user>.<language>.Value = Model.Languages(Model.LanguagesSelectIndex).Name
+            log.Language = selectcul
             Me.Close()
             Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
         End If
