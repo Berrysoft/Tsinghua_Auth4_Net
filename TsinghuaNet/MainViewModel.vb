@@ -64,6 +64,16 @@ Class MainViewModel
         End Set
     End Property
 
+    Public Shared ReadOnly BalanceProperty As DependencyProperty = DependencyProperty.Register(NameOf(Balance), GetType(Decimal?), GetType(MainViewModel))
+    Public Property Balance As Decimal?
+        Get
+            Return GetValue(BalanceProperty)
+        End Get
+        Set(value As Decimal?)
+            SetValue(BalanceProperty, value)
+        End Set
+    End Property
+
     Public Event StateChanged As EventHandler(Of NetState)
     Public Shared ReadOnly StateProperty As DependencyProperty = DependencyProperty.Register(NameOf(State), GetType(NetState), GetType(MainViewModel), New PropertyMetadata(NetState.Net, AddressOf StatePropertyChangedCallback))
     Public Property State As NetState
@@ -144,6 +154,18 @@ Class FluxToString
         Else
             Return String.Empty
         End If
+    End Function
+
+    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
+End Class
+
+Class MoneyToString
+    Implements IValueConverter
+
+    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        Return CDec(value).ToString("C2")
     End Function
 
     Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack

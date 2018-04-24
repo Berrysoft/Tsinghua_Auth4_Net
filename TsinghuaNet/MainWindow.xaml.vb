@@ -23,7 +23,7 @@ Class MainWindow
         CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
         Dim connected As Boolean = False
-        SetFlux(My.Resources.Connecting, Nothing, Nothing)
+        SetFlux(My.Resources.Connecting)
         Dim result As String = Await helper.Connect()
         If result IsNot Nothing Then
             MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, result), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
@@ -35,7 +35,7 @@ Class MainWindow
     Private Async Sub LogOut()
         CancelGetFlux()
         Dim helper As NetHelperBase = Model.Helper
-        SetFlux(My.Resources.LoggingOut, Nothing, Nothing)
+        SetFlux(My.Resources.LoggingOut)
         Dim result As String = Await helper.LogOut()
         If result IsNot Nothing Then
             MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, result), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
@@ -63,21 +63,22 @@ Class MainWindow
             If result.ErrorMessage Is Nothing Then
                 Dim r As String() = result.Response.Split(","c)
                 If String.IsNullOrWhiteSpace(r(0)) Then
-                    SetFlux(My.Resources.Disconnected, Nothing, Nothing)
+                    SetFlux(My.Resources.Disconnected)
                 Else
-                    SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))))
+                    SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))), CDec(r(11)))
                 End If
             Else
-                SetFlux(My.Resources.NoNetwork, Nothing, Nothing)
+                SetFlux(My.Resources.NoNetwork)
             End If
         End If
     End Function
-    Private Sub SetFlux(username As String, flux As Long?, time As TimeSpan?)
+    Private Sub SetFlux(username As String, Optional flux As Long? = Nothing, Optional time As TimeSpan? = Nothing, Optional balance As Decimal? = Nothing)
         Me.Dispatcher.BeginInvoke(
             Sub()
                 Model.LoggedUsername = username
                 Model.Flux = flux
                 Model.OnlineTime = time
+                Model.Balance = balance
             End Sub)
     End Sub
     Private Sub Model_StateChanged(sender As Object, e As NetState) Handles Model.StateChanged

@@ -13,6 +13,7 @@
     </Window.DataContext>
     <Window.Resources>
         <local:FluxToString x:Key="Flux"/>
+        <local:MoneyToString x:Key="Money"/>
         <local:NullableToVisibility x:Key="Nullable"/>
         <local:CultureToDisplayString x:Key="CultureDisplay"/>
         <local:CultureToNativeString x:Key="CultureNative"/>
@@ -51,9 +52,10 @@
             <local:PasswordBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,50,0" input:InputMethod.IsInputMethodEnabled="False" Text="{Binding Password,Mode=TwoWay}"/>
         </Grid>
         <UniformGrid Grid.Row="3" Rows="1">
-            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Content="{Binding LoggedUsername}"/>
-            <Label Grid.Column="1" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
-            <Label Grid.Column="2" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding OnlineTime}"/>
+            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding LoggedUsername}"/>
+            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
+            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding OnlineTime}"/>
+            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Balance,Converter={StaticResource Money}}"/>
         </UniformGrid>
         <Grid Grid.Row="4" Background="{StaticResource Grid.Button.Background}">
             <Grid.ColumnDefinitions>
