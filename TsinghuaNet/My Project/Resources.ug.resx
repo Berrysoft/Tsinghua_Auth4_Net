@@ -118,63 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Connect" xml:space="preserve">
-    <value>ཐོ་ འཇུག་</value>
+    <value>تىزىمغا ئالدۇرغان</value>
   </data>
   <data name="LogOut" xml:space="preserve">
-    <value>ཐོ་ གསུབ་</value>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>གསར་གཏོད་</value>
+    <value>تىزىمدىن چىقىرىۋېتىش</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>གཏན་ལ་ཕབ་ པ་</value>
+    <value>ئېنىق</value>
   </data>
-  <data name="LanguageWithColon" xml:space="preserve">
-    <value>སྐད་ཆ་ :</value>
-  </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>སྤྱོད་མཁན་ མིང་ :</value>
-  </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>གསང་ཨང་ :</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>སློབ་གྲྭའི་ དྲ་བ་ ཆིང་ ཧྭ་ སློབ་ཆེན་ གྱི་ དུད་ སྣེ་</value>
-  </data>
-  <data name="NotifyText" xml:space="preserve">
-    <value>དུད་ སྣེ་ ལས་ མངོན་པར་ གཞིགས་ ན་</value>
-  </data>
-  <data name="Connecting" xml:space="preserve">
-    <value>ཐོ་ འཇུག་ བཞིན་ ཡོད་ །</value>
-  </data>
-  <data name="LoggingOut" xml:space="preserve">
-    <value>ཐོ་ གསུབ་ བཞིན་ ཡོད་ །</value>
-  </data>
-  <data name="Disconnected" xml:space="preserve">
-    <value>ཐོ་ འཇུག་ རོགས་ །</value>
-  </data>
-  <data name="ConnectionFailed" xml:space="preserve">
-    <value>ཐོ་ འཇུག་ ཕམ་ཁ་</value>
-  </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>ཐོ་ འཇུག་ ཕམ་ཁ་ : {0}</value>
-  </data>
-  <data name="LogOutFailed" xml:space="preserve">
-    <value>ཐོ་ གསུབ་ ཕམ་ཁ་</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>ཐོ་ གསུབ་ ཕམ་ཁ་ : {0}</value>
-  </data>
-  <data name="NoNetwork" xml:space="preserve">
-    <value>དྲ་རྒྱའི་ རྒྱུན་འགལ་ །</value>
-  </data>
-  <data name="FontSize" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="Height" xml:space="preserve">
-    <value>400</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>يېڭىلىماق</value>
   </data>
   <data name="Width" xml:space="preserve">
-    <value>550</value>
+    <value>600</value>
+  </data>
+  <data name="LanguageWithColon" xml:space="preserve">
+    <value>تىل:</value>
+  </data>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>ئىشلەتكۈچىلەر نامى:</value>
+  </data>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>شىفىر:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>چىڭخۇا ئۇنىۋېرسىتېتى مەكتەپ تورى تېرمىنالى</value>
+  </data>
+  <data name="NotifyText" xml:space="preserve">
+    <value>كۆرسىتىش تېرمىنالى</value>
+  </data>
+  <data name="Connecting" xml:space="preserve">
+    <value>كىرىۋاتىدۇ...</value>
+  </data>
+  <data name="LoggingOut" xml:space="preserve">
+    <value>ھازىر تىزىمدىن ئۆچۈرۈش...</value>
+  </data>
+  <data name="ConnectionFailed" xml:space="preserve">
+    <value>تىزىملىتىش مەغلۇپ بولدى ، تىزىملانمىدى</value>
+  </data>
+  <data name="ConnectionFailedWithResult" xml:space="preserve">
+    <value>تىزىملىتىش مەغلۇپ بولدى ، تىزىملانمىدى: {0}</value>
+  </data>
+  <data name="LogOutFailed" xml:space="preserve">
+    <value>ئۆچۈرۈش مەغلۇپ بولدى</value>
+  </data>
+  <data name="LogOutFailedWithResult" xml:space="preserve">
+    <value>ئۆچۈرۈش مەغلۇپ بولدى: {0}</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>سىز تېخى تىزىملاتمىدىڭىز.</value>
+  </data>
+  <data name="NoNetwork" xml:space="preserve">
+    <value>تور بىنورمال.</value>
   </data>
 </root>

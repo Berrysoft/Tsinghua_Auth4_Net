@@ -168,4 +168,7 @@
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Logout fehlgeschlagen: {0}</value>
   </data>
+  <data name="Width" xml:space="preserve">
+    <value>430</value>
+  </data>
 </root>

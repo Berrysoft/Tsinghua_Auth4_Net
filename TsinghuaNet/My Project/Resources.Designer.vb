@@ -106,6 +106,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 18 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property FontSize() As String
+            Get
+                Return ResourceManager.GetString("FontSize", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 360 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Height() As String
+            Get
+                Return ResourceManager.GetString("Height", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Language: 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LanguageWithColon() As String
@@ -210,6 +228,15 @@ Namespace My.Resources
         Public ReadOnly Property UsernameWithColon() As String
             Get
                 Return ResourceManager.GetString("UsernameWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 420 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property Width() As String
+            Get
+                Return ResourceManager.GetString("Width", resourceCulture)
             End Get
         End Property
     End Module

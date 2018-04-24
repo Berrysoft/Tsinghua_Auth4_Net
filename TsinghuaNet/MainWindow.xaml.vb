@@ -8,6 +8,9 @@ Class MainWindow
     Private getFluxCancellationTokeSource As CancellationTokenSource
     Public Sub New()
         InitializeComponent()
+        Me.FontSize = My.Resources.FontSize
+        Me.Width = My.Resources.Width
+        Me.Height = My.Resources.Height
         Me.Icon = Interop.Imaging.CreateBitmapSourceFromHIcon(My.Resources.Logo.Logo.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
         Notify.Text = My.Resources.NotifyText
         Notify.Icon = My.Resources.Logo.Logo

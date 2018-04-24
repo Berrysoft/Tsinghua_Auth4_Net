@@ -168,4 +168,13 @@
   <data name="NoNetwork" xml:space="preserve">
     <value>ᠰᠦᠯᠵᠢᠶᠡᠨ ᠦ ᠬᠡᠪ ᠦᠨ ᠪᠤᠰᠤ᠃</value>
   </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>400</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>550</value>
+  </data>
 </root>

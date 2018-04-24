@@ -168,4 +168,13 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>420</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>360</value>
+  </data>
 </root>
