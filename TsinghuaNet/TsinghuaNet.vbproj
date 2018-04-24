@@ -170,6 +170,7 @@
       <LastGenOutput>Logo.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.ar.resx" />
+    <EmbeddedResource Include="My Project\Resources.bo.resx" />
     <EmbeddedResource Include="My Project\Resources.de.resx" />
     <EmbeddedResource Include="My Project\Resources.eo.resx" />
     <EmbeddedResource Include="My Project\Resources.fr.resx" />
