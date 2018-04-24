@@ -165,7 +165,7 @@ Class MoneyToString
     Implements IValueConverter
 
     Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
-        Return CDec(value).ToString("C2")
+        Return CDec(value).ToString("C2", culture)
     End Function
 
     Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack

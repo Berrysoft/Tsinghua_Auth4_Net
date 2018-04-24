@@ -55,7 +55,7 @@
             <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding LoggedUsername}"/>
             <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Flux,Converter={StaticResource Flux}}"/>
             <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding OnlineTime}"/>
-            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Balance,Converter={StaticResource Money}}"/>
+            <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Balance,Converter={StaticResource Money},ConverterCulture=zh-CN}"/>
         </UniformGrid>
         <Grid Grid.Row="4" Background="{StaticResource Grid.Button.Background}">
             <Grid.ColumnDefinitions>
