@@ -3,7 +3,7 @@
 ## 多种登录方式
 支持Auth4、Auth6（未测试）、Net方式的登录。
 ## 多语言支持
-默认为en，支持zh-Hans、zh-Hant、bo、ja、ko、vi、ru、fr、de、eo、ar，并可能（看心情）支持更多语言。
+默认为en，支持zh-Hans、zh-Hant、bo、mn-Mong、ja、ko、vi、ru、fr、de、eo、ar，并可能（看心情）支持更多语言。
 
 实际上我并不会这么多语言，都是用的Bing翻译。Bing不会世界语，我用的是有道。没什么软件会藏语，我用的是iOS上的“藏汉智能翻译”。
 
