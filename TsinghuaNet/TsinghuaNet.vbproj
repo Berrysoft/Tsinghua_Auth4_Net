@@ -170,6 +170,7 @@
     <EmbeddedResource Include="My Project\Resources.eo.resx" />
     <EmbeddedResource Include="My Project\Resources.fr.resx" />
     <EmbeddedResource Include="My Project\Resources.he.resx" />
+    <EmbeddedResource Include="My Project\Resources.ii.resx" />
     <EmbeddedResource Include="My Project\Resources.ja.resx" />
     <EmbeddedResource Include="My Project\Resources.ko.resx" />
     <EmbeddedResource Include="My Project\Resources.mn-Mong.resx" />
