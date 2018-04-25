@@ -150,7 +150,7 @@ Class MainWindow
         If Not CompareCulture(selectcul, Thread.CurrentThread.CurrentUICulture) Then
             log.Language = selectcul
             Me.Close()
-            Process.Start(Reflection.Assembly.GetExecutingAssembly().Location)
+            Forms.Application.Restart()
         End If
     End Sub
     Private Function CompareCulture(base As CultureInfo, current As CultureInfo) As Boolean
