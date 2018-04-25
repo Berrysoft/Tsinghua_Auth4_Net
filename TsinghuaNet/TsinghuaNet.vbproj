@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -159,11 +159,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <EmbeddedResource Include="Logo.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +169,7 @@
     <EmbeddedResource Include="My Project\Resources.de.resx" />
     <EmbeddedResource Include="My Project\Resources.eo.resx" />
     <EmbeddedResource Include="My Project\Resources.fr.resx" />
+    <EmbeddedResource Include="My Project\Resources.he.resx" />
     <EmbeddedResource Include="My Project\Resources.ja.resx" />
     <EmbeddedResource Include="My Project\Resources.ko.resx" />
     <EmbeddedResource Include="My Project\Resources.mn-Mong.resx" />
