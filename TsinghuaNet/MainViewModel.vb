@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Globalization
+Imports TsinghuaNet.Helpers
 
 Class MainViewModel
     Inherits DependencyObject

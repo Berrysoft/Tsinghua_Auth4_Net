@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports TsinghuaNet.Helpers
 
 Class Settings
     Private Const logPath As String = "log.xml"

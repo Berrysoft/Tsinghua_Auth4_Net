@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
 Imports System.IO
 Imports System.Threading
+Imports TsinghuaNet.Helpers
 
 Class MainWindow
     Private log As Settings
@@ -54,7 +55,7 @@ Class MainWindow
         CancelGetFlux()
         getFluxCancellationTokeSource = New CancellationTokenSource()
         Try
-            Dim helper As NetHelperBase = Model.Helper
+            Dim helper As IConnect = Model.Helper
             Dim usereg As UseregHelper = Model.UseregHelper
             Await GetFluxInternal(helper, usereg, getFluxCancellationTokeSource.Token)
         Catch ex As OperationCanceledException
