@@ -168,4 +168,16 @@
   <data name="NoNetwork" xml:space="preserve">
     <value>אין רשת.</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>כתובת ה-IP</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>זמן ההתחברות</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>לקוח</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>תנתק של פריטים נבחרים</value>
+  </data>
 </root>

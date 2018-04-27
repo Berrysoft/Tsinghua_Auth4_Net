@@ -168,4 +168,16 @@
   <data name="NoNetwork" xml:space="preserve">
     <value>Neniu reto.</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP-adreso</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>Salutnomo</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>Kliento</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>Elsalutu elektitajn erojn</value>
+  </data>
 </root>

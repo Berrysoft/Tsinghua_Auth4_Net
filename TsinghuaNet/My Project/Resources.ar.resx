@@ -168,4 +168,16 @@
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>فشل تسجيل الخروج: {0}</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>عنوان IP</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>وقت الدخول</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>العميل</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>تسجيل الخروج العناصر المحددة</value>
+  </data>
 </root>

@@ -175,6 +175,18 @@
     <value>600</value>
   </data>
   <data name="Width" xml:space="preserve">
-    <value>550</value>
+    <value>580</value>
+  </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP གནས་ཡུལ་</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>ཐོ་ འཇུག་ དུས་ཚོད་</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>མཁོ་ མཁན་ ཕྱོགས་</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>ཐོ་ཁོངས་ ནས་ སུབ་ རྣམ་གྲངས་ གདམས་ སོང་</value>
   </data>
 </root>

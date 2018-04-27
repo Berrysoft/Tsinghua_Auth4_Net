@@ -168,4 +168,16 @@
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Logout fehlgeschlagen: {0}</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP-Adresse</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>Anmeldezeit</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>Ausgewählte Elemente abmelden</value>
+  </data>
 </root>

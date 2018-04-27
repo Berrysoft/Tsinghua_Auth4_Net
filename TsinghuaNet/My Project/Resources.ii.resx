@@ -172,6 +172,18 @@
     <value>ꋊꇧꎭꌠꊋꀋꐛ：{0}</value>
   </data>
   <data name="Width" xml:space="preserve">
-    <value>500</value>
+    <value>580</value>
+  </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IPꐛꅉ</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>ꁱꄀꄮꈉ</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>ꃥꁯꊧꄻꄉꌬ</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>ꑍꈤꌋꌊꐘ</value>
   </data>
 </root>

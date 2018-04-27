@@ -168,4 +168,16 @@
   <data name="NoNetwork" xml:space="preserve">
     <value>Pas de réseau.</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>Adresse IP</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>Heure de connexion</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>Déconnexion des éléments sélectionnés</value>
+  </data>
 </root>
