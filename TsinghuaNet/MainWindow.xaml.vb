@@ -141,6 +141,9 @@ Class MainWindow
         Next
     End Sub
     Private Sub MainWindow_Closed() Handles Me.Closed
+        log.Username = Model.Username
+        log.Password = Model.Password
+        log.State = Model.State
         log.Save()
         Notify.Visible = False
         Notify.Dispose()
