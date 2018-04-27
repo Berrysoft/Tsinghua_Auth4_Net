@@ -92,7 +92,7 @@ Class MainViewModel
         model.OnStateChanged(e.NewValue)
     End Sub
 
-    Public ReadOnly Property Helper As NetHelperBase
+    Public ReadOnly Property Helper As IConnect
         Get
             Select Case State
                 Case NetState.Auth4

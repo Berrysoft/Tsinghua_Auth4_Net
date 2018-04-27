@@ -3,6 +3,7 @@ Imports System.Text
 
 Class NetHelper
     Inherits NetHelperBase
+    Implements IConnect
     Private Const Host = "net.tsinghua.edu.cn"
     Private Const ConnectUrl = "https://net.tsinghua.edu.cn/do_login.php"
     Private Const FluxUrl = "https://net.tsinghua.edu.cn/rad_user_info.php"
@@ -19,16 +20,16 @@ Class NetHelper
         End Get
     End Property
 
-    Public Overrides Async Function Connect() As Task(Of String)
-        Return (Await Post(ConnectUrl, String.Format(ConnectData, Username, "{MD5_HEX}" & GetMD5(Password)))).ErrorMessage
+    Public Async Function ConnectAsync() As Task(Of String) Implements IConnect.ConnectAsync
+        Return (Await PostAsync(ConnectUrl, String.Format(ConnectData, Username, "{MD5_HEX}" & GetMD5(Password)))).ErrorMessage
     End Function
 
-    Public Overrides Async Function LogOut() As Task(Of String)
-        Return (Await Post(ConnectUrl, LogOutData)).ErrorMessage
+    Public Async Function LogOutAsync() As Task(Of String) Implements IConnect.LogOutAsync
+        Return (Await PostAsync(ConnectUrl, LogOutData)).ErrorMessage
     End Function
 
-    Public Overrides Async Function GetFlux() As Task(Of (Response As String, ErrorMessage As String))
-        Return Await Post(FluxUrl, Nothing)
+    Public Async Function GetFluxAsync() As Task(Of (Response As String, ErrorMessage As String)) Implements IConnect.GetFluxAsync
+        Return Await PostAsync(FluxUrl, Nothing)
     End Function
 
     Friend Shared Function GetMD5(input As String) As String

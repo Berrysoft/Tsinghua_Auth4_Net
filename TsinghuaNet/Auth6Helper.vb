@@ -1,5 +1,6 @@
 ﻿Class Auth6Helper
     Inherits NetHelperBase
+    Implements IConnect
     Private Const Host = "auth6.tsinghua.edu.cn"
     Private Const ConnectUrl = "https://auth6.tsinghua.edu.cn/srun_portal_pc.php"
     Private Const LogOutUrl = "https://auth6.tsinghua.edu.cn/cgi-bin/srun_portal"
@@ -17,15 +18,15 @@
         End Get
     End Property
 
-    Public Overrides Async Function Connect() As Task(Of String)
-        Return (Await Post(ConnectUrl, String.Format(ConnectData, Username, Password))).ErrorMessage
+    Public Async Function ConnectAsync() As Task(Of String) Implements IConnect.ConnectAsync
+        Return (Await PostAsync(ConnectUrl, String.Format(ConnectData, Username, Password))).ErrorMessage
     End Function
 
-    Public Overrides Async Function LogOut() As Task(Of String)
-        Return (Await Post(LogOutUrl, LogOutData)).ErrorMessage
+    Public Async Function LogOutAsync() As Task(Of String) Implements IConnect.LogOutAsync
+        Return (Await PostAsync(LogOutUrl, LogOutData)).ErrorMessage
     End Function
 
-    Public Overrides Async Function GetFlux() As Task(Of (Response As String, ErrorMessage As String))
-        Return Await Post(FluxUrl, Nothing)
+    Public Async Function GetFluxAsync() As Task(Of (Response As String, ErrorMessage As String)) Implements IConnect.GetFluxAsync
+        Return Await PostAsync(FluxUrl, Nothing)
     End Function
 End Class

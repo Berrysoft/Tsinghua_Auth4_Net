@@ -5,18 +5,19 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 
 Class UseregHelper
+    Inherits NetHelperBase
     Private Const ConnectUrl = "https://usereg.tsinghua.edu.cn/do.php"
     Private Const InfoUrl = "https://usereg.tsinghua.edu.cn/online_user_ipv4.php"
     Private Const ConnectData = "action=login&user_login_name={0}&user_password={1}"
     Private Const LogoutData = "action=drop&user_ip={0}"
-    Public ReadOnly Property Username As String
-    Public ReadOnly Property Password As String
     Public Sub New(username As String, password As String)
-        Me.Username = username
-        Me.Password = password
+        MyBase.New(username, password)
     End Sub
-    Public Async Function GetUserList() As Task(Of IEnumerable(Of NetUser))
-        Dim userhtml = Await GetData(InfoUrl, ConnectUrl, String.Format(ConnectData, Username, NetHelper.GetMD5(Password)))
+    Public Async Function ConnectAsync() As Task(Of String)
+        Return (Await PostAsync(ConnectUrl, String.Format(ConnectData, Username, NetHelper.GetMD5(Password)))).ErrorMessage
+    End Function
+    Public Async Function GetUsersAsync() As Task(Of IEnumerable(Of NetUser))
+        Dim userhtml = Await GetAsync(InfoUrl)
         If userhtml.ErrorMessage Is Nothing Then
             Dim info = Regex.Matches(userhtml.Response, "<tr align=""center"">.+?</tr>", RegexOptions.Singleline)
             Dim users = From r As Match In info
@@ -31,42 +32,8 @@ Class UseregHelper
         End If
         Return Nothing
     End Function
-    Public Async Function LogoutUser(user As NetUser) As Task
-        Await PostData(InfoUrl, String.Format(LogoutData, user.Address), ConnectUrl, String.Format(ConnectData, Username, NetHelper.GetMD5(Password)))
-    End Function
-    Public Shared Async Function PostData(url As String, data As String, connect As String, connectData As String) As Task(Of (Response As String, ErrorMessage As String))
-        Try
-            Using client As New HttpClient()
-                Using content As New StringContent(If(connectData, String.Empty), Encoding.ASCII, "application/x-www-form-urlencoded")
-                    Using response As HttpResponseMessage = Await client.PostAsync(connect, content)
-                        Await response.Content.ReadAsStringAsync()
-                    End Using
-                End Using
-                Using content As New StringContent(If(data, String.Empty), Encoding.ASCII, "application/x-www-form-urlencoded")
-                    Using response As HttpResponseMessage = Await client.PostAsync(url, content)
-                        Dim res As String = Await response.Content.ReadAsStringAsync()
-                        Return (res, Nothing)
-                    End Using
-                End Using
-            End Using
-        Catch ex As Exception
-            Return (Nothing, ex.Message)
-        End Try
-    End Function
-    Public Shared Async Function GetData(url As String, connect As String, data As String) As Task(Of (Response As String, ErrorMessage As String))
-        Try
-            Using client As New HttpClient()
-                Using content As New StringContent(If(data, String.Empty), Encoding.ASCII, "application/x-www-form-urlencoded")
-                    Using response As HttpResponseMessage = Await client.PostAsync(connect, content)
-                        Await response.Content.ReadAsStringAsync()
-                        Dim res As String = Await client.GetStringAsync(url)
-                        Return (res, Nothing)
-                    End Using
-                End Using
-            End Using
-        Catch ex As Exception
-            Return (Nothing, ex.Message)
-        End Try
+    Public Async Function LogoutAsync(user As NetUser) As Task
+        Await PostAsync(InfoUrl, String.Format(LogoutData, user.Address))
     End Function
 End Class
 

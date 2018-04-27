@@ -22,10 +22,10 @@ Class MainWindow
     End Sub
     Private Async Sub Connect()
         CancelGetFlux()
-        Dim helper As NetHelperBase = Model.Helper
+        Dim helper As IConnect = Model.Helper
         Dim connected As Boolean = False
         SetFlux(My.Resources.Connecting)
-        Dim result As String = Await helper.Connect()
+        Dim result As String = Await helper.ConnectAsync()
         If result IsNot Nothing Then
             MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, result), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
         Else
@@ -35,9 +35,9 @@ Class MainWindow
     End Sub
     Private Async Sub LogOut()
         CancelGetFlux()
-        Dim helper As NetHelperBase = Model.Helper
+        Dim helper As IConnect = Model.Helper
         SetFlux(My.Resources.LoggingOut)
-        Dim result As String = Await helper.LogOut()
+        Dim result As String = Await helper.LogOutAsync()
         If result IsNot Nothing Then
             MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, result), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
         End If
@@ -46,7 +46,7 @@ Class MainWindow
     Private Async Sub LogOutSelected()
         Dim usereg As UseregHelper = Model.UseregHelper
         For Each user In UsersList.SelectedItems
-            Await usereg.LogoutUser(user)
+            Await usereg.LogoutAsync(user)
         Next
         GetFlux()
     End Sub
@@ -65,9 +65,9 @@ Class MainWindow
         getFluxCancellationTokeSource?.Cancel()
         getFluxCancellationTokeSource = Nothing
     End Sub
-    Private Async Function GetFluxInternal(helper As NetHelperBase, usereg As UseregHelper, token As CancellationToken) As Task
+    Private Async Function GetFluxInternal(helper As IConnect, usereg As UseregHelper, token As CancellationToken) As Task
         If helper IsNot Nothing Then
-            Dim result = Await helper.GetFlux()
+            Dim result = Await helper.GetFluxAsync()
             token.ThrowIfCancellationRequested()
             If result.ErrorMessage Is Nothing Then
                 Dim r As String() = result.Response.Split(","c)
@@ -80,8 +80,11 @@ Class MainWindow
                 SetFlux(My.Resources.NoNetwork)
             End If
             If usereg IsNot Nothing Then
-                Dim list = Await usereg.GetUserList()
-                SetUsers(list)
+                Dim err = Await usereg.ConnectAsync()
+                If err Is Nothing Then
+                    Dim list = Await usereg.GetUsersAsync()
+                    SetUsers(list)
+                End If
             End If
         End If
     End Function
