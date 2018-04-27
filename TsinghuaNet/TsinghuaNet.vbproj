@@ -91,6 +91,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters.vb" />
     <Compile Include="Settings.vb" />
     <Compile Include="UseregHelper.vb" />
     <Page Include="Application.xaml">

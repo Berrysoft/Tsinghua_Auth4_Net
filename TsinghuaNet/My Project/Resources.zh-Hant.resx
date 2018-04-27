@@ -168,4 +168,16 @@
   <data name="OK" xml:space="preserve">
     <value>確定</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP地址</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>登入時間</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>客戶端</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>登出選中項</value>
+  </data>
 </root>

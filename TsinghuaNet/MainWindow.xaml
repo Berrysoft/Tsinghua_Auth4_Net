@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:TsinghuaNet"
         xmlns:res="clr-namespace:TsinghuaNet.My.Resources"
         mc:Ignorable="d"
-        Title="{x:Static res:Resources.Title}" Height="360" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" FontSize="18">
+        Title="{x:Static res:Resources.Title}" Height="500" Width="450" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" FontSize="18">
     <Window.DataContext>
         <local:MainViewModel x:Name="Model"/>
     </Window.DataContext>
@@ -18,8 +18,8 @@
         <local:CultureToDisplayString x:Key="CultureDisplay"/>
         <local:CultureToNativeString x:Key="CultureNative"/>
         <local:CultureToFlow x:Key="CultureFlow"/>
+        <local:DateToNativeString x:Key="Date"/>
         <SolidColorBrush x:Key="TsinghuaPurple" Color="#FF660874"/>
-        <SolidColorBrush x:Key="Grid.Button.Background" Color="#FFF0F0F0"/>
     </Window.Resources>
     <Grid FlowDirection="{Binding FlowDirection}">
         <Grid.RowDefinitions>
@@ -28,6 +28,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="3*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
@@ -57,7 +58,7 @@
             <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding OnlineTime}"/>
             <Label Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding Flux,Converter={StaticResource Nullable}}" Content="{Binding Balance,Converter={StaticResource Money},ConverterCulture=zh-CN}"/>
         </UniformGrid>
-        <Grid Grid.Row="4" Background="{StaticResource Grid.Button.Background}">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -67,13 +68,34 @@
             <Button x:Name="LogOutButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="LogOut" Content="{x:Static res:Resources.LogOut}"/>
             <Button x:Name="RefreshButton" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="GetFlux" Content="{x:Static res:Resources.Refresh}"/>
         </Grid>
-        <Grid Grid.Row="5" Background="{StaticResource Grid.Button.Background}">
+        <ListView x:Name="UsersList" Grid.Row="5" Margin="10" ItemsSource="{Binding Users}" Foreground="{StaticResource TsinghuaPurple}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListViewItem}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="{x:Static res:Resources.IPHeader}" DisplayMemberBinding="{Binding Address}"/>
+                    <GridViewColumn Header="{x:Static res:Resources.LoginTimeHeader}" DisplayMemberBinding="{Binding LoginTime,Converter={StaticResource Date}}"/>
+                    <GridViewColumn Header="{x:Static res:Resources.ClientHeader}" DisplayMemberBinding="{Binding Client}"/>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{x:Static res:Resources.LogOutSelected}" Click="LogOutSelected"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{x:Static res:Resources.LanguageWithColon}"/>
+            <Label Grid.Column="0" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{x:Static res:Resources.LanguageWithColon}"/>
             <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemsSource="{Binding Languages}" SelectedIndex="{Binding LanguagesSelectIndex}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

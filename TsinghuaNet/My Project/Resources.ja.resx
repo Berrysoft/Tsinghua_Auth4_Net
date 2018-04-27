@@ -168,4 +168,19 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP アドレス</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>ログイン時間</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>クライアント</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>ログアウトチェック</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>480</value>
+  </data>
 </root>

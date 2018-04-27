@@ -43,12 +43,20 @@ Class MainWindow
         End If
         GetFlux()
     End Sub
+    Private Async Sub LogOutSelected()
+        Dim usereg As UseregHelper = Model.UseregHelper
+        For Each user In UsersList.SelectedItems
+            Await usereg.LogoutUser(user)
+        Next
+        GetFlux()
+    End Sub
     Private Async Sub GetFlux()
         CancelGetFlux()
         getFluxCancellationTokeSource = New CancellationTokenSource()
         Try
             Dim helper As NetHelperBase = Model.Helper
-            Await GetFluxInternal(helper, getFluxCancellationTokeSource.Token)
+            Dim usereg As UseregHelper = Model.UseregHelper
+            Await GetFluxInternal(helper, usereg, getFluxCancellationTokeSource.Token)
         Catch ex As OperationCanceledException
 
         End Try
@@ -57,7 +65,7 @@ Class MainWindow
         getFluxCancellationTokeSource?.Cancel()
         getFluxCancellationTokeSource = Nothing
     End Sub
-    Private Async Function GetFluxInternal(helper As NetHelperBase, token As CancellationToken) As Task
+    Private Async Function GetFluxInternal(helper As NetHelperBase, usereg As UseregHelper, token As CancellationToken) As Task
         If helper IsNot Nothing Then
             Dim result = Await helper.GetFlux()
             token.ThrowIfCancellationRequested()
@@ -71,6 +79,10 @@ Class MainWindow
             Else
                 SetFlux(My.Resources.NoNetwork)
             End If
+            If usereg IsNot Nothing Then
+                Dim list = Await usereg.GetUserList()
+                SetUsers(list)
+            End If
         End If
     End Function
     Private Sub SetFlux(username As String, Optional flux As Long? = Nothing, Optional time As TimeSpan? = Nothing, Optional balance As Decimal? = Nothing)
@@ -80,6 +92,17 @@ Class MainWindow
                 Model.Flux = flux
                 Model.OnlineTime = time
                 Model.Balance = balance
+            End Sub)
+    End Sub
+    Private Sub SetUsers(source As IEnumerable(Of NetUser))
+        Me.Dispatcher.BeginInvoke(
+            Sub()
+                Model.Users.Clear()
+                If source IsNot Nothing Then
+                    For Each user In source
+                        Model.Users.Add(user)
+                    Next
+                End If
             End Sub)
     End Sub
     Private Sub Model_StateChanged(sender As Object, e As NetState) Handles Model.StateChanged

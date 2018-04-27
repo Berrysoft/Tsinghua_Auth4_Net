@@ -61,6 +61,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 Client 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ClientHeader() As String
+            Get
+                Return ResourceManager.GetString("ClientHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Login 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Connect() As String
@@ -115,11 +124,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 360 的本地化字符串。
+        '''  查找类似 500 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Height() As String
             Get
                 Return ResourceManager.GetString("Height", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 IP address 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property IPHeader() As String
+            Get
+                Return ResourceManager.GetString("IPHeader", resourceCulture)
             End Get
         End Property
         
@@ -138,6 +156,15 @@ Namespace My.Resources
         Public ReadOnly Property LoggingOut() As String
             Get
                 Return ResourceManager.GetString("LoggingOut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Login time 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LoginTimeHeader() As String
+            Get
+                Return ResourceManager.GetString("LoginTimeHeader", resourceCulture)
             End Get
         End Property
         
@@ -165,6 +192,15 @@ Namespace My.Resources
         Public ReadOnly Property LogOutFailedWithResult() As String
             Get
                 Return ResourceManager.GetString("LogOutFailedWithResult", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Logout selected items 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LogOutSelected() As String
+            Get
+                Return ResourceManager.GetString("LogOutSelected", resourceCulture)
             End Get
         End Property
         
@@ -232,7 +268,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 420 的本地化字符串。
+        '''  查找类似 460 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Width() As String
             Get

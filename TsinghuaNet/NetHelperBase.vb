@@ -34,16 +34,4 @@ MustInherit Class NetHelperBase
             Return (Nothing, ex.Message)
         End Try
     End Function
-    Public Shared Async Function GetData(url As String) As Task(Of (Response As String, ErrorMessage As String))
-        Try
-            Using client As New HttpClient()
-                Using response As HttpResponseMessage = Await client.GetAsync(url)
-                    Dim res As String = Await response.Content.ReadAsStringAsync()
-                    Return (res, Nothing)
-                End Using
-            End Using
-        Catch ex As Exception
-            Return (Nothing, ex.Message)
-        End Try
-    End Function
 End Class

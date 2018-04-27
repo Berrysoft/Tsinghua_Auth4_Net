@@ -172,9 +172,21 @@
     <value>18</value>
   </data>
   <data name="Width" xml:space="preserve">
-    <value>420</value>
+    <value>460</value>
   </data>
   <data name="Height" xml:space="preserve">
-    <value>360</value>
+    <value>500</value>
+  </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP address</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>Login time</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>Logout selected items</value>
   </data>
 </root>
