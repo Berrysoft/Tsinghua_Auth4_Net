@@ -168,15 +168,6 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="FontSize" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="Width" xml:space="preserve">
-    <value>460</value>
-  </data>
-  <data name="Height" xml:space="preserve">
-    <value>500</value>
-  </data>
   <data name="IPHeader" xml:space="preserve">
     <value>IP address</value>
   </data>
@@ -188,5 +179,14 @@
   </data>
   <data name="LogOutSelected" xml:space="preserve">
     <value>Logout selected items</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>500</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>460</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>18</value>
   </data>
 </root>

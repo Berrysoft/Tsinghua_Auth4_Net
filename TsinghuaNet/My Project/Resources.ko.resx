@@ -141,6 +141,21 @@
   <data name="OK" xml:space="preserve">
     <value>그래</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP 주소</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>로그인 시간</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>클라이언트</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>로그 아웃 확인</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>500</value>
+  </data>
   <data name="NotifyText" xml:space="preserve">
     <value>클라이언트 표시</value>
   </data>
@@ -167,20 +182,5 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>네트워크 예외</value>
-  </data>
-  <data name="IPHeader" xml:space="preserve">
-    <value>IP 주소</value>
-  </data>
-  <data name="LoginTimeHeader" xml:space="preserve">
-    <value>로그인 시간</value>
-  </data>
-  <data name="ClientHeader" xml:space="preserve">
-    <value>클라이언트</value>
-  </data>
-  <data name="LogOutSelected" xml:space="preserve">
-    <value>로그 아웃 확인</value>
-  </data>
-  <data name="Width" xml:space="preserve">
-    <value>500</value>
   </data>
 </root>

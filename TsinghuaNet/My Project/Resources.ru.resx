@@ -141,6 +141,18 @@
   <data name="OK" xml:space="preserve">
     <value>Хорошо</value>
   </data>
+  <data name="IPHeader" xml:space="preserve">
+    <value>IP-адрес</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>Время входа</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>Клиента</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>Выйти из выбранного</value>
+  </data>
   <data name="NotifyText" xml:space="preserve">
     <value>Открыть клиент</value>
   </data>
@@ -167,17 +179,5 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>Нет сети.</value>
-  </data>
-  <data name="IPHeader" xml:space="preserve">
-    <value>IP-адрес</value>
-  </data>
-  <data name="LoginTimeHeader" xml:space="preserve">
-    <value>Время входа</value>
-  </data>
-  <data name="ClientHeader" xml:space="preserve">
-    <value>Клиента</value>
-  </data>
-  <data name="LogOutSelected" xml:space="preserve">
-    <value>Выйти из выбранного</value>
   </data>
 </root>

@@ -126,11 +126,23 @@
   <data name="OK" xml:space="preserve">
     <value>ئېنىق</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>يېڭىلىماق</value>
+  <data name="IPHeader" xml:space="preserve">
+    <value>تور ئارا كېلىشىم ئادرېسى</value>
+  </data>
+  <data name="LoginTimeHeader" xml:space="preserve">
+    <value>چىققان ۋاقىت ، تىزىملاتقان ۋاقىت</value>
+  </data>
+  <data name="ClientHeader" xml:space="preserve">
+    <value>ئابونت</value>
+  </data>
+  <data name="LogOutSelected" xml:space="preserve">
+    <value>ئۆچۈرۈش تاللانغان تۈر</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>600</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>يېڭىلىماق</value>
   </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>تىل:</value>
@@ -170,17 +182,5 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>تور بىنورمال.</value>
-  </data>
-  <data name="IPHeader" xml:space="preserve">
-    <value>تور ئارا كېلىشىم ئادرېسى</value>
-  </data>
-  <data name="LoginTimeHeader" xml:space="preserve">
-    <value>چىققان ۋاقىت ، تىزىملاتقان ۋاقىت</value>
-  </data>
-  <data name="ClientHeader" xml:space="preserve">
-    <value>ئابونت</value>
-  </data>
-  <data name="LogOutSelected" xml:space="preserve">
-    <value>ئۆچۈرۈش تاللانغان تۈر</value>
   </data>
 </root>
