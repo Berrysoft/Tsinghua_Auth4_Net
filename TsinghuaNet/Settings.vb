@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports System.Text
 Imports TsinghuaNet.Helpers
 
 Class Settings
@@ -10,7 +11,12 @@ Class Settings
         Try
             Dim logFile As XDocument = XDocument.Load(logPath)
             Username = If(logFile.<user>.<name>.Value, String.Empty)
-            Password = If(logFile.<user>.<password>.Value, String.Empty)
+            Dim passwordstr As String = logFile.<user>.<password>.Value
+            If passwordstr Is Nothing Then
+                Password = String.Empty
+            Else
+                Password = Encoding.ASCII.GetString(Convert.FromBase64String(passwordstr))
+            End If
             Dim statestr As String = logFile.<user>.<state>.Value
             If statestr Is Nothing Then
                 State = Await GetConnectableStateAsync()
@@ -51,7 +57,7 @@ Class Settings
             <?xml version="1.0" encoding="utf-8"?>
             <user>
                 <name><%= Username %></name>
-                <password><%= Password %></password>
+                <password><%= Convert.ToBase64String(Encoding.ASCII.GetBytes(Password)) %></password>
                 <state><%= State.ToString() %></state>
             </user>
         If Language IsNot Nothing Then
