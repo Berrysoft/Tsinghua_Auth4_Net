@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connect" xml:space="preserve">
-    <value>ꁱꄀ</value>
-  </data>
   <data name="LogOut" xml:space="preserve">
     <value>ꋊꇧꎭꌠ</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>ꏀꆦꌠ</value>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>ꂁꄉꌠꁱꂷ：</value>
   </data>
-  <data name="OK" xml:space="preserve">
-    <value>ꏤꄻꄉꌠ</value>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>ꂓ：</value>
   </data>
   <data name="IPHeader" xml:space="preserve">
     <value>IPꐛꅉ</value>
@@ -147,20 +144,23 @@
   <data name="FontSize" xml:space="preserve">
     <value>22</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>ꏤꄻꄉꌠ</value>
+  </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>ꅇꂷ：</value>
   </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>ꂓ：</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>ꏀꆦꌠ</value>
   </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>ꂁꄉꌠꁱꂷ：</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>ꏼꉸꄊꑪꌶꅉꈄꏍꃥꁯꊧꄻꄉꌬ</value>
+  <data name="Connect" xml:space="preserve">
+    <value>ꁱꄀ</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>ꋋꆹꃥꁯꊧꄻꄉꌬ</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>ꏼꉸꄊꑪꌶꅉꈄꏍꃥꁯꊧꄻꄉꌬ</value>
   </data>
   <data name="Connecting" xml:space="preserve">
     <value>ꇬꊎꁱꄀ</value>
@@ -185,5 +185,8 @@
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>ꋊꇧꎭꌠꊋꀋꐛ：{0}</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>ꎞꅐ</value>
   </data>
 </root>

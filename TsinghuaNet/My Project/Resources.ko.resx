@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Title" xml:space="preserve">
-    <value>칭화 대학 캠퍼스 네트워크 클라이언트</value>
-  </data>
   <data name="Connect" xml:space="preserve">
     <value>로그인</value>
   </data>
@@ -159,6 +156,9 @@
   <data name="NotifyText" xml:space="preserve">
     <value>클라이언트 표시</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>칭화 대학 캠퍼스 네트워크 클라이언트</value>
+  </data>
   <data name="Connecting" xml:space="preserve">
     <value>로그인</value>
   </data>
@@ -182,5 +182,8 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>네트워크 예외</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>종료</value>
   </data>
 </root>

@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connect" xml:space="preserve">
-    <value>ཐོ་ འཇུག་</value>
-  </data>
   <data name="LogOut" xml:space="preserve">
     <value>ཐོ་ གསུབ་</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>གསར་གཏོད་</value>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>གསང་ཨང་ :</value>
   </data>
-  <data name="OK" xml:space="preserve">
-    <value>གཏན་ལ་ཕབ་ པ་</value>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>སྤྱོད་མཁན་ མིང་ :</value>
   </data>
   <data name="IPHeader" xml:space="preserve">
     <value>IP གནས་ཡུལ་</value>
@@ -150,20 +147,23 @@
   <data name="FontSize" xml:space="preserve">
     <value>25</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>གཏན་ལ་ཕབ་ པ་</value>
+  </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>སྐད་ཆ་ :</value>
   </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>སྤྱོད་མཁན་ མིང་ :</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>གསར་གཏོད་</value>
   </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>གསང་ཨང་ :</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>སློབ་གྲྭའི་ དྲ་བ་ ཆིང་ ཧྭ་ སློབ་ཆེན་ གྱི་ དུད་ སྣེ་</value>
+  <data name="Connect" xml:space="preserve">
+    <value>ཐོ་ འཇུག་</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>དུད་ སྣེ་ ལས་ མངོན་པར་ གཞིགས་ ན་</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>སློབ་གྲྭའི་ དྲ་བ་ ཆིང་ ཧྭ་ སློབ་ཆེན་ གྱི་ དུད་ སྣེ་</value>
   </data>
   <data name="Connecting" xml:space="preserve">
     <value>ཐོ་ འཇུག་ བཞིན་ ཡོད་ །</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>དྲ་རྒྱའི་ རྒྱུན་འགལ་ །</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>ཕྱིར་འཐེན་</value>
   </data>
 </root>

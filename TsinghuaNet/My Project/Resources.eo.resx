@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Title" xml:space="preserve">
-    <value>Klienta Reto de Ĉampiono de Tsinghua</value>
-  </data>
   <data name="Connect" xml:space="preserve">
     <value>Ensaluti</value>
   </data>
@@ -156,6 +153,9 @@
   <data name="NotifyText" xml:space="preserve">
     <value>Montri kliento</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Klienta Reto de Ĉampiono de Tsinghua</value>
+  </data>
   <data name="Connecting" xml:space="preserve">
     <value>Ensalutas...</value>
   </data>
@@ -179,5 +179,8 @@
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>Neniu reto.</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Eliru</value>
   </data>
 </root>

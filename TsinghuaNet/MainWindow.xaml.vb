@@ -13,8 +13,16 @@ Class MainWindow
         Me.Width = My.Resources.Width
         Me.Height = My.Resources.Height
         Me.Icon = Interop.Imaging.CreateBitmapSourceFromHIcon(My.Resources.Logo.Logo.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
-        Notify.Text = My.Resources.NotifyText
+        InitNotify()
+    End Sub
+    Private Sub InitNotify()
+        Notify.Text = My.Resources.Title
         Notify.Icon = My.Resources.Logo.Logo
+        Dim menu As New Forms.ContextMenu()
+        menu.MenuItems.Add(New Forms.MenuItem(My.Resources.NotifyText, AddressOf ShowFromMinimized))
+        menu.MenuItems.Add(New Forms.MenuItem(My.Resources.CloseText, AddressOf Close))
+        menu.RightToLeft = If(Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft, Forms.RightToLeft.Yes, Forms.RightToLeft.No)
+        Notify.ContextMenu = menu
         Notify.Visible = True
     End Sub
     Friend Overloads Sub Show(log As Settings)
@@ -166,14 +174,11 @@ Class MainWindow
         Model.State = NetState.Net
         Me.GetFlux()
     End Sub
-    Friend Sub ShowFromMinimized()
+    Friend Sub ShowFromMinimized() Handles Notify.Click
         Me.Show()
         Me.WindowState = WindowState.Normal
         Me.Activate()
         Me.GetFlux()
-    End Sub
-    Private Sub Notify_Click(sender As Object, e As EventArgs) Handles Notify.Click
-        ShowFromMinimized()
     End Sub
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)

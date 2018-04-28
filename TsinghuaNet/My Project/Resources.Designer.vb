@@ -70,6 +70,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 Exit 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property CloseText() As String
+            Get
+                Return ResourceManager.GetString("CloseText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Login 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Connect() As String

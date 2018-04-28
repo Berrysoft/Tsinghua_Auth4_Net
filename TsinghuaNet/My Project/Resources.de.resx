@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Title" xml:space="preserve">
-    <value>Tsinghua Campus Netzwerk Client</value>
-  </data>
   <data name="Connect" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -156,6 +153,9 @@
   <data name="NotifyText" xml:space="preserve">
     <value>Client anzeigen</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tsinghua Campus Netzwerk Client</value>
+  </data>
   <data name="Connecting" xml:space="preserve">
     <value>Login...</value>
   </data>
@@ -179,5 +179,8 @@
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>Logout fehlgeschlagen: {0}</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Ausfahrt</value>
   </data>
 </root>

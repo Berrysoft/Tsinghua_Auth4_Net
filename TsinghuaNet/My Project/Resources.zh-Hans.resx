@@ -180,4 +180,7 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>注销选中项</value>
   </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>退出</value>
+  </data>
 </root>

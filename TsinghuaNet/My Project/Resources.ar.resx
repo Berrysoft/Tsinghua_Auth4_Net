@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Connect" xml:space="preserve">
-    <value>تسجيل الدخول</value>
-  </data>
   <data name="LogOut" xml:space="preserve">
     <value>تسجيل الخروج</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>تحديث</value>
+  <data name="PasswordWithColon" xml:space="preserve">
+    <value>كلمه المرور:</value>
   </data>
-  <data name="OK" xml:space="preserve">
-    <value>موافق</value>
+  <data name="UsernameWithColon" xml:space="preserve">
+    <value>المستخدم:</value>
   </data>
   <data name="IPHeader" xml:space="preserve">
     <value>عنوان IP</value>
@@ -141,20 +138,23 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>تسجيل الخروج العناصر المحددة</value>
   </data>
-  <data name="UsernameWithColon" xml:space="preserve">
-    <value>المستخدم:</value>
-  </data>
-  <data name="PasswordWithColon" xml:space="preserve">
-    <value>كلمه المرور:</value>
-  </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>اللغه:</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>العميل شبكه الحرم الجامعي تسينغهوا</value>
+  <data name="Refresh" xml:space="preserve">
+    <value>تحديث</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>تسجيل الدخول</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>إظهار العميل</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>العميل شبكه الحرم الجامعي تسينغهوا</value>
   </data>
   <data name="Connecting" xml:space="preserve">
     <value>يتم الآن تسجيل الدخول...</value>
@@ -179,5 +179,8 @@
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
     <value>فشل تسجيل الخروج: {0}</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>انهاء</value>
   </data>
 </root>
