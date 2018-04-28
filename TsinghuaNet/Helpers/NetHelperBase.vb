@@ -54,8 +54,7 @@ Namespace Helpers
             Return result
         End Function
     End Class
-
-    Interface IConnect
+    Public Interface IConnect
         Function ConnectAsync() As Task(Of String)
         Function LogOutAsync() As Task(Of String)
         Function GetFluxAsync() As Task(Of (Response As String, ErrorMessage As String))
