@@ -16,7 +16,7 @@ Class MainWindow
         InitNotify()
     End Sub
     Private Sub InitNotify()
-        Notify.Text = My.Resources.Title
+        Notify.Text = My.Resources.NotifyText
         Notify.Icon = My.Resources.Logo.Logo
         Dim menu As New Forms.ContextMenu()
         menu.MenuItems.Add(New Forms.MenuItem(My.Resources.NotifyText, AddressOf ShowFromMinimized))
