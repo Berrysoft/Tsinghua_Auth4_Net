@@ -174,11 +174,16 @@ Class MainWindow
         Model.State = NetState.Net
         Me.GetFlux()
     End Sub
-    Friend Sub ShowFromMinimized() Handles Notify.Click
+    Friend Sub ShowFromMinimized()
         Me.Show()
         Me.WindowState = WindowState.Normal
         Me.Activate()
         Me.GetFlux()
+    End Sub
+    Private Sub Notify_MouseClick(sender As Object, e As Forms.MouseEventArgs) Handles Notify.MouseClick
+        If e.Button = Forms.MouseButtons.Left Then
+            ShowFromMinimized()
+        End If
     End Sub
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)
