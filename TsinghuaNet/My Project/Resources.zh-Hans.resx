@@ -180,6 +180,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>注销选中项</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>简略信息</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>在GitHub上查看代码</value>
+  </data>
   <data name="CloseText" xml:space="preserve">
     <value>退出</value>
   </data>

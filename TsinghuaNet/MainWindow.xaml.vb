@@ -10,8 +10,9 @@ Class MainWindow
     Public Sub New()
         InitializeComponent()
         Me.FontSize = My.Resources.FontSize
+        Model.SingleHeight = New GridLength(My.Resources.SingleHeight)
+        UsersList.Height = My.Resources.ListHeight
         Me.Width = My.Resources.Width
-        Me.Height = My.Resources.Height
         Me.Icon = Interop.Imaging.CreateBitmapSourceFromHIcon(My.Resources.Logo.Logo.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
         InitNotify()
     End Sub
@@ -129,6 +130,7 @@ Class MainWindow
         Model.Username = log.Username
         Model.Password = log.Password
         Model.State = log.State
+        Model.MoreInformation = log.MoreInf
         GetFlux()
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
@@ -153,6 +155,7 @@ Class MainWindow
         log.Username = Model.Username
         log.Password = Model.Password
         log.State = Model.State
+        log.MoreInf = Model.MoreInformation
         log.Save()
         Notify.Visible = False
         Notify.Dispose()
@@ -202,6 +205,9 @@ Class MainWindow
         End If
         Return base.Name = current.Name OrElse CompareCulture(base, current.Parent)
     End Function
+    Private Sub ViewOnGitHub()
+        Process.Start("https://github.com/Berrysoft/Tsinghua_Auth4_Net")
+    End Sub
 End Class
 
 Class CultureInfoComparer

@@ -138,8 +138,11 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>ᠬᠦᠴᠦᠨ ᠦᠬᠡᠢ ᠪᠣᠯᠭᠠᠬᠤ ᠰᠣᠩᠭᠣᠭᠰᠠᠨ ᠵᠤᠷᠪᠤᠰ</value>
   </data>
-  <data name="Height" xml:space="preserve">
-    <value>600</value>
+  <data name="SingleHeight" xml:space="preserve">
+    <value>70</value>
+  </data>
+  <data name="ListHeight" xml:space="preserve">
+    <value>210</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>580</value>

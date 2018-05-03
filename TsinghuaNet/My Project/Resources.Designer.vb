@@ -133,15 +133,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 500 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property Height() As String
-            Get
-                Return ResourceManager.GetString("Height", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  查找类似 IP address 的本地化字符串。
         '''</summary>
         Public ReadOnly Property IPHeader() As String
@@ -156,6 +147,24 @@ Namespace My.Resources
         Public ReadOnly Property LanguageWithColon() As String
             Get
                 Return ResourceManager.GetString("LanguageWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Less information 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LessInf() As String
+            Get
+                Return ResourceManager.GetString("LessInf", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 150 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ListHeight() As String
+            Get
+                Return ResourceManager.GetString("ListHeight", resourceCulture)
             End Get
         End Property
         
@@ -214,6 +223,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 More information 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property MoreInf() As String
+            Get
+                Return ResourceManager.GetString("MoreInf", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 No network. 的本地化字符串。
         '''</summary>
         Public ReadOnly Property NoNetwork() As String
@@ -259,6 +277,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 50 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property SingleHeight() As String
+            Get
+                Return ResourceManager.GetString("SingleHeight", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Tsinghua Campus Network Client 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Title() As String
@@ -273,6 +300,15 @@ Namespace My.Resources
         Public ReadOnly Property UsernameWithColon() As String
             Get
                 Return ResourceManager.GetString("UsernameWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 View code on GitHub... 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ViewOnGitHub() As String
+            Get
+                Return ResourceManager.GetString("ViewOnGitHub", resourceCulture)
             End Get
         End Property
         

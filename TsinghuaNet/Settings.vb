@@ -28,6 +28,10 @@ Class Settings
                     State = Await GetConnectableStateAsync()
                 End If
             End If
+            Dim moreinf As String = logFile.<user>.<more>.Value
+            If StrComp(moreinf, "true", CompareMethod.Text) = 0 Then
+                Me.MoreInf = True
+            End If
             Dim lang As String = logFile.<user>.<language>.Value
             If lang IsNot Nothing Then
                 Try
@@ -59,6 +63,7 @@ Class Settings
                 <name><%= Username %></name>
                 <password><%= Convert.ToBase64String(Encoding.ASCII.GetBytes(Password)) %></password>
                 <state><%= State.ToString() %></state>
+                <more><%= MoreInf.ToString() %></more>
             </user>
         If Language IsNot Nothing Then
             log.Element("user").Add(New XElement("language", Language.Name))
@@ -68,5 +73,6 @@ Class Settings
     Public Property Username As String
     Public Property Password As String
     Public Property State As NetState
+    Public Property MoreInf As Boolean
     Public Property Language As CultureInfo
 End Class
