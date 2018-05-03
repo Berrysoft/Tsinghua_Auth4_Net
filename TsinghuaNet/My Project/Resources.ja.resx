@@ -180,6 +180,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>ログアウトチェック</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>詳細情報</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>簡単な情報</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>GitHub でコードを表示する</value>
+  </data>
   <data name="Width" xml:space="preserve">
     <value>480</value>
   </data>

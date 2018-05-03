@@ -304,7 +304,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 View code on GitHub... 的本地化字符串。
+        '''  查找类似 Codes on GitHub... 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ViewOnGitHub() As String
             Get

@@ -150,6 +150,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>Logout kiểm tra</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>Biết thêm thông tin</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>Thông tin ngắn gọn</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>Xem mã trên GitHub</value>
+  </data>
   <data name="Width" xml:space="preserve">
     <value>480</value>
   </data>

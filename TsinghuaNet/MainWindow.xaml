@@ -34,9 +34,9 @@
             <RowDefinition Height="{Binding SingleHeight}"/>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="0" Rows="1">
-            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth4.tsinghua.edu.cn/">Auth4</RadioButton>
-            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth6.tsinghua.edu.cn/">Auth6</RadioButton>
-            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True" ToolTip="https://net.tsinghua.edu.cn/">Net</RadioButton>
+            <RadioButton x:Name="Auth4" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth4.tsinghua.edu.cn">Auth4</RadioButton>
+            <RadioButton x:Name="Auth6" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" ToolTip="https://auth6.tsinghua.edu.cn">Auth6</RadioButton>
+            <RadioButton x:Name="Net" Foreground="{StaticResource TsinghuaPurple}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" IsChecked="True" ToolTip="https://net.tsinghua.edu.cn">Net</RadioButton>
         </UniformGrid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -117,12 +117,9 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Expander x:Name="Expander" Grid.Column="0" Margin="5,2,5,2" ExpandDirection="Down" VerticalAlignment="Center" Foreground="{StaticResource TsinghuaPurple}" IsExpanded="{Binding MoreInformation}" Header="{Binding MoreInformation,Converter={StaticResource MoreInf}}"/>
-            <Label Grid.Column="1" Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Expander x:Name="Expander" Margin="5,2,5,2" ExpandDirection="Down" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource TsinghuaPurple}" IsExpanded="{Binding MoreInformation}" Header="{Binding MoreInformation,Converter={StaticResource MoreInf}}"/>
+            <Label Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Label.ToolTip>https://github.com/Berrysoft/Tsinghua_Auth4_Net</Label.ToolTip>
                 <Hyperlink Click="ViewOnGitHub">
                     <Run Text="{x:Static res:Resources.ViewOnGitHub}"/>
                 </Hyperlink>

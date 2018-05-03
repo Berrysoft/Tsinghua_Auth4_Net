@@ -150,6 +150,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>Elsalutu elektitajn erojn</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>Pli da informo</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>Malpli informo</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>Kodoj sur GitHub...</value>
+  </data>
   <data name="NotifyText" xml:space="preserve">
     <value>Montri kliento</value>
   </data>

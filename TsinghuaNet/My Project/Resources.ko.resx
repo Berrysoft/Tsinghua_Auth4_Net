@@ -150,6 +150,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>로그 아웃 확인</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>상세 정보</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>간략 한 정보</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>GitHub에 코드 보기</value>
+  </data>
   <data name="Width" xml:space="preserve">
     <value>500</value>
   </data>

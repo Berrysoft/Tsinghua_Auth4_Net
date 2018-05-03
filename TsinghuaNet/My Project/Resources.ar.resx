@@ -138,6 +138,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>تسجيل الخروج العناصر المحددة</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>مزيد من المعلومات</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>معلومات اقل</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>رموز علي GitHub...</value>
+  </data>
   <data name="LanguageWithColon" xml:space="preserve">
     <value>اللغه:</value>
   </data>

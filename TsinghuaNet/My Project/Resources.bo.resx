@@ -138,17 +138,26 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>ཐོ་ཁོངས་ ནས་ སུབ་ རྣམ་གྲངས་ གདམས་ སོང་</value>
   </data>
-  <data name="SingleHeight" xml:space="preserve">
-    <value>70</value>
+  <data name="MoreInf" xml:space="preserve">
+    <value>ཆ་འཕྲིན་ ཞིབ་ཕྲ་</value>
   </data>
-  <data name="ListHeight" xml:space="preserve">
-    <value>210</value>
+  <data name="LessInf" xml:space="preserve">
+    <value>མདོར་བསྡུས་ ཀྱི་ ཆ་འཕྲིན་</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>GitHub ཐོག་ གི་ ཚབ་རྟགས་</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>580</value>
   </data>
   <data name="FontSize" xml:space="preserve">
     <value>25</value>
+  </data>
+  <data name="ListHeight" xml:space="preserve">
+    <value>210</value>
+  </data>
+  <data name="SingleHeight" xml:space="preserve">
+    <value>70</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>གཏན་ལ་ཕབ་ པ་</value>

@@ -150,6 +150,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>Déconnexion des éléments sélectionnés</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>Plus d'information</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>Moins d'information</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>Codes sur GitHub...</value>
+  </data>
   <data name="NotifyText" xml:space="preserve">
     <value>Afficher le client</value>
   </data>

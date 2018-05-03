@@ -135,6 +135,15 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>ئۆچۈرۈش تاللانغان تۈر</value>
   </data>
+  <data name="MoreInf" xml:space="preserve">
+    <value>تەپسىلىي ئۇچۇر</value>
+  </data>
+  <data name="LessInf" xml:space="preserve">
+    <value>ئاددىي ئۇچۇر</value>
+  </data>
+  <data name="ViewOnGitHub" xml:space="preserve">
+    <value>GitHub ئۈستىدىكى ۋاكالەت نومۇرىنى...</value>
+  </data>
   <data name="Width" xml:space="preserve">
     <value>600</value>
   </data>
