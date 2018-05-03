@@ -9,9 +9,6 @@ Class MainWindow
     Private getFluxCancellationTokeSource As CancellationTokenSource
     Public Sub New()
         InitializeComponent()
-        Me.FontSize = My.Resources.FontSize
-        Model.SingleHeight = New GridLength(My.Resources.SingleHeight)
-        UsersList.Height = My.Resources.ListHeight
         Me.Width = My.Resources.Width
         Me.Icon = Interop.Imaging.CreateBitmapSourceFromHIcon(My.Resources.Logo.Logo.Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
         InitNotify()

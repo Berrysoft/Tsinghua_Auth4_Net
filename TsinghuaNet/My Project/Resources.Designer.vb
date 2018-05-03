@@ -124,15 +124,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 18 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property FontSize() As String
-            Get
-                Return ResourceManager.GetString("FontSize", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  查找类似 IP address 的本地化字符串。
         '''</summary>
         Public ReadOnly Property IPHeader() As String
@@ -156,15 +147,6 @@ Namespace My.Resources
         Public ReadOnly Property LessInf() As String
             Get
                 Return ResourceManager.GetString("LessInf", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 150 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property ListHeight() As String
-            Get
-                Return ResourceManager.GetString("ListHeight", resourceCulture)
             End Get
         End Property
         
@@ -273,15 +255,6 @@ Namespace My.Resources
         Public ReadOnly Property Refresh() As String
             Get
                 Return ResourceManager.GetString("Refresh", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 50 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property SingleHeight() As String
-            Get
-                Return ResourceManager.GetString("SingleHeight", resourceCulture)
             End Get
         End Property
         

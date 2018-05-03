@@ -147,18 +147,6 @@
   <data name="ViewOnGitHub" xml:space="preserve">
     <value>GitHubꀂꏽꌠꌐꂷ</value>
   </data>
-  <data name="Width" xml:space="preserve">
-    <value>580</value>
-  </data>
-  <data name="FontSize" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="ListHeight" xml:space="preserve">
-    <value>210</value>
-  </data>
-  <data name="SingleHeight" xml:space="preserve">
-    <value>70</value>
-  </data>
   <data name="OK" xml:space="preserve">
     <value>ꏤꄻꄉꌠ</value>
   </data>
@@ -203,5 +191,8 @@
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>ꎞꅐ</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>490</value>
   </data>
 </root>

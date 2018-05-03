@@ -15,16 +15,6 @@ Class MainViewModel
         End Set
     End Property
 
-    Public Shared ReadOnly SingleHeightProperty As DependencyProperty = DependencyProperty.Register(NameOf(SingleHeight), GetType(GridLength), GetType(MainViewModel), New PropertyMetadata(New GridLength(50)))
-    Public Property SingleHeight As GridLength
-        Get
-            Return GetValue(SingleHeightProperty)
-        End Get
-        Set(value As GridLength)
-            SetValue(SingleHeightProperty, value)
-        End Set
-    End Property
-
     Public Shared ReadOnly UsernameProperty As DependencyProperty = DependencyProperty.Register(NameOf(Username), GetType(String), GetType(MainViewModel), New PropertyMetadata(String.Empty))
     Public Property Username As String
         Get
