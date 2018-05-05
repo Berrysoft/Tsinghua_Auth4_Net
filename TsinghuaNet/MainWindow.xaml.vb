@@ -59,38 +59,35 @@ Class MainWindow
     End Sub
     Private Async Sub GetFlux()
         CancelGetFlux()
-        getFluxCancellationTokeSource = New CancellationTokenSource()
-        Try
+        Using getFluxCancellationTokeSource = New CancellationTokenSource()
             Dim helper As IConnect = Model.Helper
             Dim usereg As UseregHelper = Model.UseregHelper
             Await GetFluxInternal(helper, usereg, getFluxCancellationTokeSource.Token)
-        Catch ex As OperationCanceledException
-
-        End Try
+        End Using
     End Sub
     Private Sub CancelGetFlux()
         getFluxCancellationTokeSource?.Cancel()
-        getFluxCancellationTokeSource = Nothing
     End Sub
     Private Async Function GetFluxInternal(helper As IConnect, usereg As UseregHelper, token As CancellationToken) As Task
         If helper IsNot Nothing Then
             Dim result = Await helper.GetFluxAsync()
-            token.ThrowIfCancellationRequested()
-            If result.ErrorMessage Is Nothing Then
-                Dim r As String() = result.Response.Split(","c)
-                If String.IsNullOrWhiteSpace(r(0)) Then
-                    SetFlux(My.Resources.Disconnected)
+            If Not token.IsCancellationRequested Then
+                If result.ErrorMessage Is Nothing Then
+                    Dim r As String() = result.Response.Split(","c)
+                    If String.IsNullOrWhiteSpace(r(0)) Then
+                        SetFlux(My.Resources.Disconnected)
+                    Else
+                        SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))), CDec(r(11)))
+                    End If
                 Else
-                    SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))), CDec(r(11)))
+                    SetFlux(My.Resources.NoNetwork)
                 End If
-            Else
-                SetFlux(My.Resources.NoNetwork)
-            End If
-            If usereg IsNot Nothing Then
-                Dim err = Await usereg.ConnectAsync()
-                If err Is Nothing Then
-                    Dim list = Await usereg.GetUsersAsync()
-                    SetUsers(list)
+                If usereg IsNot Nothing Then
+                    Dim err = Await usereg.ConnectAsync()
+                    If err Is Nothing Then
+                        Dim list = Await usereg.GetUsersAsync()
+                        SetUsers(list)
+                    End If
                 End If
             End If
         End If
