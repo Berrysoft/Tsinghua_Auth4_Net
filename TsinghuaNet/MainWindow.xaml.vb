@@ -125,18 +125,17 @@ Class MainWindow
         Model.Password = log.Password
         Model.State = log.State
         Model.MoreInformation = log.MoreInf
-        GetFlux()
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
-        Dim langs As New List(Of CultureInfo)(Directory.GetDirectories(Directory.GetCurrentDirectory()).Select(
-                                              Function(fullName)
-                                                  Try
-                                                      Return New CultureInfo((New DirectoryInfo(fullName).Name))
-                                                  Catch ex As CultureNotFoundException
-                                                      Return Nothing
-                                                  End Try
-                                              End Function).Where(Function(cul) cul IsNot Nothing))
-        langs.Add(New CultureInfo(""))
+        Dim langs As New List(Of CultureInfo)()
+        langs.Add(CultureInfo.InvariantCulture)
+        For Each dirname In Directory.EnumerateDirectories(Directory.GetCurrentDirectory())
+            Try
+                langs.Add(New CultureInfo((New DirectoryInfo(dirname)).Name))
+            Catch ex As CultureNotFoundException
+
+            End Try
+        Next
         langs.Sort(New CultureInfoComparer(currentcul))
         For i = 0 To langs.Count - 1
             Model.Languages.Add(langs(i))

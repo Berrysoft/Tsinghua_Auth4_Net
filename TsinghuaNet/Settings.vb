@@ -29,7 +29,8 @@ Class Settings
                 End If
             End If
             Dim moreinf As String = logFile.<user>.<more>.Value
-            If StrComp(moreinf, "true", CompareMethod.Text) = 0 Then
+            Dim moreinfResult As Boolean
+            If Boolean.TryParse(moreinf, moreinfResult) AndAlso moreinfResult Then
                 Me.MoreInf = True
             End If
             Dim lang As String = logFile.<user>.<language>.Value
