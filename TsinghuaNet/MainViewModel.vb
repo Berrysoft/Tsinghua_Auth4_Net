@@ -76,7 +76,7 @@ Class MainViewModel
     End Property
 
     Public Event StateChanged As EventHandler(Of NetState)
-    Public Shared ReadOnly StateProperty As DependencyProperty = DependencyProperty.Register(NameOf(State), GetType(NetState), GetType(MainViewModel), New PropertyMetadata(NetState.Net, AddressOf StatePropertyChangedCallback))
+    Public Shared ReadOnly StateProperty As DependencyProperty = DependencyProperty.Register(NameOf(State), GetType(NetState), GetType(MainViewModel), New PropertyMetadata(NetState.Unknown, AddressOf StatePropertyChangedCallback))
     Public Property State As NetState
         Get
             Return GetValue(StateProperty)
@@ -156,6 +156,7 @@ Class MainViewModel
 End Class
 
 Enum NetState
+    Unknown
     Auth4
     Auth6
     Net

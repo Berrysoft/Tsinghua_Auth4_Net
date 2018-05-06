@@ -116,6 +116,8 @@ Class MainWindow
         Select Case e
             Case NetState.Auth4
                 Auth4.IsChecked = True
+            Case NetState.Auth6
+                Auth6.IsChecked = True
             Case NetState.Net
                 Net.IsChecked = True
         End Select
