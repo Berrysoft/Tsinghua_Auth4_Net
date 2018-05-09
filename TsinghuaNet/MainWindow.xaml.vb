@@ -38,7 +38,7 @@ Class MainWindow
         Else
             connected = True
         End If
-        If connected Then GetFlux()
+        If connected Then Await GetFlux(helper)
     End Sub
     Private Async Sub LogOut()
         CancelGetFlux()
@@ -48,7 +48,7 @@ Class MainWindow
         If result IsNot Nothing Then
             MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, result), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
         End If
-        GetFlux()
+        Await GetFlux(helper)
     End Sub
     Private Async Sub LogOutSelected()
         Dim usereg As UseregHelper = Model.UseregHelper
@@ -58,13 +58,15 @@ Class MainWindow
         GetFlux()
     End Sub
     Private Async Sub GetFlux()
+        Await GetFlux(Model.Helper)
+    End Sub
+    Private Async Function GetFlux(helper As IConnect) As Task
         CancelGetFlux()
         Using getFluxCancellationTokeSource = New CancellationTokenSource()
-            Dim helper As IConnect = Model.Helper
             Dim usereg As UseregHelper = Model.UseregHelper
             Await GetFluxInternal(helper, usereg, getFluxCancellationTokeSource.Token)
         End Using
-    End Sub
+    End Function
     Private Sub CancelGetFlux()
         getFluxCancellationTokeSource?.Cancel()
     End Sub
