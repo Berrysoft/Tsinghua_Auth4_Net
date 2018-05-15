@@ -81,15 +81,17 @@ Class MainWindow
             Dim result As FluxUser = Nothing
             Try
                 result = Await helper.GetFluxAsync()
+                If Not token.IsCancellationRequested Then
+                    If result IsNot Nothing Then
+                        SetFlux(result.Username, result.Flux, result.OnlineTime, result.Balance)
+                    Else
+                        SetFlux(My.Resources.Disconnected)
+                    End If
+                End If
             Catch ex As Exception
                 SetFlux(My.Resources.NoNetwork)
             End Try
             If Not token.IsCancellationRequested Then
-                If result IsNot Nothing Then
-                    SetFlux(result.Username, result.Flux, result.OnlineTime, result.Balance)
-                Else
-                    SetFlux(My.Resources.Disconnected)
-                End If
                 If usereg IsNot Nothing Then
                     Try
                         Await usereg.LoginAsync()
