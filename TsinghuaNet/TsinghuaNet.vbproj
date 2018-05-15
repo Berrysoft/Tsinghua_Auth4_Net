@@ -224,6 +224,10 @@
     <None Include="LogoLarge.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibrary\Berrysoft.Console\Berrysoft.Console.csproj">
+      <Project>{84a27a71-0d23-4b8d-88c0-5c00b5fbaef0}</Project>
+      <Name>Berrysoft.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ClassLibrary\Berrysoft.Tsinghua.Net\Berrysoft.Tsinghua.Net.csproj">
       <Project>{c82d2a94-7ad6-47f8-a6af-f2db46ddc5db}</Project>
       <Name>Berrysoft.Tsinghua.Net</Name>
