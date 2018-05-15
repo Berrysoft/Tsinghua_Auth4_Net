@@ -43,7 +43,7 @@ Class Settings
     Protected Overrides Function ChangeType(name As XName, value As Object, conversionType As Type) As Object
         Select Case name
             Case "password"
-                Return Encoding.ASCII.GetString(Convert.FromBase64String(value))
+                Return Encoding.ASCII.GetString(Convert.FromBase64String(If(value, String.Empty)))
             Case "state"
                 Dim temp As NetState
                 If [Enum].TryParse(value, temp) Then
@@ -60,7 +60,7 @@ Class Settings
                 End If
             Case "language"
                 Try
-                    Return New CultureInfo(value.ToString())
+                    Return If(value Is Nothing, Nothing, New CultureInfo(value.ToString()))
                 Catch ex As Exception
                     Return Nothing
                 End Try
