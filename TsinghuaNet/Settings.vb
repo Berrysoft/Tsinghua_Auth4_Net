@@ -20,10 +20,13 @@ Class Settings
     Public Sub New()
         Username = String.Empty
         Password = String.Empty
-        Me.OpenAsync()
+        OpenAsync()
     End Sub
     Private Async Sub OpenAsync()
-        Open(logPath)
+        Try
+            Open(logPath)
+        Catch ex As Exception
+        End Try
         If State = NetState.Unknown Then
             State = Await GetConnectableStateAsync()
         End If
