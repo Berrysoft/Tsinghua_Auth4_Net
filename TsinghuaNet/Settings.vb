@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
+Imports System.Net.NetworkInformation
 Imports System.Text
-Imports TsinghuaNet.Helpers
+Imports Berrysoft.Tsinghua.Net
 
 Class Settings
     Private Const logPath As String = "log.xml"
@@ -51,7 +52,9 @@ Class Settings
         State = Await GetConnectableStateAsync()
     End Sub
     Private Async Function GetConnectableStateAsync() As Task(Of NetState)
-        If Await NetHelperBase.CanConnect(Auth4Helper.HostName) Then
+        Dim ping As New Ping()
+        Dim response As PingReply = Await ping.SendPingAsync("auth4.tsinghua.edu.cn")
+        If response.Status = IPStatus.Success Then
             Return NetState.Auth4
         Else
             Return NetState.Net

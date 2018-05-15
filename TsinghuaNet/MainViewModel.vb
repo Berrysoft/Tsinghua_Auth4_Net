@@ -1,6 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Globalization
-Imports TsinghuaNet.Helpers
+Imports Berrysoft.Tsinghua.Net
 
 Class MainViewModel
     Inherits DependencyObject
@@ -107,9 +107,9 @@ Class MainViewModel
         Get
             Select Case State
                 Case NetState.Auth4
-                    Return New Auth4Helper(Username, Password)
+                    Return AuthHelper.CreateAuth4Helper(Username, Password)
                 Case NetState.Auth6
-                    Return New Auth6Helper(Username, Password)
+                    Return AuthHelper.CreateAuth6Helper(Username, Password)
                 Case NetState.Net
                     Return New NetHelper(Username, Password)
                 Case Else
@@ -138,12 +138,12 @@ Class MainViewModel
         End Set
     End Property
 
-    Public Shared ReadOnly UsersProperty As DependencyProperty = DependencyProperty.Register(NameOf(Users), GetType(ObservableCollection(Of NetUser)), GetType(MainViewModel), New PropertyMetadata(New ObservableCollection(Of NetUser)))
-    Public Property Users As ObservableCollection(Of NetUser)
+    Public Shared ReadOnly UsersProperty As DependencyProperty = DependencyProperty.Register(NameOf(Users), GetType(ObservableCollection(Of DependencyNetUser)), GetType(MainViewModel), New PropertyMetadata(New ObservableCollection(Of DependencyNetUser)))
+    Public Property Users As ObservableCollection(Of DependencyNetUser)
         Get
             Return GetValue(UsersProperty)
         End Get
-        Set(value As ObservableCollection(Of NetUser))
+        Set(value As ObservableCollection(Of DependencyNetUser))
             SetValue(UsersProperty, value)
         End Set
     End Property

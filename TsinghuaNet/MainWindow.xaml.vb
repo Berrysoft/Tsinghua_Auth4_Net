@@ -1,7 +1,7 @@
 ﻿Imports System.Globalization
 Imports System.IO
 Imports System.Threading
-Imports TsinghuaNet.Helpers
+Imports Berrysoft.Tsinghua.Net
 
 Class MainWindow
     Private log As Settings
@@ -32,28 +32,34 @@ Class MainWindow
         Dim helper As IConnect = Model.Helper
         Dim connected As Boolean = False
         SetFlux(My.Resources.Connecting)
-        Dim result As String = Await helper.ConnectAsync()
-        If result IsNot Nothing Then
-            MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, result), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
-        Else
+        Try
+            Await helper.LoginAsync()
             connected = True
-        End If
+        Catch ex As Exception
+            MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, ex.Message), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+        End Try
         If connected Then Await GetFlux(helper)
     End Sub
     Private Async Sub LogOut()
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
         SetFlux(My.Resources.LoggingOut)
-        Dim result As String = Await helper.LogOutAsync()
-        If result IsNot Nothing Then
-            MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, result), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
-        End If
+        Try
+            Await helper.LogoutAsync()
+        Catch ex As Exception
+            MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, ex.Message), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+        End Try
         Await GetFlux(helper)
     End Sub
     Private Async Sub LogOutSelected()
         Dim usereg As UseregHelper = Model.UseregHelper
-        For Each user In UsersList.SelectedItems
-            Await usereg.LogoutAsync(user)
+        For Each user As DependencyNetUser In UsersList.SelectedItems
+            Try
+                Await usereg.LoginAsync()
+                Await usereg.LogoutAsync(user.Address)
+                Await usereg.LogoutAsync()
+            Catch ex As Exception
+            End Try
         Next
         GetFlux()
     End Sub
@@ -72,24 +78,26 @@ Class MainWindow
     End Sub
     Private Async Function GetFluxInternal(helper As IConnect, usereg As UseregHelper, token As CancellationToken) As Task
         If helper IsNot Nothing Then
-            Dim result = Await helper.GetFluxAsync()
+            Dim result As FluxUser = Nothing
+            Try
+                result = Await helper.GetFluxAsync()
+            Catch ex As Exception
+                SetFlux(My.Resources.NoNetwork)
+            End Try
             If Not token.IsCancellationRequested Then
-                If result.ErrorMessage Is Nothing Then
-                    Dim r As String() = result.Response.Split(","c)
-                    If String.IsNullOrWhiteSpace(r(0)) Then
-                        SetFlux(My.Resources.Disconnected)
-                    Else
-                        SetFlux(r(0), CLng(r(6)), TimeSpan.FromSeconds(CLng(r(2)) - CLng(r(1))), CDec(r(11)))
-                    End If
+                If result IsNot Nothing Then
+                    SetFlux(result.Username, result.Flux, result.OnlineTime, result.Balance)
                 Else
-                    SetFlux(My.Resources.NoNetwork)
+                    SetFlux(My.Resources.Disconnected)
                 End If
                 If usereg IsNot Nothing Then
-                    Dim err = Await usereg.ConnectAsync()
-                    If err Is Nothing Then
-                        Dim list = Await usereg.GetUsersAsync()
+                    Try
+                        Await usereg.LoginAsync()
+                        Dim list = (Await usereg.GetUsersAsync()).Select(AddressOf DependencyNetUser.Create)
                         SetUsers(list)
-                    End If
+                        Await usereg.LogoutAsync()
+                    Catch ex As Exception
+                    End Try
                 End If
             End If
         End If
@@ -103,7 +111,7 @@ Class MainWindow
                 Model.Balance = balance
             End Sub)
     End Sub
-    Private Sub SetUsers(source As IEnumerable(Of NetUser))
+    Private Sub SetUsers(source As IEnumerable(Of DependencyNetUser))
         Me.Dispatcher.BeginInvoke(
             Sub()
                 Model.Users.Clear()

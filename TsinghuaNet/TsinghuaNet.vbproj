@@ -95,20 +95,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters.vb" />
+    <Compile Include="DependencyNetUser.vb" />
     <Compile Include="Settings.vb" />
-    <Compile Include="Helpers\UseregHelper.vb" />
     <Page Include="Application.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Helpers\Auth6Helper.vb" />
     <Compile Include="Logo.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Logo.resx</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\NetHelperBase.vb" />
-    <Compile Include="Helpers\NetHelper.vb" />
     <Compile Include="PasswordBox.xaml.vb">
       <DependentUpon>PasswordBox.xaml</DependentUpon>
     </Compile>
@@ -125,7 +122,6 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Helpers\Auth4Helper.vb" />
     <Compile Include="MainViewModel.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -226,6 +222,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LogoLarge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibrary\Berrysoft.Tsinghua.Net\Berrysoft.Tsinghua.Net.csproj">
+      <Project>{c82d2a94-7ad6-47f8-a6af-f2db46ddc5db}</Project>
+      <Name>Berrysoft.Tsinghua.Net</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
