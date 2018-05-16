@@ -28,26 +28,34 @@ Class MainWindow
         MyBase.Show()
     End Sub
     Private Async Sub Connect()
+        WriteEvent("开始登录")
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
         Dim connected As Boolean = False
         SetFlux(My.Resources.Connecting)
         Try
-            Await helper.LoginAsync()
+            Dim res = Await helper.LoginAsync()
             connected = True
+            WriteLog($"回复: {res}")
+            WriteEvent("登录成功")
         Catch ex As Exception
             MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, ex.Message), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+            WriteException(ex)
         End Try
         If connected Then Await GetFlux(helper)
     End Sub
     Private Async Sub LogOut()
+        WriteEvent("开始注销")
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
         SetFlux(My.Resources.LoggingOut)
         Try
-            Await helper.LogoutAsync()
+            Dim res = Await helper.LogoutAsync()
+            WriteLog($"回复: {res}")
+            WriteEvent("注销成功")
         Catch ex As Exception
             MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, ex.Message), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+            WriteException(ex)
         End Try
         Await GetFlux(helper)
     End Sub
@@ -55,10 +63,13 @@ Class MainWindow
         Dim usereg As UseregHelper = Model.UseregHelper
         For Each user As DependencyNetUser In UsersList.SelectedItems
             Try
+                WriteEvent($"注销IP: {user.Address}")
                 Await usereg.LoginAsync()
-                Await usereg.LogoutAsync(user.Address)
+                Dim res = Await usereg.LogoutAsync(user.Address)
                 Await usereg.LogoutAsync()
+                WriteLog($"回复: {res}")
             Catch ex As Exception
+                WriteException(ex)
             End Try
         Next
         GetFlux()
@@ -80,6 +91,7 @@ Class MainWindow
         If helper IsNot Nothing Then
             Dim result As FluxUser = Nothing
             Try
+                WriteEvent("开始刷新")
                 result = Await helper.GetFluxAsync()
                 If Not token.IsCancellationRequested Then
                     If result IsNot Nothing Then
@@ -87,9 +99,14 @@ Class MainWindow
                     Else
                         SetFlux(My.Resources.Disconnected)
                     End If
+                Else
+                    WriteEvent("刷新已取消")
+                    Return
                 End If
+                WriteEvent("流量获取成功")
             Catch ex As Exception
                 SetFlux(My.Resources.NoNetwork)
+                WriteException(ex)
             End Try
             If Not token.IsCancellationRequested Then
                 If usereg IsNot Nothing Then
@@ -98,9 +115,14 @@ Class MainWindow
                         Dim list = (Await usereg.GetUsersAsync()).Select(AddressOf DependencyNetUser.Create)
                         SetUsers(list)
                         Await usereg.LogoutAsync()
+                        WriteEvent("在线信息获取成功")
                     Catch ex As Exception
+                        WriteException(ex)
                     End Try
                 End If
+            Else
+                WriteEvent("刷新已取消")
+                Return
             End If
         End If
     End Function
@@ -135,19 +157,21 @@ Class MainWindow
         End Select
     End Sub
     Private Sub MainWindow_Loaded() Handles Me.Loaded
+        WriteEvent("加载设置")
         Model.Username = log.Username
         Model.Password = log.Password
         Model.State = log.State
         Model.MoreInformation = log.MoreInf
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
+        WriteEvent("加载语言")
         Dim langs As New List(Of CultureInfo)()
         langs.Add(CultureInfo.InvariantCulture)
         For Each dirname In Directory.EnumerateDirectories(Directory.GetCurrentDirectory())
             Try
                 langs.Add(New CultureInfo((New DirectoryInfo(dirname)).Name))
             Catch ex As CultureNotFoundException
-
+                WriteException(ex)
             End Try
         Next
         langs.Sort(New CultureInfoComparer(currentcul))

@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="Converters.vb" />
     <Compile Include="DependencyNetUser.vb" />
+    <Compile Include="LogWriter.vb" />
     <Compile Include="Settings.vb" />
     <Page Include="Application.xaml">
       <Generator>MSBuild:Compile</Generator>

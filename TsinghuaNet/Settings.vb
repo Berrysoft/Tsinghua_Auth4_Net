@@ -26,6 +26,7 @@ Class Settings
         Try
             Open(logPath)
         Catch ex As Exception
+            WriteException(ex)
         End Try
         If State = NetState.Unknown Then
             State = Await GetConnectableStateAsync()
@@ -65,6 +66,7 @@ Class Settings
                 Try
                     Return If(value Is Nothing, Nothing, New CultureInfo(value.ToString()))
                 Catch ex As Exception
+                    WriteException(ex)
                     Return Nothing
                 End Try
             Case Else
