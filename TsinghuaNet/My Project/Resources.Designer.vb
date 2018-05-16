@@ -61,7 +61,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Client 的本地化字符串。
+        '''  查找类似 客户端 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ClientHeader() As String
             Get
@@ -70,7 +70,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Exit 的本地化字符串。
+        '''  查找类似 退出 的本地化字符串。
         '''</summary>
         Public ReadOnly Property CloseText() As String
             Get
@@ -79,7 +79,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Login 的本地化字符串。
+        '''  查找类似 登录 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Connect() As String
             Get
@@ -88,7 +88,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logging in... 的本地化字符串。
+        '''  查找类似 正在登录 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Connecting() As String
             Get
@@ -97,7 +97,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Login failed 的本地化字符串。
+        '''  查找类似 登录错误 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ConnectionFailed() As String
             Get
@@ -106,7 +106,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Login failed: {0} 的本地化字符串。
+        '''  查找类似 登录错误：{0} 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ConnectionFailedWithResult() As String
             Get
@@ -115,7 +115,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logged out. 的本地化字符串。
+        '''  查找类似 未登录 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Disconnected() As String
             Get
@@ -124,7 +124,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 IP address 的本地化字符串。
+        '''  查找类似 发生错误 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ErrorOccurred() As String
+            Get
+                Return ResourceManager.GetString("ErrorOccurred", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 IP地址 的本地化字符串。
         '''</summary>
         Public ReadOnly Property IPHeader() As String
             Get
@@ -133,7 +142,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Language: 的本地化字符串。
+        '''  查找类似 语言： 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LanguageWithColon() As String
             Get
@@ -142,7 +151,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Less information 的本地化字符串。
+        '''  查找类似 简略信息 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LessInf() As String
             Get
@@ -151,7 +160,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logging out... 的本地化字符串。
+        '''  查找类似 正在注销 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LoggingOut() As String
             Get
@@ -160,7 +169,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Login time 的本地化字符串。
+        '''  查找类似 登录时间 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LoginTimeHeader() As String
             Get
@@ -169,7 +178,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logout 的本地化字符串。
+        '''  查找类似 注销 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LogOut() As String
             Get
@@ -178,7 +187,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logout failed 的本地化字符串。
+        '''  查找类似 注销错误 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LogOutFailed() As String
             Get
@@ -187,7 +196,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logout failed: {0} 的本地化字符串。
+        '''  查找类似 注销错误：{0} 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LogOutFailedWithResult() As String
             Get
@@ -196,7 +205,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Logout selected items 的本地化字符串。
+        '''  查找类似 注销选中项 的本地化字符串。
         '''</summary>
         Public ReadOnly Property LogOutSelected() As String
             Get
@@ -205,7 +214,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 More information 的本地化字符串。
+        '''  查找类似 详细信息 的本地化字符串。
         '''</summary>
         Public ReadOnly Property MoreInf() As String
             Get
@@ -214,7 +223,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 No network. 的本地化字符串。
+        '''  查找类似 网络异常 的本地化字符串。
         '''</summary>
         Public ReadOnly Property NoNetwork() As String
             Get
@@ -223,7 +232,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Show client 的本地化字符串。
+        '''  查找类似 显示客户端 的本地化字符串。
         '''</summary>
         Public ReadOnly Property NotifyText() As String
             Get
@@ -232,7 +241,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 OK 的本地化字符串。
+        '''  查找类似 确定 的本地化字符串。
         '''</summary>
         Public ReadOnly Property OK() As String
             Get
@@ -241,7 +250,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Password: 的本地化字符串。
+        '''  查找类似 密码： 的本地化字符串。
         '''</summary>
         Public ReadOnly Property PasswordWithColon() As String
             Get
@@ -250,7 +259,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Refresh 的本地化字符串。
+        '''  查找类似 刷新 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Refresh() As String
             Get
@@ -259,7 +268,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Tsinghua Campus Network Client 的本地化字符串。
+        '''  查找类似 清华大学校园网客户端 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Title() As String
             Get
@@ -268,7 +277,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Username: 的本地化字符串。
+        '''  查找类似 用户名： 的本地化字符串。
         '''</summary>
         Public ReadOnly Property UsernameWithColon() As String
             Get
@@ -277,7 +286,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Codes on GitHub... 的本地化字符串。
+        '''  查找类似 在GitHub上查看代码 的本地化字符串。
         '''</summary>
         Public ReadOnly Property ViewOnGitHub() As String
             Get

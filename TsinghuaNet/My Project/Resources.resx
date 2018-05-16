@@ -118,79 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Connecting" xml:space="preserve">
-    <value>Logging in...</value>
+    <value>正在登录</value>
   </data>
   <data name="ConnectionFailed" xml:space="preserve">
-    <value>Login failed</value>
+    <value>登录错误</value>
   </data>
   <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Login failed: {0}</value>
+    <value>登录错误：{0}</value>
   </data>
   <data name="Disconnected" xml:space="preserve">
-    <value>Logged out.</value>
+    <value>未登录</value>
   </data>
   <data name="LoggingOut" xml:space="preserve">
-    <value>Logging out...</value>
+    <value>正在注销</value>
   </data>
   <data name="LogOutFailed" xml:space="preserve">
-    <value>Logout failed</value>
+    <value>注销错误</value>
   </data>
   <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Logout failed: {0}</value>
+    <value>注销错误：{0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
-    <value>No network.</value>
+    <value>网络异常</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
-    <value>Show client</value>
+    <value>显示客户端</value>
   </data>
   <data name="CloseText" xml:space="preserve">
-    <value>Exit</value>
+    <value>退出</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Tsinghua Campus Network Client</value>
+    <value>清华大学校园网客户端</value>
   </data>
   <data name="Connect" xml:space="preserve">
-    <value>Login</value>
+    <value>登录</value>
   </data>
   <data name="LogOut" xml:space="preserve">
-    <value>Logout</value>
+    <value>注销</value>
   </data>
   <data name="PasswordWithColon" xml:space="preserve">
-    <value>Password:</value>
+    <value>密码：</value>
   </data>
   <data name="Refresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>刷新</value>
   </data>
   <data name="UsernameWithColon" xml:space="preserve">
-    <value>Username:</value>
+    <value>用户名：</value>
   </data>
   <data name="LanguageWithColon" xml:space="preserve">
-    <value>Language:</value>
+    <value>语言：</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>OK</value>
+    <value>确定</value>
   </data>
   <data name="IPHeader" xml:space="preserve">
-    <value>IP address</value>
+    <value>IP地址</value>
   </data>
   <data name="LoginTimeHeader" xml:space="preserve">
-    <value>Login time</value>
+    <value>登录时间</value>
   </data>
   <data name="ClientHeader" xml:space="preserve">
-    <value>Client</value>
+    <value>客户端</value>
   </data>
   <data name="LogOutSelected" xml:space="preserve">
-    <value>Logout selected items</value>
+    <value>注销选中项</value>
   </data>
   <data name="MoreInf" xml:space="preserve">
-    <value>More information</value>
+    <value>详细信息</value>
   </data>
   <data name="LessInf" xml:space="preserve">
-    <value>Less information</value>
+    <value>简略信息</value>
   </data>
   <data name="ViewOnGitHub" xml:space="preserve">
-    <value>Codes on GitHub...</value>
+    <value>在GitHub上查看代码</value>
+  </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>发生错误</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>460</value>

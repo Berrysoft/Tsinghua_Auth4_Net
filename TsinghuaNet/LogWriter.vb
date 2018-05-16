@@ -6,6 +6,9 @@ Class LogWriter
     Public Sub New(fileName As String)
         MyBase.New(fileName)
     End Sub
+    Public Sub New(fileName As String, append As Boolean)
+        MyBase.New(fileName, append)
+    End Sub
     Public Sub New(stream As StreamWriter)
         MyBase.New(stream)
     End Sub
@@ -25,9 +28,9 @@ Class LogWriter
         End Get
     End Property
     Public Sub WriteFullException(exception As Exception)
-        Writer.WriteLine(SpecialMessageFormatString, Date.Now, ExceptionHeader, exception)
+        WriteLog(String.Format(SpecialMessageFormatString, ExceptionHeader, exception))
     End Sub
     Public Function WriteFullExceptionAsync(exception As Exception) As Task
-        Return Writer.WriteLineAsync(String.Format(SpecialMessageFormatString, Date.Now, ExceptionHeader, exception))
+        Return WriteLogAsync(String.Format(SpecialMessageFormatString, ExceptionHeader, exception))
     End Function
 End Class

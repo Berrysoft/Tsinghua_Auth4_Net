@@ -195,4 +195,7 @@
   <data name="CloseText" xml:space="preserve">
     <value>終了</value>
   </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>エラーが発生しました</value>
+  </data>
 </root>

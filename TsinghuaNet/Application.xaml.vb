@@ -8,6 +8,9 @@
         MyBase.OnStartup(e)
         Dim cul = log.Language
         If cul IsNot Nothing Then
+            If cul.LCID = &H7F Then
+                cul = DefaultCultureInfo
+            End If
             Threading.Thread.CurrentThread.CurrentUICulture = cul
         End If
         My.Windows.MainWindow.Show(log)

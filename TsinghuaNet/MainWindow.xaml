@@ -14,8 +14,7 @@
         <local:FluxToString x:Key="Flux"/>
         <local:MoneyToString x:Key="Money"/>
         <local:NullableToVisibility x:Key="Nullable"/>
-        <local:CultureToDisplayString x:Key="CultureDisplay"/>
-        <local:CultureToNativeString x:Key="CultureNative"/>
+        <local:CultureToString x:Key="CultureString"/>
         <local:CultureToFlow x:Key="CultureFlow"/>
         <local:DateToNativeString x:Key="Date"/>
         <local:BooleanToVisibility x:Key="BoolVis"/>
@@ -105,10 +104,7 @@
                 <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" ItemsSource="{Binding Languages}" SelectedIndex="{Binding LanguagesSelectIndex}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Converter={StaticResource CultureDisplay}}"/>
-                                <TextBlock Text="{Binding Converter={StaticResource CultureNative}}" FlowDirection="{Binding Converter={StaticResource CultureFlow}}"/>
-                            </StackPanel>
+                            <TextBlock Text="{Binding Converter={StaticResource CultureString}}"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>

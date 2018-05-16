@@ -192,4 +192,7 @@
   <data name="CloseText" xml:space="preserve">
     <value>Выход</value>
   </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
 </root>

@@ -61,17 +61,20 @@ Class MainWindow
     End Sub
     Private Async Sub LogOutSelected()
         Dim usereg As UseregHelper = Model.UseregHelper
-        For Each user As DependencyNetUser In UsersList.SelectedItems
-            Try
-                WriteEvent($"注销IP: {user.Address}")
-                'Await usereg.LoginAsync()
-                Dim res = Await usereg.LogoutAsync(user.Address)
-                'Await usereg.LogoutAsync()
-                WriteLog($"回复: {res}")
-            Catch ex As Exception
-                WriteException(ex)
-            End Try
-        Next
+        Try
+            Await usereg.LoginAsync()
+            For Each user As DependencyNetUser In UsersList.SelectedItems
+                Try
+                    WriteEvent($"注销IP: {user.Address}")
+                    Dim res = Await usereg.LogoutAsync(user.Address)
+                    WriteLog($"回复: {res}")
+                Catch ex As Exception
+                    WriteException(ex)
+                End Try
+            Next
+        Catch ex As Exception
+            WriteException(ex)
+        End Try
         GetFlux()
     End Sub
     Private Async Sub GetFlux()
@@ -114,7 +117,6 @@ Class MainWindow
                         Await usereg.LoginAsync()
                         Dim list = (Await usereg.GetUsersAsync()).Select(AddressOf DependencyNetUser.Create)
                         SetUsers(list)
-                        'Await usereg.LogoutAsync()
                         WriteEvent("在线信息获取成功")
                     Catch ex As Exception
                         WriteException(ex)
@@ -166,7 +168,7 @@ Class MainWindow
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
         WriteEvent("加载语言")
         Dim langs As New List(Of CultureInfo)()
-        langs.Add(CultureInfo.InvariantCulture)
+        langs.Add(DefaultCultureInfo)
         For Each dirname In Directory.EnumerateDirectories(Directory.GetCurrentDirectory())
             Try
                 langs.Add(New CultureInfo((New DirectoryInfo(dirname)).Name))
@@ -222,6 +224,7 @@ Class MainWindow
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)
         If Not CompareCulture(selectcul, Thread.CurrentThread.CurrentUICulture) Then
+            WriteEvent($"切换语言到{selectcul.Name}")
             log.Language = selectcul
             Me.Close()
             Forms.Application.Restart()
@@ -229,12 +232,12 @@ Class MainWindow
     End Sub
     Private Function CompareCulture(base As CultureInfo, current As CultureInfo) As Boolean
         If base.LCID = &H7F Then
-            Return current.LCID = &H7F
+            Return current.LCID = DefaultCultureInfo.LCID
         End If
         If current.LCID = &H7F Then
-            Return base.LCID = &H7F
+            Return False
         End If
-        Return base.Name = current.Name OrElse CompareCulture(base, current.Parent)
+        Return base.LCID = current.LCID OrElse CompareCulture(base, current.Parent)
     End Function
     Private Sub ViewOnGitHub()
         Process.Start("https://github.com/Berrysoft/Tsinghua_Auth4_Net")
@@ -244,11 +247,11 @@ End Class
 Class CultureInfoComparer
     Implements IComparer(Of CultureInfo)
 
-    Private converter As CultureToDisplayString
+    Private converter As CultureToString
     Private strcmp As StringComparer
 
     Public Sub New(current As CultureInfo)
-        converter = New CultureToDisplayString()
+        converter = New CultureToString()
         strcmp = StringComparer.Create(current, True)
     End Sub
 

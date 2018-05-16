@@ -195,4 +195,7 @@
   <data name="CloseText" xml:space="preserve">
     <value>종료</value>
   </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>오류가 발생 했습니다</value>
+  </data>
 </root>

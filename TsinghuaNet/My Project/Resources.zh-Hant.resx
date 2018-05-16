@@ -192,4 +192,7 @@
   <data name="ViewOnGitHub" xml:space="preserve">
     <value>在GitHub上查看代碼</value>
   </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>發生錯誤</value>
+  </data>
 </root>

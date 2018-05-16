@@ -56,31 +56,12 @@ Class NullableToVisibility
     End Function
 End Class
 
-Class CultureToDisplayString
+Class CultureToString
     Implements IValueConverter
 
     Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
         Dim cul As CultureInfo = value
-        If cul.LCID = &H7F Then
-            cul = New CultureInfo("en")
-        End If
-        Return cul.DisplayName
-    End Function
-
-    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
-        Throw New NotImplementedException()
-    End Function
-End Class
-
-Class CultureToNativeString
-    Implements IValueConverter
-
-    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
-        Dim cul As CultureInfo = value
-        If cul.LCID = &H7F Then
-            cul = New CultureInfo("en")
-        End If
-        Return $"({cul.NativeName})"
+        Return $"{cul.DisplayName}({cul.NativeName})"
     End Function
 
     Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack

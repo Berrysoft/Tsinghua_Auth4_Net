@@ -1,45 +1,59 @@
-﻿Imports Microsoft.VisualBasic.ApplicationServices
+﻿Imports System.Globalization
+Imports System.IO
+Imports System.Reflection
+Imports Microsoft.VisualBasic.ApplicationServices
 
 Module Program
     Private Const FileName As String = "event.log"
-    Friend Log As LogWriter
+    Private Log As LogWriter
+    Public ReadOnly DefaultCultureInfo As New CultureInfo("zh-Hans")
     <STAThread>
-    Sub Main(args As String())
+    Public Function Main(args As String()) As Integer
         Try
-            Log = New LogWriter(FileName)
+            Dim eventLog As New FileInfo(FileName)
+            If eventLog.Length > Integer.MaxValue Then
+                eventLog.Delete()
+            End If
+            Log = New LogWriter(FileName, True)
         Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-            Return
+            ShowError(ex.ToString())
+            Return 1
         End Try
         Using Log
             Try
-                WriteEvent("程序启动")
+                WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
                 Dim manager As New SingleInstanceManager()
                 manager.Run(args)
                 WriteEvent("程序结束")
             Catch ex As Exception
                 WriteException(ex)
+                ShowError(ex.ToString())
+                Return 1
             End Try
         End Using
-    End Sub
-    Async Sub WriteLog(message As String)
+        Return 0
+    End Function
+    Public Async Sub WriteLog(message As String)
         Await Log.WriteLogAsync(message)
     End Sub
-    Async Sub WriteException(ex As Exception)
+    Public Async Sub WriteException(ex As Exception)
 #If DEBUG Then
         Await Log.WriteFullExceptionAsync(ex)
 #Else
         Await Log.WriteExceptionAsync(ex)
 #End If
     End Sub
-    Async Sub WriteEvent(name As String)
+    Public Async Sub WriteEvent(name As String)
         Await Log.WriteEventAsync(name)
     End Sub
 #If Debug Then
-    Async Sub WriteDebug(message As String)
+    Public Async Sub WriteDebug(message As String)
         Await Log.WriteDebugAsync(message)
     End Sub
 #End If
+    Private Sub ShowError(message As String)
+        MessageBox.Show(message, My.Resources.Title, MessageBoxButton.OK, MessageBoxImage.Error)
+    End Sub
 End Module
 
 Class SingleInstanceManager

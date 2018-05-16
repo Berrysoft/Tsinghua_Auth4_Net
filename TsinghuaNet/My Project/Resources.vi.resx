@@ -195,4 +195,7 @@
   <data name="CloseText" xml:space="preserve">
     <value>Thoát</value>
   </data>
+  <data name="ErrorOccurred" xml:space="preserve">
+    <value>Lỗi đã xảy ra</value>
+  </data>
 </root>
