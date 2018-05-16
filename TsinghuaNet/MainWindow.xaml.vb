@@ -64,9 +64,9 @@ Class MainWindow
         For Each user As DependencyNetUser In UsersList.SelectedItems
             Try
                 WriteEvent($"注销IP: {user.Address}")
-                Await usereg.LoginAsync()
+                'Await usereg.LoginAsync()
                 Dim res = Await usereg.LogoutAsync(user.Address)
-                Await usereg.LogoutAsync()
+                'Await usereg.LogoutAsync()
                 WriteLog($"回复: {res}")
             Catch ex As Exception
                 WriteException(ex)
@@ -114,7 +114,7 @@ Class MainWindow
                         Await usereg.LoginAsync()
                         Dim list = (Await usereg.GetUsersAsync()).Select(AddressOf DependencyNetUser.Create)
                         SetUsers(list)
-                        Await usereg.LogoutAsync()
+                        'Await usereg.LogoutAsync()
                         WriteEvent("在线信息获取成功")
                     Catch ex As Exception
                         WriteException(ex)

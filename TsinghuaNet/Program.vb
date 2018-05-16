@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
-Imports System.IO
 
 Module Program
     Private Const FileName As String = "event.log"
@@ -7,10 +6,6 @@ Module Program
     <STAThread>
     Sub Main(args As String())
         Try
-            Dim eventLog As New FileInfo(FileName)
-            If eventLog.Length > Integer.MaxValue Then
-                eventLog.Delete()
-            End If
             Log = New LogWriter(FileName)
         Catch ex As Exception
             MessageBox.Show(ex.ToString())

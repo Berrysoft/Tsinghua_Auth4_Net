@@ -103,15 +103,33 @@ Class MainViewModel
         End Set
     End Property
 
+    Private auth4 As AuthHelper
+    Private auth6 As AuthHelper
+    Private net As NetHelper
     Public ReadOnly Property Helper As IConnect
         Get
             Select Case State
                 Case NetState.Auth4
-                    Return AuthHelper.CreateAuth4Helper(Username, Password)
+                    If auth4 Is Nothing Then
+                        auth4 = AuthHelper.CreateAuth4Helper(Username, Password)
+                    Else
+                        UpdateHelper(auth4)
+                    End If
+                    Return auth4
                 Case NetState.Auth6
-                    Return AuthHelper.CreateAuth6Helper(Username, Password)
+                    If auth6 Is Nothing Then
+                        auth6 = AuthHelper.CreateAuth6Helper(Username, Password)
+                    Else
+                        UpdateHelper(auth6)
+                    End If
+                    Return auth6
                 Case NetState.Net
-                    Return New NetHelper(Username, Password)
+                    If net Is Nothing Then
+                        net = New NetHelper(Username, Password)
+                    Else
+                        UpdateHelper(net)
+                    End If
+                    Return net
                 Case Else
                     Return Nothing
             End Select
@@ -148,11 +166,22 @@ Class MainViewModel
         End Set
     End Property
 
+    Private usereg As UseregHelper
     Public ReadOnly Property UseregHelper As UseregHelper
         Get
-            Return New UseregHelper(Username, Password)
+            If usereg Is Nothing Then
+                usereg = New UseregHelper(Username, Password)
+            Else
+                UpdateHelper(usereg)
+            End If
+            Return usereg
         End Get
     End Property
+
+    Private Sub UpdateHelper(helper As NetHelperBase)
+        helper.Username = Username
+        helper.Password = Password
+    End Sub
 End Class
 
 Enum NetState
