@@ -1,5 +1,4 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
-
 Imports System.IO
 
 Module Program
@@ -12,7 +11,6 @@ Module Program
             If eventLog.Length > Integer.MaxValue Then
                 eventLog.Delete()
             End If
-            eventLog = Nothing
             Log = New LogWriter(FileName)
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -29,22 +27,22 @@ Module Program
             End Try
         End Using
     End Sub
-    Sub WriteLog(message As String)
-        Log.WriteLog(message)
+    Async Sub WriteLog(message As String)
+        Await Log.WriteLogAsync(message)
     End Sub
-    Sub WriteException(ex As Exception)
+    Async Sub WriteException(ex As Exception)
 #If DEBUG Then
-        Log.WriteFullException(ex)
+        Await Log.WriteFullExceptionAsync(ex)
 #Else
-        Log.WriteException(ex)
+        Await Log.WriteExceptionAsync(ex)
 #End If
     End Sub
-    Sub WriteEvent(name As String)
-        Log.WriteEvent(name)
+    Async Sub WriteEvent(name As String)
+        Await Log.WriteEventAsync(name)
     End Sub
 #If Debug Then
-    Sub WriteDebug(message As String)
-        Log.WriteDebug(message)
+    Async Sub WriteDebug(message As String)
+        Await Log.WriteDebugAsync(message)
     End Sub
 #End If
 End Module
