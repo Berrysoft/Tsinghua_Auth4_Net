@@ -4,24 +4,12 @@ Imports System.Reflection
 Imports Microsoft.VisualBasic.ApplicationServices
 
 Module Program
-    Private Const FileName As String = "event.log"
-    Private Log As LogWriter
+    Friend Log As LogWriter
     Public ReadOnly DefaultCultureInfo As New CultureInfo("zh-Hans")
     <STAThread>
     Public Function Main(args As String()) As Integer
-        Try
-            Dim eventLog As New FileInfo(FileName)
-            If eventLog.Length > Integer.MaxValue Then
-                eventLog.Delete()
-            End If
-            Log = New LogWriter(FileName, True)
-        Catch ex As Exception
-            ShowError(ex.ToString())
-            Return 1
-        End Try
         Using Log
             Try
-                WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
                 Dim manager As New SingleInstanceManager()
                 manager.Run(args)
                 WriteEvent("程序结束")
@@ -51,19 +39,30 @@ Module Program
         Await Log.WriteDebugAsync(message)
     End Sub
 #End If
-    Private Sub ShowError(message As String)
+    Friend Sub ShowError(message As String)
         MessageBox.Show(message, My.Resources.Title, MessageBoxButton.OK, MessageBoxImage.Error)
     End Sub
 End Module
 
 Class SingleInstanceManager
     Inherits WindowsFormsApplicationBase
+    Private Const FileName As String = "event.log"
     Private app As Application
     Public Sub New()
         Me.IsSingleInstance = True
     End Sub
     Protected Overrides Function OnStartup(eventArgs As StartupEventArgs) As Boolean
+        Try
+            Dim eventLog As New FileInfo(FileName)
+            If eventLog.Length > Integer.MaxValue Then
+                eventLog.Delete()
+            End If
+            Program.Log = New LogWriter(FileName, True)
+        Catch ex As Exception
+            ShowError(ex.ToString())
+        End Try
         app = New Application()
+        WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
         app.Run()
         Return False
     End Function
