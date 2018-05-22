@@ -3,7 +3,7 @@
 ## 多种登录方式
 支持Auth4、Auth6（未测试）、Net方式的登录。
 ## 多语言支持
-默认为英语，所有不支持的且存在的语言会以简体中文代替；不存在的语言会以用户电脑的语言或简体中文代替。
+默认为简体中文，所有不支持的且存在的语言会以简体中文代替；不存在的语言会以用户电脑的语言或简体中文代替。
 ### 支持语言列表
 * en 英语
 * ja 日语
@@ -17,4 +17,4 @@
 
 现在已经弃疗，就这么多吧。
 ## 依赖项
-引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。这个仓库还有一个本程序的跨平台（控制台应用程序）版本。
+引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目，这两个项目已经搬运到了本仓库（实际上我是用的文件夹软链接，但是git不认识）。这个仓库还有一个本程序的跨平台（控制台应用程序）版本。
