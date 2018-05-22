@@ -60,6 +60,7 @@ Class SingleInstanceManager
             Program.Log = New LogWriter(FileName, True)
         Catch ex As Exception
             ShowError(ex.ToString())
+            Return False
         End Try
         app = New Application()
         WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
