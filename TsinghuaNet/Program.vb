@@ -5,6 +5,7 @@ Imports Microsoft.VisualBasic.ApplicationServices
 
 Module Program
     Friend Log As LogWriter
+    Private ReadOnly Lock As New Object()
     Public ReadOnly DefaultCultureInfo As New CultureInfo("zh-Hans")
     <STAThread>
     Public Function Main(args As String()) As Integer
@@ -22,21 +23,37 @@ Module Program
         Return 0
     End Function
     Public Async Sub WriteLog(message As String)
-        Await Log.WriteLogAsync(message)
+        Dim task As Task
+        SyncLock Lock
+            task = Log.WriteLogAsync(message)
+        End SyncLock
+        Await task
     End Sub
     Public Async Sub WriteException(ex As Exception)
+        Dim task As Task
+        SyncLock Lock
 #If DEBUG Then
-        Await Log.WriteFullExceptionAsync(ex)
+            task = Log.WriteFullExceptionAsync(ex)
 #Else
-        Await Log.WriteExceptionAsync(ex)
+            task = Log.WriteExceptionAsync(ex)
 #End If
+        End SyncLock
+        Await task
     End Sub
     Public Async Sub WriteEvent(name As String)
-        Await Log.WriteEventAsync(name)
+        Dim task As Task
+        SyncLock Lock
+            task = Log.WriteEventAsync(name)
+        End SyncLock
+        Await task
     End Sub
 #If Debug Then
     Public Async Sub WriteDebug(message As String)
-        Await Log.WriteDebugAsync(message)
+        Dim task As Task
+        SyncLock Lock
+            task = Log.WriteDebugAsync(message)
+        End SyncLock
+        Await task
     End Sub
 #End If
     Friend Sub ShowError(message As String)
