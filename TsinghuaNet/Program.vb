@@ -19,6 +19,7 @@ Module Program
                 ShowError(ex.ToString())
                 Return 1
             End Try
+            Log.Flush()
         End Using
         Return 0
     End Function
@@ -75,6 +76,8 @@ Class SingleInstanceManager
                 eventLog.Delete()
             End If
             Program.Log = New LogWriter(FileName, True)
+        Catch ex As FileNotFoundException
+            Program.Log = New LogWriter(FileName)
         Catch ex As Exception
             ShowError(ex.ToString())
             Return False

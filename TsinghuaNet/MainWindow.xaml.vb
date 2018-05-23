@@ -32,49 +32,67 @@ Class MainWindow
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
         Dim connected As Boolean = False
-        SetFlux(My.Resources.Connecting)
-        Try
-            Dim res = Await helper.LoginAsync()
-            connected = True
-            WriteLog($"回复: {res}")
-            WriteEvent("登录成功")
-        Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, ex.Message), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
-            WriteException(ex)
-        End Try
+        Using getFluxCancellationTokeSource = New CancellationTokenSource()
+            Dim token = getFluxCancellationTokeSource.Token
+            SetFlux(My.Resources.Connecting)
+            Try
+                Dim res = Await helper.LoginAsync()
+                connected = True
+                WriteLog($"回复: {res}")
+                WriteEvent("登录成功")
+            Catch ex As Exception
+                If Not token.IsCancellationRequested Then
+                    MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, ex.Message), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+                    WriteException(ex)
+                End If
+                SetFlux(My.Resources.NoNetwork)
+            End Try
+        End Using
         If connected Then Await GetFlux(helper)
     End Sub
     Private Async Sub LogOut()
         WriteEvent("开始注销")
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
-        SetFlux(My.Resources.LoggingOut)
-        Try
-            Dim res = Await helper.LogoutAsync()
-            WriteLog($"回复: {res}")
-            WriteEvent("注销成功")
-        Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, ex.Message), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
-            WriteException(ex)
-        End Try
+        Using getFluxCancellationTokeSource = New CancellationTokenSource()
+            Dim token = getFluxCancellationTokeSource.Token
+            SetFlux(My.Resources.LoggingOut)
+            Try
+                Dim res = Await helper.LogoutAsync()
+                WriteLog($"回复: {res}")
+                WriteEvent("注销成功")
+            Catch ex As Exception
+                If Not token.IsCancellationRequested Then
+                    MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, ex.Message), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+                    WriteException(ex)
+                End If
+                SetFlux(My.Resources.NoNetwork)
+            End Try
+        End Using
         Await GetFlux(helper)
     End Sub
     Private Async Sub LogOutSelected()
+        CancelGetFlux()
         Dim usereg As UseregHelper = Model.UseregHelper
-        Try
-            Await usereg.LoginAsync()
-            For Each user As DependencyNetUser In UsersList.SelectedItems
-                Try
-                    WriteEvent($"注销IP: {user.Address}")
-                    Dim res = Await usereg.LogoutAsync(user.Address)
-                    WriteLog($"回复: {res}")
-                Catch ex As Exception
+        Using getFluxCancellationTokeSource = New CancellationTokenSource()
+            Dim token = getFluxCancellationTokeSource.Token
+            Try
+                Await usereg.LoginAsync()
+                For Each user As DependencyNetUser In UsersList.SelectedItems
+                    Try
+                        WriteEvent($"注销IP: {user.Address}")
+                        Dim res = Await usereg.LogoutAsync(user.Address)
+                        WriteLog($"回复: {res}")
+                    Catch ex As Exception
+                        WriteException(ex)
+                    End Try
+                Next
+            Catch ex As Exception
+                If Not token.IsCancellationRequested Then
                     WriteException(ex)
-                End Try
-            Next
-        Catch ex As Exception
-            WriteException(ex)
-        End Try
+                End If
+            End Try
+        End Using
         GetFlux()
     End Sub
     Private Async Sub GetFlux()
