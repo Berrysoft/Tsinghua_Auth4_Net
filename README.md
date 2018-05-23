@@ -17,4 +17,4 @@
 
 现在已经弃疗，就这么多吧。
 ## 依赖项
-引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目，这两个项目已经搬运到了本仓库（实际上我是用的文件夹软链接，但是git不认识）。这个仓库还有一个本程序的跨平台（控制台应用程序）版本。
+引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。这个仓库还有一个本程序的跨平台（控制台应用程序）版本。
