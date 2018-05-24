@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TsinghuaNet", "TsinghuaNet\TsinghuaNet.vbproj", "{01B80EDF-8F11-4E69-A967-12376391ECA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Berrysoft.Tsinghua.Net", "..\ClassLibrary\Berrysoft.Tsinghua.Net\Berrysoft.Tsinghua.Net.csproj", "{C82D2A94-7AD6-47F8-A6AF-F2DB46DDC5DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Berrysoft.Tsinghua.Net", "..\ClassLibrary\src\Berrysoft.Tsinghua.Net\Berrysoft.Tsinghua.Net.csproj", "{C82D2A94-7AD6-47F8-A6AF-F2DB46DDC5DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Berrysoft.Console", "..\ClassLibrary\Berrysoft.Console\Berrysoft.Console.csproj", "{84A27A71-0D23-4B8D-88C0-5C00B5FBAEF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Berrysoft.Console", "..\ClassLibrary\src\Berrysoft.Console\Berrysoft.Console.csproj", "{84A27A71-0D23-4B8D-88C0-5C00B5FBAEF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
