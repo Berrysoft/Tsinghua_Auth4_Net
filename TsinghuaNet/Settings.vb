@@ -44,7 +44,7 @@ Class Settings
     Public Overloads Sub Save()
         Save(logPath)
     End Sub
-    Protected Overrides Function ChangeType(name As XName, value As Object, conversionType As Type) As Object
+    Protected Overrides Function ChangeType(name As String, value As Object, conversionType As Type) As Object
         Select Case name
             Case "password"
                 Return Encoding.ASCII.GetString(Convert.FromBase64String(If(value, String.Empty)))
@@ -73,7 +73,7 @@ Class Settings
                 Return value
         End Select
     End Function
-    Protected Overrides Function ChangeBackType(name As XName, value As Object, conversionType As Type) As Object
+    Protected Overrides Function ChangeBackType(name As String, value As Object, conversionType As Type) As Object
         Select Case name
             Case "password"
                 Return Convert.ToBase64String(Encoding.ASCII.GetBytes(value))
