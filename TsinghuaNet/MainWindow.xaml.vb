@@ -210,6 +210,7 @@ Class MainWindow
         log.Save()
         Notify.Visible = False
         Notify.Dispose()
+        Model.DisposeHelpers()
     End Sub
     Private Sub MainWindow_StateChanged(sender As Object, e As EventArgs) Handles Me.StateChanged
         If Me.WindowState = WindowState.Minimized Then

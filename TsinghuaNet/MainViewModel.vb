@@ -182,6 +182,13 @@ Class MainViewModel
         helper.Username = Username
         helper.Password = Password
     End Sub
+
+    Public Sub DisposeHelpers()
+        net?.Dispose()
+        auth4?.Dispose()
+        auth6?.Dispose()
+        usereg?.Dispose()
+    End Sub
 End Class
 
 Enum NetState
