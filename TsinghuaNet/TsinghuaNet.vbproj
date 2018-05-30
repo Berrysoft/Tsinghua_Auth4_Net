@@ -76,9 +76,18 @@
     <StartupObject>TsinghuaNet.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Berrysoft.Console, Version=1.0.112.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Console.1.0.112-preview2\lib\net472\Berrysoft.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.112.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.112-preview2\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Json, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Json.4.5.0\lib\netstandard2.0\System.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -186,6 +195,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -214,16 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LogoLarge.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ClassLibrary\src\Berrysoft.Console\Berrysoft.Console.csproj">
-      <Project>{84a27a71-0d23-4b8d-88c0-5c00b5fbaef0}</Project>
-      <Name>Berrysoft.Console</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ClassLibrary\src\Berrysoft.Tsinghua.Net\Berrysoft.Tsinghua.Net.csproj">
-      <Project>{c82d2a94-7ad6-47f8-a6af-f2db46ddc5db}</Project>
-      <Name>Berrysoft.Tsinghua.Net</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -20,6 +20,5 @@
 <div align=center><img src="Screenshots/MainWindow.png"/></div>
 
 ## 依赖项
-引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。
-Berrysoft.Tsinghua.Net依赖于System.Json。
-这个仓库还有一个本程序的跨平台（控制台应用程序）版本。
+使用NuGet引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。
+这个仓库还有一个本程序的跨平台（控制台应用程序）版本，只支持英文。

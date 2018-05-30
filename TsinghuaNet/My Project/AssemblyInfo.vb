@@ -12,8 +12,8 @@ Imports System.Windows
 '查看程序集特性的值
 
 <Assembly: AssemblyTitle("TsinghuaNet")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("清华大学校园网客户端")>
+<Assembly: AssemblyCompany("Berrysoft")>
 <Assembly: AssemblyProduct("TsinghuaNet")>
 <Assembly: AssemblyCopyright("Copyright ©  2018")>
 <Assembly: AssemblyTrademark("")>
@@ -55,5 +55,5 @@ Imports System.Windows
 ' 方法是按如下所示使用“*”: :
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("2.2.79.0")>
-<Assembly: AssemblyFileVersion("2.2.79.0")>
+<Assembly: AssemblyVersion("2.3.83.0")>
+<Assembly: AssemblyFileVersion("2.3.83.0")>
