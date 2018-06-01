@@ -24,37 +24,49 @@ Module Program
         Return 0
     End Function
     Public Async Sub WriteLog(message As String)
-        Dim task As Task
-        SyncLock Lock
-            task = Log.WriteLogAsync(message)
-        End SyncLock
-        Await task
+        Try
+            Dim task As Task
+            SyncLock Lock
+                task = Log.WriteLogAsync(message)
+            End SyncLock
+            Await task
+        Catch ex As InvalidOperationException
+        End Try
     End Sub
-    Public Async Sub WriteException(ex As Exception)
-        Dim task As Task
-        SyncLock Lock
+    Public Async Sub WriteException(exception As Exception)
+        Try
+            Dim task As Task
+            SyncLock Lock
 #If DEBUG Then
-            task = Log.WriteFullExceptionAsync(ex)
+                task = Log.WriteFullExceptionAsync(exception)
 #Else
-            task = Log.WriteExceptionAsync(ex)
+                task = Log.WriteExceptionAsync(exception)
 #End If
-        End SyncLock
-        Await task
+            End SyncLock
+            Await task
+        Catch ex As InvalidOperationException
+        End Try
     End Sub
     Public Async Sub WriteEvent(name As String)
-        Dim task As Task
-        SyncLock Lock
-            task = Log.WriteEventAsync(name)
-        End SyncLock
-        Await task
+        Try
+            Dim task As Task
+            SyncLock Lock
+                task = Log.WriteEventAsync(name)
+            End SyncLock
+            Await task
+        Catch ex As InvalidOperationException
+        End Try
     End Sub
-#If Debug Then
+#If DEBUG Then
     Public Async Sub WriteDebug(message As String)
-        Dim task As Task
-        SyncLock Lock
-            task = Log.WriteDebugAsync(message)
-        End SyncLock
-        Await task
+        Try
+            Dim task As Task
+            SyncLock Lock
+                task = Log.WriteDebugAsync(message)
+            End SyncLock
+            Await task
+        Catch ex As InvalidOperationException
+        End Try
     End Sub
 #End If
     Friend Sub ShowError(message As String)
