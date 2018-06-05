@@ -103,33 +103,29 @@ Class MainViewModel
         End Set
     End Property
 
-    Private auth4 As AuthHelper
-    Private auth6 As AuthHelper
+    Private auth4 As Auth4Helper
+    Private auth6 As Auth6Helper
     Private net As NetHelper
+    Private Function InitHelper(Of T As {New, NetHelperBase})(ByRef helper As T) As T
+        If helper Is Nothing Then
+            helper = New T()
+        End If
+        UpdateHelper(helper)
+        Return helper
+    End Function
+    Private Sub UpdateHelper(helper As NetHelperBase)
+        helper.Username = Username
+        helper.Password = Password
+    End Sub
     Public ReadOnly Property Helper As IConnect
         Get
             Select Case State
                 Case NetState.Auth4
-                    If auth4 Is Nothing Then
-                        auth4 = AuthHelper.CreateAuth4Helper(Username, Password)
-                    Else
-                        UpdateHelper(auth4)
-                    End If
-                    Return auth4
+                    Return InitHelper(auth4)
                 Case NetState.Auth6
-                    If auth6 Is Nothing Then
-                        auth6 = AuthHelper.CreateAuth6Helper(Username, Password)
-                    Else
-                        UpdateHelper(auth6)
-                    End If
-                    Return auth6
+                    Return InitHelper(auth6)
                 Case NetState.Net
-                    If net Is Nothing Then
-                        net = New NetHelper(Username, Password)
-                    Else
-                        UpdateHelper(net)
-                    End If
-                    Return net
+                    Return InitHelper(net)
                 Case Else
                     Return Nothing
             End Select
@@ -177,11 +173,6 @@ Class MainViewModel
             Return usereg
         End Get
     End Property
-
-    Private Sub UpdateHelper(helper As NetHelperBase)
-        helper.Username = Username
-        helper.Password = Password
-    End Sub
 
     Public Sub DisposeHelpers()
         net?.Dispose()

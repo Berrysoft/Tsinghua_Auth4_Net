@@ -8,14 +8,65 @@ Class Settings
     Inherits XmlSettings
     <Settings("name")>
     Public Property Username As String
-    <Settings("password")>
+    <Settings("password", ConverterType:=GetType(PasswordConverter))>
     Public Property Password As String
-    <Settings("state")>
+    Class PasswordConverter
+        Implements ISimpleConverter
+        Public Function Convert(value As Object) As Object Implements ISimpleConverter.Convert
+            Return Encoding.ASCII.GetString(System.Convert.FromBase64String(If(value, String.Empty)))
+        End Function
+        Public Function ConvertBack(value As Object) As Object Implements ISimpleConverter.ConvertBack
+            Return System.Convert.ToBase64String(Encoding.ASCII.GetBytes(value))
+        End Function
+    End Class
+    <Settings("state", ConverterType:=GetType(StateConverter))>
     Public Property State As NetState
-    <Settings("more")>
+    Class StateConverter
+        Implements ISimpleConverter
+        Public Function Convert(value As Object) As Object Implements ISimpleConverter.Convert
+            Dim temp As NetState
+            If [Enum].TryParse(value, temp) Then
+                Return temp
+            Else
+                Return NetState.Unknown
+            End If
+        End Function
+        Public Function ConvertBack(value As Object) As Object Implements ISimpleConverter.ConvertBack
+            Return value.ToString()
+        End Function
+    End Class
+    <Settings("more", ConverterType:=GetType(BoolConverter))>
     Public Property MoreInf As Boolean
-    <Settings("language")>
+    Class BoolConverter
+        Implements ISimpleConverter
+        Public Function Convert(value As Object) As Object Implements ISimpleConverter.Convert
+            Dim moreinfResult As Boolean
+            If Boolean.TryParse(value, moreinfResult) Then
+                Return moreinfResult
+            Else
+                Return False
+            End If
+        End Function
+        Public Function ConvertBack(value As Object) As Object Implements ISimpleConverter.ConvertBack
+            Return value.ToString()
+        End Function
+    End Class
+    <Settings("language", ConverterType:=GetType(LanguageConverter))>
     Public Property Language As CultureInfo
+    Class LanguageConverter
+        Implements ISimpleConverter
+        Public Function Convert(value As Object) As Object Implements ISimpleConverter.Convert
+            Try
+                Return If(value Is Nothing, Nothing, New CultureInfo(value.ToString()))
+            Catch ex As Exception
+                WriteException(ex)
+                Return Nothing
+            End Try
+        End Function
+        Public Function ConvertBack(value As Object) As Object Implements ISimpleConverter.ConvertBack
+            Return CType(value, CultureInfo)?.Name
+        End Function
+    End Class
     Private Const logPath As String = "log.xml"
     Public Sub New()
         Username = String.Empty
@@ -44,43 +95,4 @@ Class Settings
     Public Overloads Sub Save()
         Save(logPath)
     End Sub
-    Protected Overrides Function ChangeType(name As String, value As Object, conversionType As Type) As Object
-        Select Case name
-            Case "password"
-                Return Encoding.ASCII.GetString(Convert.FromBase64String(If(value, String.Empty)))
-            Case "state"
-                Dim temp As NetState
-                If [Enum].TryParse(value, temp) Then
-                    Return temp
-                Else
-                    Return NetState.Unknown
-                End If
-            Case "more"
-                Dim moreinfResult As Boolean
-                If Boolean.TryParse(value, moreinfResult) AndAlso moreinfResult Then
-                    Return True
-                Else
-                    Return False
-                End If
-            Case "language"
-                Try
-                    Return If(value Is Nothing, Nothing, New CultureInfo(value.ToString()))
-                Catch ex As Exception
-                    WriteException(ex)
-                    Return Nothing
-                End Try
-            Case Else
-                Return value
-        End Select
-    End Function
-    Protected Overrides Function ChangeBackType(name As String, value As Object, conversionType As Type) As Object
-        Select Case name
-            Case "password"
-                Return Convert.ToBase64String(Encoding.ASCII.GetBytes(value))
-            Case "language"
-                Return CType(value, CultureInfo)?.Name
-            Case Else
-                Return value.ToString()
-        End Select
-    End Function
 End Class
