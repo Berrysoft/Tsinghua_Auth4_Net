@@ -1,5 +1,6 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Globalization
+Imports System.Net.Http
 Imports Berrysoft.Tsinghua.Net
 
 Class MainViewModel
@@ -106,13 +107,7 @@ Class MainViewModel
     Private auth4 As Auth4Helper
     Private auth6 As Auth6Helper
     Private net As NetHelper
-    Private Function InitHelper(Of T As {New, NetHelperBase})(ByRef helper As T) As T
-        If helper Is Nothing Then
-            helper = New T()
-        End If
-        UpdateHelper(helper)
-        Return helper
-    End Function
+    Private client As New HttpClient()
     Private Sub UpdateHelper(helper As NetHelperBase)
         helper.Username = Username
         helper.Password = Password
@@ -121,11 +116,26 @@ Class MainViewModel
         Get
             Select Case State
                 Case NetState.Auth4
-                    Return InitHelper(auth4)
+                    If auth4 Is Nothing Then
+                        auth4 = New Auth4Helper(Username, Password, client)
+                    Else
+                        UpdateHelper(auth4)
+                    End If
+                    Return auth4
                 Case NetState.Auth6
-                    Return InitHelper(auth6)
+                    If auth6 Is Nothing Then
+                        auth6 = New Auth6Helper(Username, Password, client)
+                    Else
+                        UpdateHelper(auth6)
+                    End If
+                    Return auth6
                 Case NetState.Net
-                    Return InitHelper(net)
+                    If net Is Nothing Then
+                        net = New NetHelper(Username, Password, client)
+                    Else
+                        UpdateHelper(net)
+                    End If
+                    Return net
                 Case Else
                     Return Nothing
             End Select
@@ -166,7 +176,7 @@ Class MainViewModel
     Public ReadOnly Property UseregHelper As UseregHelper
         Get
             If usereg Is Nothing Then
-                usereg = New UseregHelper(Username, Password)
+                usereg = New UseregHelper(Username, Password, client)
             Else
                 UpdateHelper(usereg)
             End If
@@ -175,10 +185,7 @@ Class MainViewModel
     End Property
 
     Public Sub DisposeHelpers()
-        net?.Dispose()
-        auth4?.Dispose()
-        auth6?.Dispose()
-        usereg?.Dispose()
+        client.Dispose()
     End Sub
 End Class
 
