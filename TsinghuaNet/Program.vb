@@ -1,26 +1,40 @@
 ﻿Imports System.Globalization
 Imports System.IO
-Imports System.Reflection
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Module Program
+    Private Const FileName As String = "event.log"
     Friend Log As LogWriter
     Private ReadOnly Lock As New Object()
     Public ReadOnly DefaultCultureInfo As New CultureInfo("zh-Hans")
     <STAThread>
     Public Function Main(args As String()) As Integer
-        Using Log
-            Try
-                Dim manager As New SingleInstanceManager()
-                manager.Run(args)
-                WriteEvent("程序结束")
-            Catch ex As Exception
-                WriteException(ex)
-                ShowError(ex.ToString())
-                Return 1
-            End Try
-            Log.Flush()
-        End Using
+        If SingleInstance.InitializeAsFirstInstance(Of Application)("TsinghuaNet") Then
+            Using Log
+                Try
+                    Try
+                        Dim eventLog As New FileInfo(FileName)
+                        If eventLog.Length > Integer.MaxValue Then
+                            eventLog.Delete()
+                        End If
+                        Program.Log = New LogWriter(FileName, True)
+                    Catch ex As FileNotFoundException
+                        Program.Log = New LogWriter(FileName)
+                    Catch ex As Exception
+                        ShowError(ex.ToString())
+                        Return False
+                    End Try
+                    Dim app As New Application
+                    app.Run()
+                    WriteEvent("程序结束")
+                Catch ex As Exception
+                    WriteException(ex)
+                    ShowError(ex.ToString())
+                    Return 1
+                End Try
+                Log.Flush()
+            End Using
+            SingleInstance.Cleanup()
+        End If
         Return 0
     End Function
     Public Async Sub WriteLog(message As String)
@@ -73,34 +87,3 @@ Module Program
         MessageBox.Show(message, My.Resources.Title, MessageBoxButton.OK, MessageBoxImage.Error)
     End Sub
 End Module
-
-Class SingleInstanceManager
-    Inherits WindowsFormsApplicationBase
-    Private Const FileName As String = "event.log"
-    Private app As Application
-    Public Sub New()
-        Me.IsSingleInstance = True
-    End Sub
-    Protected Overrides Function OnStartup(eventArgs As StartupEventArgs) As Boolean
-        Try
-            Dim eventLog As New FileInfo(FileName)
-            If eventLog.Length > Integer.MaxValue Then
-                eventLog.Delete()
-            End If
-            Program.Log = New LogWriter(FileName, True)
-        Catch ex As FileNotFoundException
-            Program.Log = New LogWriter(FileName)
-        Catch ex As Exception
-            ShowError(ex.ToString())
-            Return False
-        End Try
-        app = New Application()
-        WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
-        app.Run()
-        Return False
-    End Function
-    Protected Overrides Sub OnStartupNextInstance(eventArgs As StartupNextInstanceEventArgs)
-        MyBase.OnStartupNextInstance(eventArgs)
-        app.Activate()
-    End Sub
-End Class

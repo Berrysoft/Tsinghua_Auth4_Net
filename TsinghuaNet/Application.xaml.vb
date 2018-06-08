@@ -1,4 +1,5 @@
 ﻿Class Application
+    Implements ISingleInstanceApp
     Private log As Settings
     Public Sub New()
         InitializeComponent()
@@ -15,7 +16,8 @@
         End If
         My.Windows.MainWindow.Show(log)
     End Sub
-    Public Sub Activate()
+    Public Function SignalExternalCommandLineArgs(args As IList(Of String)) As Boolean Implements ISingleInstanceApp.SignalExternalCommandLineArgs
         My.Windows.MainWindow.ShowFromMinimized()
-    End Sub
+        Return True
+    End Function
 End Class
