@@ -112,7 +112,7 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="6">
-            <ToggleButton Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding MoreInformation}" Content="{Binding MoreInformation,Converter={StaticResource MoreInf}}" FocusVisualStyle="{StaticResource ExpanderToggleButtonFocusVisualStyle}" Style="{StaticResource ExpanderToggleButtonStyle}"/>
+            <ToggleButton Margin="5,2,5,2" Foreground="{StaticResource TsinghuaPurple}" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding MoreInformation}" Content="{Binding MoreInformation,Converter={StaticResource MoreInf}}" FocusVisualStyle="{StaticResource ExpanderToggleButtonFocusVisualStyle}" Style="{StaticResource ExpanderToggleButtonStyle}"/>
             <Label Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Right">
                 <Label.ToolTip>https://github.com/Berrysoft/Tsinghua_Auth4_Net</Label.ToolTip>
                 <Hyperlink Click="ViewOnGitHub">
