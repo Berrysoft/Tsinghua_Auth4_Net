@@ -123,9 +123,6 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>Login failed</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Login failed: {0}</value>
-  </data>
   <data name="Disconnected" xml:space="preserve">
     <value>Logged out.</value>
   </data>
@@ -134,9 +131,6 @@
   </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>Logout failed</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Logout failed: {0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>No network.</value>

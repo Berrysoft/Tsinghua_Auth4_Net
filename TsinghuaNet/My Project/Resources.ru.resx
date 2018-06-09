@@ -174,17 +174,11 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>Ошибка входа</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Ошибка входа: {0}</value>
-  </data>
   <data name="Disconnected" xml:space="preserve">
     <value>Вышли.</value>
   </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>Сбой при выходе</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Сбой при выходе: {0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>Нет сети.</value>

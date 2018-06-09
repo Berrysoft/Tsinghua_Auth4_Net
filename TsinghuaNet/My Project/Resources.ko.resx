@@ -177,17 +177,11 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>로그인 실패</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>로그인 실패：{0}</value>
-  </data>
   <data name="LoggingOut" xml:space="preserve">
     <value>로그 아웃</value>
   </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>로그 아웃 실패</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>로그 아웃 실패：{0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>네트워크 예외</value>

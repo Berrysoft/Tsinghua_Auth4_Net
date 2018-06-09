@@ -106,15 +106,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 登录错误：{0} 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property ConnectionFailedWithResult() As String
-            Get
-                Return ResourceManager.GetString("ConnectionFailedWithResult", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  查找类似 未登录 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Disconnected() As String
@@ -192,15 +183,6 @@ Namespace My.Resources
         Public ReadOnly Property LogOutFailed() As String
             Get
                 Return ResourceManager.GetString("LogOutFailed", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 注销错误：{0} 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property LogOutFailedWithResult() As String
-            Get
-                Return ResourceManager.GetString("LogOutFailedWithResult", resourceCulture)
             End Get
         End Property
         

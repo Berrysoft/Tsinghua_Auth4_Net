@@ -31,24 +31,22 @@ Class MainWindow
         WriteEvent("开始登录")
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
-        Dim connected As Boolean = False
         Using getFluxCancellationTokeSource = New CancellationTokenSource()
             Dim token = getFluxCancellationTokeSource.Token
             SetFlux(My.Resources.Connecting)
             Try
                 Dim res = Await helper.LoginAsync()
-                connected = True
                 WriteLog($"回复: {res}")
                 WriteEvent("登录成功")
             Catch ex As Exception
                 If Not token.IsCancellationRequested Then
-                    MessageBox.Show(String.Format(My.Resources.ConnectionFailedWithResult, ex.Message), My.Resources.ConnectionFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+                    SetFlux(My.Resources.ConnectionFailed)
                     WriteException(ex)
                 End If
                 SetFlux(My.Resources.NoNetwork)
             End Try
         End Using
-        If connected Then Await GetFlux(helper)
+        Await GetFlux(helper)
     End Sub
     Private Async Sub LogOut()
         WriteEvent("开始注销")
@@ -63,7 +61,7 @@ Class MainWindow
                 WriteEvent("注销成功")
             Catch ex As Exception
                 If Not token.IsCancellationRequested Then
-                    MessageBox.Show(String.Format(My.Resources.LogOutFailedWithResult, ex.Message), My.Resources.LogOutFailed, MessageBoxButton.OK, MessageBoxImage.Error)
+                    SetFlux(My.Resources.LogOutFailed)
                     WriteException(ex)
                 End If
                 SetFlux(My.Resources.NoNetwork)

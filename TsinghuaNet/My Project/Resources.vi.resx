@@ -183,14 +183,8 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>Đăng nhập thất bại</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>Đăng nhập thất bại: {0}</value>
-  </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>Đăng xuất thất bại</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>Đăng xuất thất bại: {0}</value>
   </data>
   <data name="CloseText" xml:space="preserve">
     <value>Thoát</value>

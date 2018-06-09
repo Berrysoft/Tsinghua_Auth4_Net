@@ -135,14 +135,8 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>ログイン失敗しました</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>ログイン失敗しました：{0}</value>
-  </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>ログアウトに失敗しました</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>ログアウトに失敗しました：{0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>ネットワークなし</value>

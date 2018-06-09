@@ -1,5 +1,6 @@
 ﻿Imports System.Globalization
 Imports System.IO
+Imports System.Reflection
 
 Module Program
     Private Const FileName As String = "event.log"
@@ -23,6 +24,7 @@ Module Program
                         ShowError(ex.ToString())
                         Return False
                     End Try
+                    WriteLog($"程序启动: {Assembly.GetExecutingAssembly().GetName().Version}")
                     Dim app As New Application
                     app.Run()
                     WriteEvent("程序结束")

@@ -123,9 +123,6 @@
   <data name="ConnectionFailed" xml:space="preserve">
     <value>登录错误</value>
   </data>
-  <data name="ConnectionFailedWithResult" xml:space="preserve">
-    <value>登录错误：{0}</value>
-  </data>
   <data name="Disconnected" xml:space="preserve">
     <value>未登录</value>
   </data>
@@ -134,9 +131,6 @@
   </data>
   <data name="LogOutFailed" xml:space="preserve">
     <value>注销错误</value>
-  </data>
-  <data name="LogOutFailedWithResult" xml:space="preserve">
-    <value>注销错误：{0}</value>
   </data>
   <data name="NoNetwork" xml:space="preserve">
     <value>网络异常</value>
