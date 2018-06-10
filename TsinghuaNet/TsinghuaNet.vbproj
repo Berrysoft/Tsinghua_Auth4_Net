@@ -76,18 +76,15 @@
     <StartupObject>TsinghuaNet.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Berrysoft.Console, Version=1.0.140.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Console.1.0.140-preview3\lib\net472\Berrysoft.Console.dll</HintPath>
+    <Reference Include="Berrysoft.Console, Version=1.0.152.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Console.1.0.152-rc1\lib\net472\Berrysoft.Console.dll</HintPath>
     </Reference>
-    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.140.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.140-preview3\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
+    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.152.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.152-rc1\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Json, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Json.4.5.0\lib\netstandard2.0\System.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
