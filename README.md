@@ -23,3 +23,6 @@
 使用NuGet引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。
 二者均使用MIT许可证。
 这个仓库还有一个本程序的跨平台（控制台应用程序）版本，只支持英文。
+### 编译
+不幸的是，这两个项目虽然生成了NuGet包，但是并没有发布到[nuget.org](https://www.nuget.org)。
+因此想要自行编译本程序，请先从上述仓库下载发布好的nuget包。

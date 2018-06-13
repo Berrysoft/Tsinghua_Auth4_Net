@@ -76,11 +76,11 @@
     <StartupObject>TsinghuaNet.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Berrysoft.Console, Version=1.0.152.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Console.1.0.152-rc1\lib\net472\Berrysoft.Console.dll</HintPath>
+    <Reference Include="Berrysoft.Console, Version=1.0.159.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Console.1.0.159\lib\net472\Berrysoft.Console.dll</HintPath>
     </Reference>
-    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.152.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.152-rc1\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
+    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.159.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.159\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System.Core" />
