@@ -245,7 +245,7 @@ Class MainWindow
                 ShowFromMinimized()
             Case Forms.MouseButtons.Right
                 Dim menu As ContextMenu = FindResource("NotifyContectMenu")
-                menu.IsOpen = True
+                menu.IsOpen = Not menu.IsOpen
         End Select
     End Sub
     Private Sub ChangeLanguage()
