@@ -16,11 +16,6 @@ Class MainWindow
     Private Sub InitNotify()
         Notify.Text = My.Resources.NotifyText
         Notify.Icon = My.Resources.Logo.Logo
-        Dim menu As New Forms.ContextMenu()
-        menu.MenuItems.Add(New Forms.MenuItem(My.Resources.NotifyText, AddressOf ShowFromMinimized))
-        menu.MenuItems.Add(New Forms.MenuItem(My.Resources.CloseText, AddressOf Close))
-        menu.RightToLeft = If(Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft, Forms.RightToLeft.Yes, Forms.RightToLeft.No)
-        Notify.ContextMenu = menu
         Notify.Visible = True
     End Sub
     Friend Overloads Sub Show(log As Settings)
@@ -245,9 +240,13 @@ Class MainWindow
         Me.GetFlux()
     End Sub
     Private Sub Notify_MouseClick(sender As Object, e As Forms.MouseEventArgs) Handles Notify.MouseClick
-        If e.Button = Forms.MouseButtons.Left Then
-            ShowFromMinimized()
-        End If
+        Select Case e.Button
+            Case Forms.MouseButtons.Left
+                ShowFromMinimized()
+            Case Forms.MouseButtons.Right
+                Dim menu As ContextMenu = FindResource("NotifyContectMenu")
+                menu.IsOpen = True
+        End Select
     End Sub
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)

@@ -20,6 +20,10 @@
         <local:BooleanToVisibility x:Key="BoolVis"/>
         <local:MoreInfToString x:Key="MoreInf"/>
         <GridLength x:Key="SingleHeight">50</GridLength>
+        <ContextMenu x:Key="NotifyContectMenu">
+            <MenuItem Header="{x:Static res:Resources.NotifyText}" Click="ShowFromMinimized"/>
+            <MenuItem Header="{x:Static res:Resources.CloseText}" Click="Close"/>
+        </ContextMenu>
     </Window.Resources>
     <Grid FlowDirection="{Binding FlowDirection}">
         <Grid.RowDefinitions>
