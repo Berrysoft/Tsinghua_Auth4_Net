@@ -119,6 +119,10 @@
       <DependentUpon>PasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Program.vb" />
+    <Page Include="BlackTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
