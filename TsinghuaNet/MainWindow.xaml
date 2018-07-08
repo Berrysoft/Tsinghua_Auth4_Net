@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TsinghuaNet"
         xmlns:res="clr-namespace:TsinghuaNet.My.Resources"
         mc:Ignorable="d"
-        Title="{x:Static res:Resources.Title}" Height="350" Width="450" Background="#FF383838" ResizeMode="CanMinimize" SizeToContent="Height" WindowStartupLocation="CenterScreen" FontSize="18">
+        Title="{x:Static res:Resources.Title}" Height="350" Width="450" Background="{DynamicResource WindowBackground}" ResizeMode="CanMinimize" SizeToContent="Height" WindowStartupLocation="CenterScreen" FontSize="18">
     <Window.DataContext>
         <local:MainViewModel x:Name="Model"/>
     </Window.DataContext>

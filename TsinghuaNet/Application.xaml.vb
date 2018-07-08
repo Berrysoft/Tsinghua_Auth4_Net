@@ -14,6 +14,9 @@
             End If
             Threading.Thread.CurrentThread.CurrentUICulture = cul
         End If
+        Dim rs As ResourceDictionary = Me.Resources.MergedDictionaries.FirstOrDefault(Function(r) r.Source.OriginalString = "WhiteTheme.xaml")
+        Me.Resources.MergedDictionaries.Remove(rs)
+        Me.Resources.MergedDictionaries.Add(rs)
         My.Windows.MainWindow.Show(log)
     End Sub
     Public Function SignalExternalCommandLineArgs(args As IList(Of String)) As Boolean Implements ISingleInstanceApp.SignalExternalCommandLineArgs
