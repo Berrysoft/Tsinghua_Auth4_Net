@@ -17,6 +17,76 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
+    <Style TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Foreground" Value="#FF4C607A"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Border x:Name="HeaderBorder" BorderThickness="0" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="HeaderContent" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,1" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <Canvas>
+                            <Thumb x:Name="PART_HeaderGripper">
+                                <Thumb.Style>
+                                    <Style TargetType="{x:Type Thumb}">
+                                        <Setter Property="Canvas.Right" Value="-9"/>
+                                        <Setter Property="Width" Value="18"/>
+                                        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="Background" Value="#FFE5E5E5"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Thumb}">
+                                                    <Border Background="Transparent" Padding="{TemplateBinding Padding}">
+                                                        <Rectangle Fill="{TemplateBinding Background}" HorizontalAlignment="Center" Width="1"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Thumb.Style>
+                            </Thumb>
+                        </Canvas>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="HeaderBorder" Value="#FFD9EBF9"/>
+                            <Setter Property="Background" TargetName="PART_HeaderGripper" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="HeaderBorder" Value="#FFBCDCF4"/>
+                            <Setter Property="Visibility" TargetName="PART_HeaderGripper" Value="Hidden"/>
+                            <Setter Property="Margin" TargetName="HeaderContent" Value="1,1,0,0"/>
+                        </Trigger>
+                        <Trigger Property="Height" Value="Auto">
+                            <Setter Property="MinHeight" Value="20"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type ListViewItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd" BorderBrush="Transparent" BorderThickness="1" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                        <GridViewRowPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFE5F3FF"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" TargetName="Bd" Value="#FFCCE8FF"/>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#FF99D1FF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="ExpanderToggleButtonFocusVisualStyle">
         <Setter Property="Control.Template">
             <Setter.Value>
