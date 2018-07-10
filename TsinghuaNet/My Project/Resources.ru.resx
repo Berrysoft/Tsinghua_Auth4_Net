@@ -150,14 +150,8 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>Выйти из выбранного</value>
   </data>
-  <data name="MoreInf" xml:space="preserve">
-    <value>Больше информация</value>
-  </data>
   <data name="LessInf" xml:space="preserve">
     <value>Меньше информация</value>
-  </data>
-  <data name="ViewOnGitHub" xml:space="preserve">
-    <value>Коды на GitHub...</value>
   </data>
   <data name="NotifyText" xml:space="preserve">
     <value>Открыть клиент</value>
@@ -191,5 +185,14 @@
   </data>
   <data name="Width" xml:space="preserve">
     <value>475</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>Тема:</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>Свет</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>Dark</value>
   </data>
 </root>

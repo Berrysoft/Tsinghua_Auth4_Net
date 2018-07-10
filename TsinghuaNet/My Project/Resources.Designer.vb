@@ -106,6 +106,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 暗 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property DarkTheme() As String
+            Get
+                Return ResourceManager.GetString("DarkTheme", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 未登录 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Disconnected() As String
@@ -147,6 +156,15 @@ Namespace My.Resources
         Public ReadOnly Property LessInf() As String
             Get
                 Return ResourceManager.GetString("LessInf", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 亮 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property LightTheme() As String
+            Get
+                Return ResourceManager.GetString("LightTheme", resourceCulture)
             End Get
         End Property
         
@@ -196,15 +214,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 详细信息 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property MoreInf() As String
-            Get
-                Return ResourceManager.GetString("MoreInf", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  查找类似 网络异常 的本地化字符串。
         '''</summary>
         Public ReadOnly Property NoNetwork() As String
@@ -250,6 +259,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 主题： 的本地化字符串。
+        '''</summary>
+        Public ReadOnly Property ThemeWithColon() As String
+            Get
+                Return ResourceManager.GetString("ThemeWithColon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 清华大学校园网客户端 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Title() As String
@@ -264,15 +282,6 @@ Namespace My.Resources
         Public ReadOnly Property UsernameWithColon() As String
             Get
                 Return ResourceManager.GetString("UsernameWithColon", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找类似 在GitHub上查看代码 的本地化字符串。
-        '''</summary>
-        Public ReadOnly Property ViewOnGitHub() As String
-            Get
-                Return ResourceManager.GetString("ViewOnGitHub", resourceCulture)
             End Get
         End Property
         

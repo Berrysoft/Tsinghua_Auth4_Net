@@ -150,14 +150,8 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>로그 아웃 확인</value>
   </data>
-  <data name="MoreInf" xml:space="preserve">
-    <value>상세 정보</value>
-  </data>
   <data name="LessInf" xml:space="preserve">
     <value>간략 한 정보</value>
-  </data>
-  <data name="ViewOnGitHub" xml:space="preserve">
-    <value>GitHub에 코드 보기</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>525</value>
@@ -191,5 +185,14 @@
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>오류가 발생 했습니다</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>테마：</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>밝은</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>어두운</value>
   </data>
 </root>

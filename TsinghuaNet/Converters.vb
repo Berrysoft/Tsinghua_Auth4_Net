@@ -97,37 +97,3 @@ Class DateToNativeString
         Throw New NotImplementedException()
     End Function
 End Class
-
-Class BooleanToVisibility
-    Implements IValueConverter
-
-    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
-        Dim bool As Boolean = value
-        If bool Then
-            Return Visibility.Visible
-        Else
-            Return Visibility.Collapsed
-        End If
-    End Function
-
-    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
-        Throw New NotImplementedException()
-    End Function
-End Class
-
-Class MoreInfToString
-    Implements IValueConverter
-
-    Public Function Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
-        Dim bool As Boolean = value
-        If bool Then
-            Return My.Resources.LessInf
-        Else
-            Return My.Resources.MoreInf
-        End If
-    End Function
-
-    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
-        Throw New NotImplementedException()
-    End Function
-End Class

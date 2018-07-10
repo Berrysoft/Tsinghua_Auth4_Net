@@ -150,14 +150,8 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>Logout kiểm tra</value>
   </data>
-  <data name="MoreInf" xml:space="preserve">
-    <value>Biết thêm thông tin</value>
-  </data>
   <data name="LessInf" xml:space="preserve">
     <value>Thông tin ngắn gọn</value>
-  </data>
-  <data name="ViewOnGitHub" xml:space="preserve">
-    <value>Xem mã trên GitHub</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>510</value>
@@ -191,5 +185,14 @@
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>Lỗi đã xảy ra</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>Chủ đề:</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>Tối</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>Light</value>
   </data>
 </root>

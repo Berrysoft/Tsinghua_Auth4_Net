@@ -17,8 +17,8 @@
         <local:CultureToString x:Key="CultureString"/>
         <local:CultureToFlow x:Key="CultureFlow"/>
         <local:DateToNativeString x:Key="Date"/>
-        <local:BooleanToVisibility x:Key="BoolVis"/>
-        <local:MoreInfToString x:Key="MoreInf"/>
+        <!--<local:BooleanToVisibility x:Key="BoolVis"/>
+        <local:MoreInfToString x:Key="MoreInf"/>-->
         <ContextMenu x:Key="NotifyContectMenu">
             <MenuItem Header="{x:Static res:Resources.NotifyText}" Click="ShowFromMinimized"/>
             <MenuItem Header="{x:Static res:Resources.CloseText}" Click="Close"/>
@@ -96,6 +96,18 @@
         <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="1.35*"/>
+                <ColumnDefinition Width="1.35*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{x:Static res:Resources.ThemeWithColon}"/>
+            <RadioButton x:Name="Light" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5" Content="{x:Static res:Resources.LightTheme}"/>
+            <RadioButton x:Name="Dark" Grid.Column="2" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5" Content="{x:Static res:Resources.DarkTheme}"/>
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="ChangeTheme" Content="{x:Static res:Resources.OK}"/>
+        </Grid>
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
                 <ColumnDefinition Width="2.7*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
@@ -108,27 +120,6 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Button Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="ChangeLanguage" Content="{x:Static res:Resources.OK}"/>
-        </Grid>
-        <Grid Grid.Row="7">
-            <!--<ToggleButton Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding MoreInformation}" Content="{Binding MoreInformation,Converter={StaticResource MoreInf}}" FocusVisualStyle="{StaticResource ExpanderToggleButtonFocusVisualStyle}" Style="{StaticResource ExpanderToggleButtonStyle}"/>-->
-            <!--<Grid VerticalAlignment="Center" HorizontalAlignment="Left">-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.3*"/>
-                <ColumnDefinition Width="1.35*"/>
-                <ColumnDefinition Width="1.35*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">主题：</Label>
-            <RadioButton x:Name="Light" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">亮</RadioButton>
-            <RadioButton x:Name="Dark" Grid.Column="2" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">暗</RadioButton>
-            <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="ChangeTheme" Content="{x:Static res:Resources.OK}"/>
-            <!--</Grid>-->
-            <!--<Label Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <Label.ToolTip>https://github.com/Berrysoft/Tsinghua_Auth4_Net</Label.ToolTip>
-                <Hyperlink Click="ViewOnGitHub">
-                    <Run Text="{x:Static res:Resources.ViewOnGitHub}"/>
-                </Hyperlink>
-            </Label>-->
         </Grid>
     </Grid>
 </Window>

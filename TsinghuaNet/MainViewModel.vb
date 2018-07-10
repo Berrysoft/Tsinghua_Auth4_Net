@@ -94,16 +94,6 @@ Class MainViewModel
         model.OnStateChanged(e.NewValue)
     End Sub
 
-    Public Shared ReadOnly MoreInformationProperty As DependencyProperty = DependencyProperty.Register(NameOf(MoreInformation), GetType(Boolean), GetType(MainViewModel))
-    Public Property MoreInformation As Boolean
-        Get
-            Return GetValue(MoreInformationProperty)
-        End Get
-        Set(value As Boolean)
-            SetValue(MoreInformationProperty, value)
-        End Set
-    End Property
-
     Private auth4 As Auth4Helper
     Private auth6 As Auth6Helper
     Private net As NetHelper

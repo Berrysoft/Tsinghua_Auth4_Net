@@ -195,7 +195,6 @@ Class MainWindow
         Model.Password = log.Password
         Model.State = log.State
         Model.Theme = log.Theme
-        Model.MoreInformation = log.MoreInf
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
         WriteEvent("加载语言")
@@ -220,7 +219,6 @@ Class MainWindow
         log.Username = Model.Username
         log.Password = Model.Password
         log.State = Model.State
-        log.MoreInf = Model.MoreInformation
         log.Save()
         Notify.Visible = False
         Notify.Dispose()
@@ -290,9 +288,6 @@ Class MainWindow
         End If
         Return base.LCID = current.LCID OrElse CompareCulture(base, current.Parent)
     End Function
-    Private Sub ViewOnGitHub()
-        Process.Start("https://github.com/Berrysoft/Tsinghua_Auth4_Net")
-    End Sub
 End Class
 
 Class CultureInfoComparer

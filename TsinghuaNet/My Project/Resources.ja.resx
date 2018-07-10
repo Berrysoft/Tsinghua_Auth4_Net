@@ -174,14 +174,8 @@
   <data name="LogOutSelected" xml:space="preserve">
     <value>ログアウトチェック</value>
   </data>
-  <data name="MoreInf" xml:space="preserve">
-    <value>詳細情報</value>
-  </data>
   <data name="LessInf" xml:space="preserve">
     <value>簡単な情報</value>
-  </data>
-  <data name="ViewOnGitHub" xml:space="preserve">
-    <value>GitHub でコードを表示する</value>
   </data>
   <data name="Width" xml:space="preserve">
     <value>480</value>
@@ -191,5 +185,14 @@
   </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>エラーが発生しました</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>テーマ：</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>明るい</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>暗い</value>
   </data>
 </root>

@@ -177,16 +177,19 @@
   <data name="CloseText" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="MoreInf" xml:space="preserve">
-    <value>詳細資訊</value>
-  </data>
   <data name="LessInf" xml:space="preserve">
     <value>簡單資訊</value>
   </data>
-  <data name="ViewOnGitHub" xml:space="preserve">
-    <value>在GitHub上查看代碼</value>
-  </data>
   <data name="ErrorOccurred" xml:space="preserve">
     <value>發生錯誤</value>
+  </data>
+  <data name="ThemeWithColon" xml:space="preserve">
+    <value>主題：</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>亮</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>暗</value>
   </data>
 </root>
