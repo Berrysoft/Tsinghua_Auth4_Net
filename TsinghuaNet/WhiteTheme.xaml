@@ -4,7 +4,7 @@
     <!--<ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/PresentationFramework.Aero, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;component\themes/aero.normalcolor.xaml"/>
     </ResourceDictionary.MergedDictionaries>-->
-    <SolidColorBrush x:Key="WindowBackground" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="WindowBackground" Color="#FFF0F0F0"/>
     <SolidColorBrush x:Key="TsinghuaPurple" Color="#FF660874"/>
     <SolidColorBrush x:Key="WhiteButton" Color="#FFE1E1E1"/>
     <SolidColorBrush x:Key="WhiteButtonBorder" Color="#FFADADAD"/>

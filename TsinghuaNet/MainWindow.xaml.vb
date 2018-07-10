@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Threading
 Imports Berrysoft.Tsinghua.Net
+Imports TsinghuaNet
 
 Class MainWindow
     Private log As Settings
@@ -180,11 +181,20 @@ Class MainWindow
                 Net.IsChecked = True
         End Select
     End Sub
+    Private Sub Model_ThemeChanged(sender As Object, e As Theme) Handles Model.ThemeChanged
+        Select Case e
+            Case Theme.Light
+                Light.IsChecked = True
+            Case Theme.Dark
+                Dark.IsChecked = True
+        End Select
+    End Sub
     Private Sub MainWindow_Loaded() Handles Me.Loaded
         WriteEvent("加载设置")
         Model.Username = log.Username
         Model.Password = log.Password
         Model.State = log.State
+        Model.Theme = log.Theme
         Model.MoreInformation = log.MoreInf
         Dim currentcul As CultureInfo = Thread.CurrentThread.CurrentUICulture
         Model.FlowDirection = If(currentcul.TextInfo.IsRightToLeft, FlowDirection.RightToLeft, FlowDirection.LeftToRight)
@@ -247,6 +257,20 @@ Class MainWindow
                 Dim menu As ContextMenu = FindResource("NotifyContectMenu")
                 menu.IsOpen = Not menu.IsOpen
         End Select
+    End Sub
+    Private Sub Light_Checked() Handles Light.Checked
+        Model.Theme = Theme.Light
+    End Sub
+    Private Sub Dark_Checked() Handles Dark.Checked
+        Model.Theme = Theme.Dark
+    End Sub
+    Private Sub ChangeTheme()
+        If Model.Theme <> log.Theme Then
+            WriteEvent($"切换主题到{Model.Theme}")
+            log.Theme = Model.Theme
+            Me.Close()
+            Forms.Application.Restart()
+        End If
     End Sub
     Private Sub ChangeLanguage()
         Dim selectcul As CultureInfo = Model.Languages(Model.LanguagesSelectIndex)

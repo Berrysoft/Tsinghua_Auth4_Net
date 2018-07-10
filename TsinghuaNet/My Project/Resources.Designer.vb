@@ -277,7 +277,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 460 的本地化字符串。
+        '''  查找类似 470 的本地化字符串。
         '''</summary>
         Public ReadOnly Property Width() As String
             Get

@@ -82,7 +82,6 @@
     <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.159.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.159\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Remoting" />

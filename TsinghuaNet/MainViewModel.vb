@@ -162,6 +162,24 @@ Class MainViewModel
         End Set
     End Property
 
+    Public Event ThemeChanged As EventHandler(Of Theme)
+    Public Shared ReadOnly ThemeProperty As DependencyProperty = DependencyProperty.Register(NameOf(Theme), GetType(Theme), GetType(MainViewModel), New PropertyMetadata(CType(-1, Theme), AddressOf ThemeChangedCallback))
+    Public Property Theme As Theme
+        Get
+            Return GetValue(ThemeProperty)
+        End Get
+        Set(value As Theme)
+            SetValue(ThemeProperty, value)
+        End Set
+    End Property
+    Private Sub OnThemeChanged(e As Theme)
+        RaiseEvent ThemeChanged(Me, e)
+    End Sub
+    Private Shared Sub ThemeChangedCallback(d As DependencyObject, e As DependencyPropertyChangedEventArgs)
+        Dim model As MainViewModel = d
+        model.OnThemeChanged(e.NewValue)
+    End Sub
+
     Public Shared ReadOnly UsersProperty As DependencyProperty = DependencyProperty.Register(NameOf(Users), GetType(ObservableCollection(Of DependencyNetUser)), GetType(MainViewModel), New PropertyMetadata(New ObservableCollection(Of DependencyNetUser)))
     Public Property Users As ObservableCollection(Of DependencyNetUser)
         Get
@@ -188,10 +206,3 @@ Class MainViewModel
         client.Dispose()
     End Sub
 End Class
-
-Enum NetState
-    Unknown
-    Auth4
-    Auth6
-    Net
-End Enum

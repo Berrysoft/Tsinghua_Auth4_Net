@@ -189,4 +189,7 @@
   <data name="ErrorOccurred" xml:space="preserve">
     <value>Ошибка</value>
   </data>
+  <data name="Width" xml:space="preserve">
+    <value>475</value>
+  </data>
 </root>

@@ -19,17 +19,16 @@ Class Settings
             Return System.Convert.ToBase64String(Encoding.ASCII.GetBytes(value))
         End Function
     End Class
-    <Settings("state", ConverterType:=GetType(StateConverter))>
+    <Settings("state", ConverterType:=GetType(EnumConverter(Of NetState)))>
     Public Property State As NetState
-    Class StateConverter
+    <Settings("theme", ConverterType:=GetType(EnumConverter(Of Theme)))>
+    Public Property Theme As Theme
+    Class EnumConverter(Of T As Structure)
         Implements ISimpleConverter
         Public Function Convert(value As Object) As Object Implements ISimpleConverter.Convert
-            Dim temp As NetState
-            If [Enum].TryParse(value, temp) Then
-                Return temp
-            Else
-                Return NetState.Unknown
-            End If
+            Dim temp As T = Nothing
+            [Enum].TryParse(value, temp)
+            Return temp
         End Function
         Public Function ConvertBack(value As Object) As Object Implements ISimpleConverter.ConvertBack
             Return value.ToString()
@@ -96,3 +95,15 @@ Class Settings
         Save(logPath)
     End Sub
 End Class
+
+Enum NetState
+    Unknown
+    Auth4
+    Auth6
+    Net
+End Enum
+
+Enum Theme
+    Light
+    Dark
+End Enum
