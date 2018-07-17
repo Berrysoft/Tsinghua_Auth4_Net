@@ -17,7 +17,9 @@
 
 现在已经弃疗，就这么多吧。
 ## 屏幕截图
-<div align=center><img src="Screenshots/MainWindow.png"/></div>
+|![亮主题](Screenshots/MainWindow_Light.png)|![暗主题](Screenshots/MainWindow_Dark.png)|
+|:-:|:-:|
+|亮主题|暗主题|
 
 ## 依赖项
 使用NuGet引用了我的另一个仓库[ClassLibrary](https://github.com/Berrysoft/ClassLibrary)的Berrysoft.Console与Berrysoft.Tsinghua.Net项目。
