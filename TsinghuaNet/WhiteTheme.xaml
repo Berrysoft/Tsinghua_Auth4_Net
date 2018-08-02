@@ -44,17 +44,11 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="{x:Type Label}">
-        <Setter Property="Foreground" Value="{StaticResource TsinghuaPurple}"/>
-    </Style>
     <Style TargetType="{x:Type TextBox}">
         <Setter Property="BorderBrush" Value="#FFD9D9D9"/>
     </Style>
     <Style TargetType="{x:Type PasswordBox}">
         <Setter Property="BorderBrush" Value="#FFD9D9D9"/>
-    </Style>
-    <Style TargetType="{x:Type RadioButton}">
-        <Setter Property="Foreground" Value="{StaticResource TsinghuaPurple}"/>
     </Style>
     <Style TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{StaticResource WhiteButton}"/>

@@ -8,6 +8,8 @@
     <SolidColorBrush x:Key="BlackButton" Color="#FF333333"/>
     <SolidColorBrush x:Key="BlackComboBoxBorder" Color="#FF9B9B9B"/>
     <SolidColorBrush x:Key="BlackMenu" Color="#FF2B2B2B"/>
+    <SolidColorBrush x:Key="BlackTextBorder" Color="#FF535353"/>
+    <SolidColorBrush x:Key="BlackTextBackground" Color="#FF191919"/>
 
     <Style x:Key="DarkFocusVisual">
         <Setter Property="Control.Template">
@@ -68,13 +70,13 @@
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
     </Style>
     <Style TargetType="{x:Type TextBox}">
-        <Setter Property="Background" Value="{StaticResource WindowBackground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WhiteForeground}"/>
+        <Setter Property="Background" Value="{StaticResource BlackTextBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BlackTextBorder}"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
     </Style>
     <Style TargetType="{x:Type PasswordBox}">
-        <Setter Property="Background" Value="{StaticResource WindowBackground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource WhiteForeground}"/>
+        <Setter Property="Background" Value="{StaticResource BlackTextBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BlackTextBorder}"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
     </Style>
     <Style TargetType="{x:Type RadioButton}">
