@@ -17,8 +17,6 @@
         <local:CultureToString x:Key="CultureString"/>
         <local:CultureToFlow x:Key="CultureFlow"/>
         <local:DateToNativeString x:Key="Date"/>
-        <!--<local:BooleanToVisibility x:Key="BoolVis"/>
-        <local:MoreInfToString x:Key="MoreInf"/>-->
         <ContextMenu x:Key="NotifyContectMenu">
             <MenuItem Header="{x:Static res:Resources.NotifyText}" Click="ShowFromMinimized"/>
             <MenuItem Header="{x:Static res:Resources.CloseText}" Click="Close"/>
@@ -101,8 +99,8 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{x:Static res:Resources.ThemeWithColon}"/>
-            <RadioButton x:Name="Light" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5" Content="{x:Static res:Resources.LightTheme}"/>
-            <RadioButton x:Name="Dark" Grid.Column="2" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5" Content="{x:Static res:Resources.DarkTheme}"/>
+            <RadioButton x:Name="Light" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5" Content="{x:Static res:Resources.LightTheme}"/>
+            <RadioButton x:Name="Dark" Grid.Column="2" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5" Content="{x:Static res:Resources.DarkTheme}"/>
             <Button Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="ChangeTheme" Content="{x:Static res:Resources.OK}"/>
         </Grid>
         <Grid Grid.Row="7">

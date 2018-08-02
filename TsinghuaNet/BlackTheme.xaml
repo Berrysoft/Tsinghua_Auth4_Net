@@ -8,11 +8,30 @@
     <SolidColorBrush x:Key="BlackButton" Color="#FF333333"/>
     <SolidColorBrush x:Key="BlackComboBoxBorder" Color="#FF9B9B9B"/>
     <SolidColorBrush x:Key="BlackMenu" Color="#FF2B2B2B"/>
-    
+
+    <Style x:Key="DarkFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="2" SnapsToDevicePixels="True" StrokeThickness="1" Stroke="{StaticResource WhiteForeground}" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DarkRadioFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="14,0,0,0" SnapsToDevicePixels="True" StrokeThickness="1" Stroke="{StaticResource WhiteForeground}" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource BlackButton}"/>
         <Setter Property="BorderBrush" Value="#FFF0F0F0"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource DarkFocusVisual}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -60,11 +79,18 @@
     </Style>
     <Style TargetType="{x:Type RadioButton}">
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource DarkFocusVisual}"/>
+        <Style.Triggers>
+            <Trigger Property="HasContent" Value="True">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource DarkRadioFocusVisual}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style TargetType="{x:Type ComboBox}">
         <Setter Property="Background" Value="{StaticResource BlackButton}"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource BlackComboBoxBorder}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource DarkFocusVisual}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -201,6 +227,19 @@
     <Style TargetType="{x:Type ListViewItem}">
         <Setter Property="Background" Value="{StaticResource BlackListView}"/>
         <Setter Property="Foreground" Value="{StaticResource WhiteForeground}"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle SnapsToDevicePixels="True" StrokeThickness="1" Stroke="#FF626262"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
