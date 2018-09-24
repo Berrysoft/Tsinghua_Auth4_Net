@@ -2,7 +2,6 @@
 Imports System.IO
 Imports System.Threading
 Imports Berrysoft.Tsinghua.Net
-Imports TsinghuaNet
 
 Class MainWindow
     Private log As Settings
@@ -59,7 +58,7 @@ Class MainWindow
             SetFlux(My.Resources.LoggingOut)
             Try
                 Dim res As String
-                If username IsNot Nothing Then
+                If username Is Nothing Then
                     res = Await helper.LogoutAsync()
                 Else
                     res = Await helper.LogoutAsync(username)
