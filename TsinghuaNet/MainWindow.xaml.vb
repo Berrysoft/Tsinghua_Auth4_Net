@@ -44,12 +44,9 @@ Class MainWindow
         Await GetFlux(helper)
     End Sub
     Private Sub LogOut()
-        LogoutWithUsername(Nothing)
+        LogoutWithUsername()
     End Sub
-    Private Sub ForceLogout()
-        LogoutWithUsername(Model.Username)
-    End Sub
-    Private Async Sub LogoutWithUsername(username As String)
+    Private Async Sub LogoutWithUsername()
         WriteEvent("开始注销")
         CancelGetFlux()
         Dim helper As IConnect = Model.Helper
@@ -57,13 +54,8 @@ Class MainWindow
             Dim token = getFluxCancellationTokeSource.Token
             SetFlux(My.Resources.LoggingOut)
             Try
-                Dim res As String
-                If username Is Nothing Then
-                    res = Await helper.LogoutAsync()
-                Else
-                    res = Await helper.LogoutAsync(username)
-                End If
-                WriteLog($"回复: {res}")
+                Dim res As LogResponse = Await helper.LogoutAsync()
+                WriteLog($"回复: {res.Message}")
                 WriteEvent("注销成功")
             Catch ex As Exception
                 If Not token.IsCancellationRequested Then

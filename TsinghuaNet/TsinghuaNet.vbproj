@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>TsinghuaNet</RootNamespace>
     <AssemblyName>TsinghuaNet</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -76,14 +76,17 @@
     <StartupObject>TsinghuaNet.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Berrysoft.Console, Version=1.0.159.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Console.1.0.159\lib\net472\Berrysoft.Console.dll</HintPath>
+    <Reference Include="Berrysoft.Console, Version=1.1.211.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Console.1.1.211-preview4\lib\net48\Berrysoft.Console.dll</HintPath>
     </Reference>
-    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.0.159.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.0.159\lib\net472\Berrysoft.Tsinghua.Net.dll</HintPath>
+    <Reference Include="Berrysoft.Tsinghua.Net, Version=1.1.211.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Berrysoft.Tsinghua.Net.1.1.211-preview4\lib\net48\Berrysoft.Tsinghua.Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Json, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Json.4.6.0-preview3.19128.7\lib\netstandard2.0\System.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />

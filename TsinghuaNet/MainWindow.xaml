@@ -67,7 +67,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="ConnectButton" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="Connect" IsDefault="True" Content="{x:Static res:Resources.Connect}"/>
-            <Button x:Name="LogOutButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="LogOut" MouseDoubleClick="ForceLogout" Content="{x:Static res:Resources.LogOut}"/>
+            <Button x:Name="LogOutButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="LogOut" Content="{x:Static res:Resources.LogOut}"/>
             <Button x:Name="RefreshButton" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10" Click="GetFlux" Content="{x:Static res:Resources.Refresh}"/>
         </Grid>
         <ListView x:Name="UsersList" Grid.Row="5" Margin="10" ItemsSource="{Binding Users}">
