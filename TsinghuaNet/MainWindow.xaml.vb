@@ -31,7 +31,7 @@ Class MainWindow
             SetFlux(My.Resources.Connecting)
             Try
                 Dim res = Await helper.LoginAsync()
-                WriteLog($"回复: {res}")
+                WriteLog($"回复: {res.Message}")
                 WriteEvent("登录成功")
             Catch ex As Exception
                 If Not token.IsCancellationRequested Then
@@ -54,7 +54,7 @@ Class MainWindow
             Dim token = getFluxCancellationTokeSource.Token
             SetFlux(My.Resources.LoggingOut)
             Try
-                Dim res As LogResponse = Await helper.LogoutAsync()
+                Dim res = Await helper.LogoutAsync()
                 WriteLog($"回复: {res.Message}")
                 WriteEvent("注销成功")
             Catch ex As Exception
